@@ -23,13 +23,13 @@ public class Formulaire extends HttpServlet{
 		out.println("<TR><TD>Entreprise (*) : <TD><INPUT type='text' value='' name='entreprise'></TD></TR>");
 		out.println("<TR><TD>Adresse (*) : <TD><INPUT type='text' value='' name='adresse'></TD></TR>");
 		out.println("<TR><TD>Téléphone (*) : <TD><INPUT type='text' value='' name='tel'></TD></TR>");
-		out.println("<TR><TD>E-mail (*) : <TD><INPUT type='email' value='' name='mail'></TD></TR>");
-		out.println("<TR><TD>Fax : <TD><INPUT type='text' value='' name='nom'></TD></TR>");
+		out.println("<TR><TD>E-mail (*) : <TD><INPUT type='text' value='' name='mail'></TD></TR>");
+		out.println("<TR><TD>Fax : <TD><INPUT type='text' value='' name='fax'></TD></TR>");
 		out.println("<TR><TD>Profession (*) : <TD><INPUT type='text' value='' name='profession'></TD></TR>");
 		out.println("<TR><TD>Description : <TD><INPUT type='text' value='' name='description'></TD></TR>");
-		out.println("<TR><TD>Facebook : <TD><INPUT type='url' value='' name='facebook'></TD></TR>");
-		out.println("<TR><TD>Twitter : <TD><INPUT type='url' value='' name='twitter'></TD></TR>");
-		out.println("<TR><TD>LinkedIn : <TD><INPUT type='url' value='' name='linkedin'></TD></TR>");
+		out.println("<TR><TD>Facebook : <TD><INPUT type='text' value='' name='facebook'></TD></TR>");
+		out.println("<TR><TD>Twitter : <TD><INPUT type='text' value='' name='twitter'></TD></TR>");
+		out.println("<TR><TD>LinkedIn : <TD><INPUT type='text' value='' name='linkedin'></TD></TR>");
 
 		out.println("<TR><TD><TD><INPUT type='submit' value='Valider'></FORM></TD></TR></table></center></body><br><br>");
 	}

@@ -2,6 +2,9 @@ package mainpack.Items;
 
 public class Produit extends Item {
 
+	private String nom;
+	private String prenom;
+	private String entite;
 	private String libelle;
 	private String prix;
 	private String description;
@@ -43,10 +46,6 @@ public class Produit extends Item {
 
 	public void setEntite(String entite) {
 		this.entite = entite;
-	}
-
-	public boolean equals(Object u) {
-		return nom.equals(((Client) u).nom);
 	}
 
 	public String toString() {
