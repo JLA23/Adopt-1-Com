@@ -25,6 +25,7 @@ public class Formulaire extends HttpServlet{
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 		
+		// ENLEVER LE TABLEAU, A FAIRE EN BOOTSTRAP
 		out.println("<html><head><meta charset=UTF-8>");
 		out.println("<link rel=stylesheet type=text/css href=style.css>");
 		out.println("<title>Formulaire</title></head>");
@@ -44,8 +45,11 @@ public class Formulaire extends HttpServlet{
 		out.println("<tr><td>Téléphone (*) : <td><INPUT type='tel' value='' name='tel' required placeholder='0675000000'></td>");
 		
 		out.println("<td>Fax : <td><INPUT type='text' value='' name='fax'></td>");
-		out.println("<tr><td>Profession (*) : <td><INPUT type='text' value='' name='profession' required></td>");
-		out.println("<td>Description : <td><INPUT type='text' value='' name='description'></td>");
+		out.println("<tr><td>Métier (*) : <td><INPUT type='text' value='' name='profession' required></td>");
+		out.println("<td>Champ d'activité (*) : <td><INPUT type='text' value='' name='activite' required></td>"); // MENU DEROULANT
+		out.println("<tr><td><label for='description'>Description</label>");     
+		out.println("<tr><td><textarea name='description' id='description' rows='8' cols='30'>Comment voyez vous votre métier ?</textarea></td>");
+		
 		out.println("<tr><td>Facebook : <td><INPUT type='text' value='' name='facebook' placeholder='http://monfacebook.fr/'/></td>");
 		out.println("<td>Twitter : <td><INPUT type='text' value='' name='twitter' placeholder='http://montwitter.fr/'></td>");
 		out.println("<tr><td>LinkedIn : <td><INPUT type='text' value='' name='linkedin' placeholder='http://monlinkedin.fr/'></td>");
