@@ -15,6 +15,7 @@ public class Formulaire extends HttpServlet{
 		out.println("<link rel=stylesheet type=text/css href=style.css>");
 		out.println("<title>Formulaire</title></head>");
 		out.println("<body><center>");
+		out.println("<h1>Formulaire Inscription</h1>" );
 		out.println("<table cellpadding=10>");
 		out.print("<FORM METHOD='POST' ACTION='VerifForm'>");
 		out.println("<TR><TD>Nom (*) : <TD><INPUT type='text' value='' name='nom'></TD></TR>");
