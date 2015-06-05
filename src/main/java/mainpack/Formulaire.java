@@ -11,11 +11,15 @@ public class Formulaire extends HttpServlet{
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
+		int error = Integer.parseInt(req.getParameter("error"));
 		//out.println("<html><head><meta charset=UTF-8>");
 		out.println("<link rel=stylesheet type=text/css href=style.css>");
 		out.println("<title>Formulaire</title></head>");
 		out.println("<body><center>");
 		out.println("<h1>Formulaire Inscription</h1>" );
+		if (error == 1){
+			out.println("Veuillez remplir les champs avec ( * )");
+		}
 		out.println("<table cellpadding=10>");
 		out.print("<FORM METHOD='POST' ACTION='VerifForm'>");
 		out.println("<TR><TD>Nom (*) : <TD><INPUT type='text' value='' name='nom'></TD></TR>");

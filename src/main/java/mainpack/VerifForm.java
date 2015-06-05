@@ -59,6 +59,7 @@ public class VerifForm extends HttpServlet {
 				res.sendRedirect("Formulaire?error=1");
 			} else {
 				dao.insert(nom, prenom, entreprise);
+				res.sendRedirect("Formulaire");
 			}
 
 		} catch (Exception e) {
