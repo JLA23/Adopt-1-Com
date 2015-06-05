@@ -21,4 +21,12 @@ public class OutilsBDD {
 			e.printStackTrace();
 		}
 	}
+	
+	private void close() {
+		try {
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
