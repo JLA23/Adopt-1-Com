@@ -26,13 +26,6 @@ public class BDD {
 		tabServ[1] = new Service("S2", "Réparation ordi", "variable", "Réparations de tous types avec devis");
 		tabOff[0] = new Offre("O1", "Promo jeans", "50€", "60€", "10€", "Promotion exceptionnelle sur les jeans", "12/05/2015");
 		tabOff[1] = new Offre("O2", "Promo 10 chaises", "120€", "150€", "30€","Profitez de notre promo si vous achetez dix chaises","19/05/2015");
-		/*tabCli[2] = new Client("C3", "Sylvie", "Defives", "Nocibé");
-		tabCli[3] = new Client("C4", "Roger", "Gros", "Boucherie Gros");
-		tabCli[4] = new Client("C5", "Michel", "Kamini", "Kamini France");
-		tabCli[5] = new Client("C6", "Jean-Pierre", "Jambon",
-				"Rempailleur de Chaises Jambon");
-		tabCli[6] = new Client("C7", "Catherine", "Carlos", "Universal Musique");
-		tabCli[7] = new Client("C8", "Fabian", "Rito", "Bourbie & Co");*/
 		
 	}
 
