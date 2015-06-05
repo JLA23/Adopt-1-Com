@@ -28,13 +28,11 @@ public class Matching extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		BDD bdd = new BDD();
-		Item item = BDD.getRandomItem();
-		//Client clients[] = new BDD().getClients();
-		//Client act = clients[(int)new Random().nextInt(clients.length)];
+		Item item = bdd.getRandomItem();
 		out.println("<head><title>Matching</title></head><body><center>" );
 		out.println("<h1>Matching</h1>" );
 		out.println("<table border=1 cellpadding=10>");
-		out.println("<form action='/Matching' method = 'post'>"); // PAGEHTML A MODIFIER
+		out.println("<form action='/Matching' method = 'post'>"); 
 		out.println("<tr><td><INPUT TYPE = submit Value=\"J'aime\"></td>");
 		out.println(item.renderHTML());
 		out.println("<td><INPUT TYPE = submit Value=\"J'aime pas\"></tr>");
