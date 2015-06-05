@@ -12,6 +12,46 @@ public class Produit extends Item {
 		this.prix = prix;
 		this.description = description;
 	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getEntite() {
+		return entite;
+	}
+
+	public void setEntite(String entite) {
+		this.entite = entite;
+	}
+
+	public boolean equals(Object u) {
+		return nom.equals(((Client) u).nom);
+	}
+
+	public String toString() {
+		return id + "; " + nom + "; " + prenom + "; " + entite + ".";
+	}
 
 	public String renderHTML() {
 		String res = "<td>Id : " + id + "<br> Libellé : " + libelle
