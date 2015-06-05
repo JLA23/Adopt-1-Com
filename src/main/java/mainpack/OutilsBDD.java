@@ -12,7 +12,7 @@ public class OutilsBDD {
 
 	}
 
-	private void connect() {
+	public void connect() {
 		try {
 			Class.forName("org.sqlite.JDBC");
 			con = DriverManager.getConnection("jdbc:sqlite:database.db");
@@ -22,7 +22,7 @@ public class OutilsBDD {
 		}
 	}
 	
-	private void close() {
+	public void close() {
 		try {
 			con.close();
 		} catch (Exception e) {
