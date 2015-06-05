@@ -15,8 +15,7 @@ public class Service extends Item {
 	}
 		
 		
-	@Override
-	String renderHTML() {
+	public String renderHTML() {
 		String res="<td>Id : "+id+"<br> Libellé : "+libelle+"<br> Prix : "+prix+"<br> Description : "+description;
 
 		return res;

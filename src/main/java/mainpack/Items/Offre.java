@@ -23,8 +23,7 @@ public class Offre extends Item {
 	}
 		
 		
-	@Override
-	String renderHTML() {
+	public String renderHTML() {
 		String res="<td>Id : "+id+"<br> Libellé : "+libelle+"<br> Prix : "+prix+"<br> Prix de base : "+prixBase+"<br> Économisez "+reduc+"<br> Description : "+description+"<br> Date de fin : "+datefin;
 
 		return res;

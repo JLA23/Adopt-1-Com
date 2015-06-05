@@ -15,5 +15,5 @@ abstract public class Item {
 		this.id=id;
 	}
 	
-	abstract String renderHTML();
+	public abstract String renderHTML();
 }
