@@ -2,6 +2,7 @@ package mainpack;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "testServlet", urlPatterns = { "/Matching" }, initParams = { @WebInitParam(name = "simpleParam", value = "paramValue") })
+@WebServlet(name = "Matching", urlPatterns = { "/Matching" }, initParams = { @WebInitParam(name = "simpleParam", value = "paramValue") })
 public class Matching extends HttpServlet {
 	
 	/**
@@ -22,7 +23,15 @@ public class Matching extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		BDD bdd = new BDD();
+		response.setContentType("text/html");
+		Client clients[] = new BDD().getClients();
+		Client act = clients[(int)new Random().nextInt(clients.length)];
+		out.println("<head><title>Matching</title></head><body><center>" );
+		out.println("<h1>Matching</h1>" );
+		out.println("<table border=1>");
+		out.println("<form action=\"http://localhost:8080/vide/servlet/Auth" method = "post">");
+		out.println("<tr><td><INPUT TYPE = submit Value=\"J'aime\">");
+		
 		
 		out.close();
 	}

@@ -12,7 +12,7 @@ public class BDD {
 		tab[3] = new Client(4, "Roger", "Gros", "Boucherie Gros");
 	}
 	
-	public Client[] getClient() {
+	public Client[] getClients() {
 		return this.tab;
 	}
 }
