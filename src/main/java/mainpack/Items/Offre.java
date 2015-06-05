@@ -1,5 +1,11 @@
 package mainpack.Items;
 
+/**
+ * 
+ * @author anget La classe Client permet de créer des Offres ainsi que leur
+ *         attributs. Les getters permettent de récupérer ces derniers.
+ */
+
 public class Offre extends Item {
 
 
@@ -10,7 +16,6 @@ public class Offre extends Item {
 	private String description;
 	private String datefin;
 
-	
 	
 	public Offre(String id, String libelle, String prix, String prixBase, String reduc, String description, String datefin){
 		super(id);
