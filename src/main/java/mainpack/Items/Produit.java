@@ -2,9 +2,6 @@ package mainpack.Items;
 
 public class Produit extends Item {
 
-	private String nom;
-	private String prenom;
-	private String entite;
 	private String libelle;
 	private String prix;
 	private String description;
@@ -29,27 +26,28 @@ public class Produit extends Item {
 	}
 
 	public void setLibelle(String libelle) {
-		this.nom = nom;
+		this.libelle = libelle;
 	}
 
-	public String getPrenom() {
-		return prenom;
+	public String getPrix() {
+		return prix;
 	}
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	public void setPrix(String prix) {
+		this.prix = prix;
 	}
 
-	public String getEntite() {
-		return entite;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setEntite(String entite) {
-		this.entite = entite;
+	public void setDescription(String description) {
+		this.description = description;
 	}
+
 
 	public String toString() {
-		return id + "; " + nom + "; " + prenom + "; " + entite + ".";
+		return id + "; " + libelle + "; " + prix + "; " + description + ".";
 	}
 
 	public String renderHTML() {
