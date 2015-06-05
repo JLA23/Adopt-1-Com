@@ -20,7 +20,7 @@ public class Client {
 	 * @param entite de l'entreprise ou du commerçant
 	 */
 	
-	public Client(int id, String nom, String prenom, String entite) { 
+	public Client(int id, String prenom, String nom, String entite) { 
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;

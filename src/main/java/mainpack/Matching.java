@@ -28,11 +28,15 @@ public class Matching extends HttpServlet {
 		Client act = clients[(int)new Random().nextInt(clients.length)];
 		out.println("<head><title>Matching</title></head><body><center>" );
 		out.println("<h1>Matching</h1>" );
-		out.println("<table border=1>");
-		out.println("<form action=\"http://localhost:8080/vide/servlet/Auth" method = "post">");
-		out.println("<tr><td><INPUT TYPE = submit Value=\"J'aime\">");
-		
-		
+		out.println("<table border=1 cellpadding=10>");
+		out.println("<form action='/Matching' method = 'post'>"); // PAGEHTML A MODIFIER
+		out.println("<tr><td><INPUT TYPE = submit Value=\"J'aime\"></td>");
+		out.println("<td>Id : "+act.getId()+"<br> Nom : "+act.getNom()+"<br> Prénom : "+act.getPrenom()+"<br> Entite : "+act.getEntite());
+		out.println("<td><INPUT TYPE = submit Value=\"J'aime pas\"></tr>");
+		out.println("</form>");
+		out.println("</table>");
+
+
 		out.close();
 	}
 
