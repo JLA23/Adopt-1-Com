@@ -36,7 +36,6 @@ public class Matching extends HttpServlet {
 		out.println("</form>");
 		out.println("</table>");
 
-
 		out.close();
 	}
 
