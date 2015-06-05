@@ -18,7 +18,7 @@ public class BDD {
 		tabOff = new Offre[2];
 		
 		
-		tabCli[0] = new Client("C1", "Pierre", "Dupont", "Celio");
+		tabCli[0] = new Client("C1", "Jan", "Bon", "Market");
 		tabCli[1] = new Client("C2", "Jean", "Petit", "Kiabi");
 		tabPro[0] = new Produit("P1", "Chaise", "15€", "Chaise en paille");
 		tabPro[1] = new Produit("P2", "Lunettes de soleil", "60€", "Lunettes de soleil noires");

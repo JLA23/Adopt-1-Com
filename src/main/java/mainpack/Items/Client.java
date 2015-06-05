@@ -8,7 +8,7 @@ package mainpack.Items;
 
 public class Client extends Item {
 
-	private String id;
+	
 	private String nom, prenom, entite;
 
 	/**
