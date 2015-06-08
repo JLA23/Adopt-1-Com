@@ -18,15 +18,7 @@ public class BDD {
 		tabOff = new Offre[2];
 		
 		
-		tabCli[0] = new Client("C1", "Jan", "Bon", "Market");
-		tabCli[1] = new Client("C2", "Jean", "Petit", "Kiabi");
-		tabPro[0] = new Produit("P1", "Chaise", "15€", "Chaise en paille");
-		tabPro[1] = new Produit("P2", "Lunettes de soleil", "60€", "Lunettes de soleil noires");
-		tabServ[0] = new Service("S1", "Massage", "20€", "Massage d'une durée d'une heure");
-		tabServ[1] = new Service("S2", "Réparation ordi", "variable", "Réparations de tous types avec devis");
-		tabOff[0] = new Offre("O1", "Promo jeans", "50€", "60€", "10€", "Promotion exceptionnelle sur les jeans", "12/05/2015");
-		tabOff[1] = new Offre("O2", "Promo 10 chaises", "120€", "150€", "30€","Profitez de notre promo si vous achetez dix chaises","19/05/2015");
-		
+	
 	}
 
 	public Client[] getClients() {
