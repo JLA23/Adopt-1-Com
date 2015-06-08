@@ -22,6 +22,10 @@ public class OutilsBDD {
 		}
 	}
 	
+	public Statement getStmt(){
+		return stmt;
+	}
+	
 	public void close() {
 		try {
 			con.close();
