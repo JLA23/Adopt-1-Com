@@ -1,17 +1,17 @@
 package mainpack.Items;
 
 abstract public class Item {
-	String id;
+	int id;
 	
-	public Item(String id){
-		this.id=id;
+	public Item(int idt){
+		this.id=idt;
 	}
 	
-	public String getId(){
+	public int getId(){
 		return id;
 	}
 	
-	public void setId(String id){
+	public void setId(int id){
 		this.id=id;
 	}
 	
