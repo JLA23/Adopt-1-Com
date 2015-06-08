@@ -43,6 +43,10 @@ public class Client extends Item {
 	 * @param entite
 	 *            de l'entreprise ou du commerçant
 	 */
+	
+	public Client(){
+		super(-1);
+	}
 
 	public Client(int idt, String photo, String prenom, String nom,
 			String entite, String adresse, String codePostal, String ville,

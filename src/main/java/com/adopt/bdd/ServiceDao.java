@@ -25,7 +25,7 @@ public interface ServiceDao {
 	
 	@SqlQuery("select * from services where idt = :idt")
     @RegisterMapperFactory(BeanMapperFactory.class)
-	public Service findByIdt(@Bind("idt") String idt);
+	public Service findByIdt(@Bind("idt") int idt);
 	
 	@SqlQuery("select * from services where idVendeur = :idVendeur")
 	@RegisterMapperFactory(BeanMapperFactory.class)

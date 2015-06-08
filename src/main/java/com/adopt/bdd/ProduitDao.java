@@ -14,7 +14,7 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface ProduitDao {
 	@SqlUpdate("create table produits (idt integer primary key autoincrement, libelle varchar(100), photo varchar(255), description varchar(240), idVendeur integer, promo varchar(100), offreGroupe boolean, categorie varchar(100))")
-	void createClientTable();
+	void createProductTable();
 
 	@SqlUpdate("insert into produits (libelle, photo, description, idVendeur, promo, offreGroupe, categorie) values (:libelle, :photo, :description, :idVendeur, :promo, :offreGroupe, :categorie)")
 	@GetGeneratedKeys
@@ -25,7 +25,7 @@ public interface ProduitDao {
 	
 	@SqlQuery("select * from produits where idt = :idt")
     @RegisterMapperFactory(BeanMapperFactory.class)
-	Produit findByIdt(@Bind("idt") String idt);
+	Produit findByIdt(@Bind("idt") int idt);
 	
 	@SqlQuery("select * from produits where idVendeur = :idVendeur")
 	@RegisterMapperFactory(BeanMapperFactory.class)
