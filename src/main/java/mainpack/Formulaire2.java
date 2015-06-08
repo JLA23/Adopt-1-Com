@@ -3,6 +3,7 @@ package mainpack;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,31 +19,35 @@ public class Formulaire2 extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Map<String, String[]> params = req.getParameterMap();
+		
 		String emailconf = "";
 		String passwdconf = "";
+		String warning = "";
 		boolean checked = true;
-		if ((params.get("mail") == null && params.get("mail2") == null)
-				|| !params.get("mail").equals(params.get("mail2"))) {
+		if (!params.get("mail")[0].equals(params.get("mail2")[0])) {
 			emailconf = "has-error";
+			warning = "has-warning";
 			checked = false;
 		}
-		if ((params.get("password") == null && params.get("password") == null)
-				|| !params.get("password").equals(
-						params.get("password2"))) {
+		if (!params.get("password")[0].equals(params.get("password2")[0])) {
 			passwdconf = "has-error";
+			warning = "has-warning";
 			checked = false;
 		}
 		
 		// redirection basique
 		if (checked == true) {
+			//Insertion BDD
 			res.sendRedirect("Matching");
 		}
 			
 		// Redirection avec attribut
 		
-		req.setAttribute("emailconf", new Object());
-		req.setAttribute("passwdconf", new Object());
+		req.setAttribute("emailconf", emailconf);
+		req.setAttribute("passwdconf", passwdconf);
+		req.setAttribute("warning", warning);
 		
-		req.getServletContext().getRequestDispatcher("formulaire.jsp").forward(req, res);
+		RequestDispatcher rd = req.getRequestDispatcher("/formulaire.jsp");
+		rd.forward(req, res);
 	}
 }
