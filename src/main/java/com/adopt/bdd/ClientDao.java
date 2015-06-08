@@ -1,5 +1,5 @@
 package com.adopt.bdd;
-
+// TODO Ajouter aime et aimepas dans tous les items
 import java.util.List;
 
 import mainpack.Items.Client;

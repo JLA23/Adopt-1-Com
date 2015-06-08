@@ -21,7 +21,7 @@ public interface ProduitDao {
 	int insert(@BindBean Produit p);
 	
 	@SqlUpdate("update produits set libelle = :libelle, photo = :photo, description = :description, idVendeur = :idVendeur, promo = :promo, offreGroupe = :offreGroupe, categorie = :categorie")
-	int update(@BindBean Produit p);
+	void update(@BindBean Produit p);
 	
 	@SqlQuery("select * from produits where idt = :idt")
     @RegisterMapperFactory(BeanMapperFactory.class)
