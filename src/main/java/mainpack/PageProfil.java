@@ -24,68 +24,78 @@ public class PageProfil extends HttpServlet{
 
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<meta charset=\"utf-8\"/>");
-		out.println("<title>Profil</title>");
-		out.println("<script type=\"text/javascript\">");
+		out.println("");
+		out.println("<script src=\"//code.jquery.com/jquery-1.11.2.min.js\"></script>");
+		out.println("<script src=\"//code.jquery.com/jquery-migrate-1.2.1.min.js\"></script>");
 
-		out.println("function open_infos(){");
-		out.println("width = 540;");
-		out.println("height = 600;");
-		out.println("if(window.innerWidth){");
-		out.println("var left = (window.innerWidth-width)/2;");
-		out.println("var top = (window.innerHeight-height)/2;");
-		out.println("}");
-		out.println("else{");
-		out.println("var left = (document.body.clientWidth-width)/2;");
-		out.println("var top = (document.body.clientHeight-height)/2;");
-		out.println("}");
-		out.println("window.open('Galerie','Gallery de nom','menubar=no, scrollbars=no, top='+top+', left='+left+', width='+width+', height='+height+'');");
-		out.println("}");
-		out.println("</script>");
+		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css\">");
+		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css\">");
+		out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js\"></script>");
 		out.println("</head>");
 
 		out.println("<body>");
-		out.println("<div id=\"fb-root\"></div>");
-		out.println("<script>(function(d, s, id) {");
-		out.println("	var js, fjs = d.getElementsByTagName(s)[0];");
-		out.println("if (d.getElementById(id)) return;");
-		out.println("js = d.createElement(s); js.id = id;");
-		out.println("js.src = \"//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.3\";");
-		out.println("fjs.parentNode.insertBefore(js, fjs);");
-		out.println("}(document, 'script', 'facebook-jssdk'));");
-		out.println("</script>");
-		out.println("<center>");
 		
-		out.println("<table>");
-		out.println("<tr>");
-		out.println("<td><a href=\"\" onblur=\"open_infos()\"><img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"image profil\" style=\"width:300px;heigth:300px\"></a></td>");
-		out.println("<td><img src=\"http://www.clementpellerin.fr/wp-content/uploads/2011/05/facebook-icon.png\" alt=\"lien Facebook\" style=\"width:50px;heigth:50px\"></td>");
-		out.println("<img src=\"http://www.sidassport.com/docs/2280-1-logo-twitter-gif.gif\" alt=\"lien Facebook\" style=\"width:50px;heigth:50px\">");
-		out.println("<img src=\"http://blog.datanyze.com/wp-content/uploads/2014/09/LinkedIn-large-logo.jpg\" style=\"width:50px;heigth:50px\">");
-		out.println("<img src=\"http://www.uha.fr/images/google_icon\" style=\"width:50px;heigth:50px\">");
-		out.println("</tr>");
-		out.println("<tr>");
-		out.println("<td>");
-		out.println("<b> ");
-		out.println("<p> Nom:</p>");
-		out.println("<p> Prenom:</p>");
-		out.println("<p> Profession:</p>");
-		out.println("<p> Entreprise:</p>");
-		out.println("<p> Ma vision du métier:</p>");
-		out.println("<p> Adresse de l'entreprise:</p>");
-		out.println("<p> Telephone:</p>");
-		out.println("<p> Fax:</p>");
-		out.println("<p> Mail:</p>");
-		out.println("</b>");
-		out.println("</td>");
-		out.println("</tr>");
+		out.println("<div class=\"col-md-8\">");
+		out.println("<div class=\"thumbnail\">");
+		
+		
+		
+		out.println("<div class=\"row\">");
+		out.println("<div class=\"col-md-6\">");
+		out.println("<div class=\"thumbnail\">");
+		out.println("<img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"image profil utilisateur\">");
+		out.println("<div class=\"caption\">");
+		out.println("<h3>Ma vision du métier!</h3>");
+		out.println("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras iaculis sed ipsum et lacinia. Sed eget sem ipsum.Donec auctor dignissim nisi, sed tempus dolor iaculis sed. Vivamus eget gravida libero. Aliquam erat volutpat. Donec auctor tristique cras amet.</p>");
+		/*out.println("<p><img alt=\"Brand\" src=\"http://www.freecomicbookday.com/GenericImages/facebook-icon.png\">" +
+				"<img alt=\"Brand\" src=\"http://www.freecomicbookday.com/GenericImages/facebook-icon.png\">" +
+				"<img alt=\"Brand\" src=\"http://www.freecomicbookday.com/GenericImages/facebook-icon.png\">" +
+				"<img alt=\"Brand\" src=\"http://www.freecomicbookday.com/GenericImages/facebook-icon.png\">" +
+				"<a href=\"#\" class=\"btn btn-warning\" role=\"button\">En savoir plus ...</a></p>");*/
+		out.println("<nav class=\"navbar navbar-default\">");
+		out.println("<div class=\"container-fluid\">");
+		out.println("<div class=\"navbar-header\">");
+		out.println("<a class=\"navbar-brand\" href=\"#\">");
+		out.println("<img alt=\"Brand\" src=\"http://www.freecomicbookday.com/GenericImages/facebook-icon.png\">");
+		out.println("</a>");
+		out.println("<a class=\"navbar-brand\" href=\"#\">");
+		out.println("<img alt=\"Brand\" src=\"http://www.paprikawriting.com/wp-content/uploads/twitter-icon-30x30.gif\">");
+		out.println("</a>");
+		out.println("<a class=\"navbar-brand\" href=\"#\">");
+		out.println("<img alt=\"Brand\" src=\"http://malaysianseoservices.com/wp-content/uploads/2014/06/Google-Icon-30-x-30.png\">");
+		out.println("</a>");
+		out.println("<a class=\"navbar-brand\" href=\"#\">");
+		out.println("<img alt=\"Brand\" src=\"http://mikeunclebach.com/wp-content/uploads/2013/03/linkedin-icon-30x30.png\">");
+		out.println("</a>");
+		out.println("</div>");
+		out.println("</div>");
+		out.println("</nav>");
+		out.println("<a href=\"#\" class=\"btn btn-warning\" role=\"button\">En savoir plus ...</a>");
+		out.println("</div>");
+		out.println("</div>");
+		out.println("</div>");
+		
+		out.println("<div class=\"col-md-6\">");
+		out.println("<h4>Nom: </h4><br />");
+		out.println("<h4>Prenom: </h4><br />");
+		out.println("<h4>Date de Naissance: </h4><br />");
+		out.println("<h4>Profession: </h4><br />");
+		out.println("<h4>Entreprise: </h4><br />");
+		out.println("<h4>Adresse du metier: </h4><br />");
+		out.println("<h4>Telephone: </h4><br />");
+		out.println("<h4>Fax: </h4><br />");
+		out.println("<h4>Mail: </h4><br />");
+		out.println("</div>");
+		out.println("</div>");
+		
+		
+		
+		out.println("</div>");
+		out.println("</div>");
+		
+		
 
-		
-		out.println("</table>");
-		
-		out.println("</center>");
 		out.println("</body>");
 		out.println("</html>");
-
 	}
 }
