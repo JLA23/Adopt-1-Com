@@ -16,7 +16,7 @@ public class Service extends Item {
 		
 		
 	public String renderHTML() {
-		String res="<td>Id : "+id+"<br> Libellé : "+libelle+"<br> Prix : "+prix+"<br> Description : "+description;
+		String res="<td>Id : "+idt+"<br> Libellé : "+libelle+"<br> Prix : "+prix+"<br> Description : "+description;
 
 		return res;
 	}

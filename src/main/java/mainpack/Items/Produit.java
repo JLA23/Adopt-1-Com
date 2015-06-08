@@ -26,11 +26,11 @@ public class Produit extends Item {
 	}
 	
 	public int getId() {
-		return id;
+		return idt;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idt = id;
 	}
 
 	public String getLibelle() {
@@ -59,7 +59,7 @@ public class Produit extends Item {
 
 
 	public String toString() {
-		return id + "; " + libelle + "; " + prix + "; " + description + ".";
+		return idt + "; " + libelle + "; " + prix + "; " + description + ".";
 	}
 
 	public String renderHTML() {
