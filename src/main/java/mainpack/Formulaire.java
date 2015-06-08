@@ -42,98 +42,150 @@ public class Formulaire extends HttpServlet {
 		out.println("<h1>Formulaire Inscription</h1>");
 
 		out.print("<form method='post' action='VerifForm'>");
+		
 		out.println("<div class='row'>"
-		  + "<div class='col-md-6'>.col-md-6");
+		  + "<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='nom'>Nom (*) : </label>"
 				+ "<INPUT type='text' value='' name='nom' required class='form-control'>"
 				+ "</div></div>");
-		out.println("<div class='col-md-6'>.col-md-6");
+		
+		out.println("<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='prenom'>Prénom (*) : </label>"
 				+ "<INPUT type='text' value='' name='prenom' required class='form-control'>"
-				+ "</div></div>");
+				+ "</div></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-8'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='entreprise'>Entreprise (*) : </label>"
 				+ "<INPUT type='text' value='' name='entreprise' required class='form-control'>"
-				+ "</div>");
+				+ "</div></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-8'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='adresse'>Adresse (*) : </label>"
 				+ "<INPUT type='text' value='' name='adresse' required class='form-control'>"
-				+ "</div>");
+				+ "</div></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='codep'>Code Postal (*) : </label>"
 				+ "<INPUT type='text' value='' name='codep' required class='form-control'>"
-				+ "</div>");
+				+ "</div></div>");
+		
+		out.println("<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='ville'>Ville (*) : </label>"
 				+ "<INPUT type='text' value='' name='ville' required class='form-control'>"
-				+ "</div>");
+				+ "</div></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='mail'>E-Mail (*) : </label>"
 				+ "<INPUT type='text' value='' name='mail' required placeholder='thierry.dupont@gmail.com' class='form-control'>"
-				+ "</div>");
+				+ "</div></div>");
+		
+		out.println("<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='mail2'>Confirmer E-Mail (*) : </label>"
 				+ "<INPUT type='text' value='' name='mail2' required placeholder='thierry.dupont@gmail.com' class='form-control'>"
-				+ "</div>");
+				+ "</div></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='tel'>Téléphone (*) : </label>"
 				+ "<INPUT type='text' value='' name='tel' required placeholder='0675000000' class='form-control'>"
-				+ "</div>");
+				+ "</div></div>");
+		
+		out.println("<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='fax'>Fax : </label>"
 				+ "<INPUT type='text' value='' name='fax' class='form-control'>"
-				+ "</div>");
+				+ "</div></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-8'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='profession'>Métier (*) : </label>"
 				+ "<INPUT type='text' value='' name='profession' required class='form-control'>"
-				+ "</div>");
+				+ "</div></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='prestation'>Type de Prestation (*) : </label>"
 				+ "<select name='prestation' id='prestation' required class='form-control'>"
 				+ "<option value='produit'>Produit</option>"
 				+ "<option value='service'>Service</option>"
-				+ "<option value='both'>Les deux</option>" + "</select></div>");
+				+ "<option value='both'>Les deux</option>" + "</select></div></div>");
+		
+		out.println("<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='domaine'>Domaine d'Activité (*) : </label>"
 				+ "<select name='domaine' id='domaine' required class='form-control'>"
 				+ "<option value='agriculture'>Agriculture</option>"
 				+ "<option value='plomberie'>Plomberie</option>"
 				+ "<option value='librairie'>Librairie</option>"
-				+ "</select></div>");
+				+ "</select></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-8'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='description'>Description : </label>"
 				+ "<textarea name='description' id='description' rows='8' cols='30' class='form-control'>"
-				+ "Comment voyez vous votre métier ?</textarea>" + "</div>");
+				+ "Comment voyez vous votre métier ?</textarea>" 
+				+ "</div></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='facebook'>Facebook : </label>"
 				+ "<INPUT type='text' value='' name='facebook' placeholder='http://monfacebook.fr/' class='form-control'>"
-				+ "</div>");
+				+ "</div></div>");
+		
+		out.println("<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='twitter'>Twitter : </label>"
 				+ "<INPUT type='text' value='' name='twitter' placeholder='http://montwitter.fr/'class='form-control'>"
-				+ "</div>");
+				+ "</div></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='linkedin'>LinkedIn : </label>"
 				+ "<INPUT type='text' value='' name='linkedin' placeholder='http://monlinkedin.fr/'class='form-control'>"
-				+ "</div>");
+				+ "</div></div>");
+		
+		out.println("<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='google'>Google+ : </label>"
 				+ "<INPUT type='text' value='' name='google' placeholder='http://mongoogleplus.fr/'class='form-control'>"
-				+ "</div>");
+				+ "</div></div></div>");
+		
+		out.println("<div class='row'>"
+				  + "<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='password'>Mot de passe (*) : </label>"
 				+ "<INPUT type='text' value='' name='password' required class='form-control'>"
-				+ "</div>");
+				+ "</div></div>");
+		
+		out.println("<div class='col-md-4'>");
 		out.println("<div class='form-group'>"
 				+ "<label for='password2'>Confirmer Mot de passe (*) : </label>"
 				+ "<INPUT type='text' value='' name='password2' required class='form-control'>"
-				+ "</div>");
+				+ "</div></div></div>");
+		
 		out.println("<div class='form-group'>"
-				+ "<label for='password2'>(*) : Champs requis</label>"
-				+ "<br><button type='submit' class='btn btn-default'>Valider</button>"
+				+ "<label>(*) : Champs requis</label>"
+				+ "<br><button type='submit' class='btn btn-success'>Valider</button>"
 				+ "</div>");
+		
 		out.println("</form></body>");
 	}
 }
