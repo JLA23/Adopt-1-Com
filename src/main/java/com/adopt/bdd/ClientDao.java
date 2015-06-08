@@ -25,7 +25,7 @@ public interface ClientDao {
 	
 	@SqlQuery("select * from clients where idt = :idt")
     @RegisterMapperFactory(BeanMapperFactory.class)
-	public Client findByIdt(@Bind("idt") String idt);
+	public Client findByIdt(@Bind("idt") int idt);
 	
 	@SqlQuery("select * from clients order by ville, entite, nom")
 	@RegisterMapperFactory(BeanMapperFactory.class)
