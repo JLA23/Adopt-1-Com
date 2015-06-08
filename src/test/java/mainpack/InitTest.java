@@ -10,7 +10,7 @@ public class InitTest {
 	Init init;
 	@Before
 	public void before(){
-		init = new Init();
+		init = Init.getInstance();
 		
 	}
 	@Test
