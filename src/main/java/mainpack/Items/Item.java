@@ -10,11 +10,11 @@ abstract public class Item {
 		this.idt=idt;
 	}
 	
-	public int getId(){
+	public int getIdt(){
 		return idt;
 	}
 	
-	public void setId(int id){
+	public void setIdt(int id){
 		this.idt=id;
 	}
 	

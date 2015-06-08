@@ -54,7 +54,7 @@ public class ListeProfil extends HttpServlet
 				out.println("<td><img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"image profil\" style=\"width:300px;heigth:300px\"></td>");
 				out.println("<td>Nom: " + l.get(i).getNom() + " " + l.get(i).getPrenom() + "<br>Profession: " + l.get(i).getMetier() + "<br>Entreprise: " + l.get(i).getEntite() + "</td>");
 				out.println("</tr><tr>");
-				int id = l.get(i).getId();
+				int id = l.get(i).getIdt();
 				out.println("<td><input type=\"button\" name=\"submit\" value=\"Profil\" onclick=\"self.location='localhost:8080/PageProfil&id="+id+"'\" target=\"_blank\"></td>");
 				out.println("<td></td></tr>");
 			}
