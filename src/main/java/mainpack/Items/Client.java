@@ -16,6 +16,7 @@ public class Client extends Item {
 	private String codePostal;
 	private String ville;
 	private String mail;
+	private String mdp;
 	private String tel;
 	private String fax;
 	private String metier;
@@ -25,7 +26,6 @@ public class Client extends Item {
 	private String twitter;
 	private String linkedIn;
 	private String googlePlus;
-	private String mdp;
 	private String typeDePrestation; // Produits, services ou les deux?
 	private String listeProduits; // Liste non exhaustive des articles ou des
 									// services proposés
@@ -44,12 +44,11 @@ public class Client extends Item {
 	 *            de l'entreprise ou du commerçant
 	 */
 
-	public Client(String idt, String photo, String prenom, String nom,
+	public Client(int idt, String photo, String prenom, String nom,
 			String entite, String adresse, String codePostal, String ville,
-			String mail, String tel, String fax, String metier,
+			String mail, String mdp, String tel, String fax, String metier,
 			String domaineAct, String description, String facebook,
-			String twitter, String linkedIn, String googlePlus, String mdp,
-			String typeDePrestation, String listeProduits, boolean valide) {
+			String twitter, String linkedIn, String googlePlus, String typeDePrestation, String listeProduits, boolean valide) {
 		super(idt);
 		this.setPhoto(photo);
 		this.setNom(nom);
@@ -59,6 +58,7 @@ public class Client extends Item {
 		this.setCodePostal(codePostal);
 		this.setVille(ville);
 		this.setMail(mail);
+		this.setMdp(mdp);
 		this.setTel(tel);
 		this.setFax(fax);
 		this.setMetier(metier);
@@ -68,7 +68,6 @@ public class Client extends Item {
 		this.setTwitter(twitter);
 		this.setLinkedIn(linkedIn);
 		this.setGooglePlus(googlePlus);
-		this.setMdp(mdp);
 		this.setTypeDePrestation(typeDePrestation);
 		this.setListeProduits(listeProduits);
 		this.setValide(valide);
@@ -84,11 +83,11 @@ public class Client extends Item {
 		return res;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
