@@ -2,7 +2,6 @@ package com.adopt.bdd;
 
 import java.util.List;
 
-import mainpack.Items.Produit;
 import mainpack.Items.Promo;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
@@ -24,13 +23,13 @@ public interface PromoDao {
 	@SqlUpdate("update promos set libelle = :libelle, photo = :photo, description = :description, idVendeur = :idVendeur, promo = :promo, offreGroupe = :offreGroupe, categorie = :categorie")
 	void update(@BindBean Promo p);
 	
-	@SqlQuery("select * from produits where idt = :idt")
+	@SqlQuery("select * from promos where idt = :idt")
     @RegisterMapperFactory(BeanMapperFactory.class)
-	Produit findByIdt(@Bind("idt") int idt);
+	Promo findByIdt(@Bind("idt") int idt);
 	
 	@SqlQuery("select * from promos where idVendeur = :idVendeur")
 	@RegisterMapperFactory(BeanMapperFactory.class)
-	List<Produit> listerPromoParIdClient(@Bind("idVendeur") int idVendeur);
+	List<Promo> listerPromoParIdClient(@Bind("idVendeur") int idVendeur);
 	
 	@SqlUpdate("delete from promos where idt = :idt")
 	int deletePromo(@Bind("idt")int idt);

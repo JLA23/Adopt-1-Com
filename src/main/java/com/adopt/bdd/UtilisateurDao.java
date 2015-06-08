@@ -13,7 +13,7 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface UtilisateurDao {
-	@SqlUpdate("create table utilisateurs (idt integer primary key autoincrement, photo varchar(255), nom varchar(100), prenom varchar(100), codePostal varchar(5),ville varchar(100), mail varchar(100), mdp varchar(40), dateNaiss varchar(20), tel varchar(20), metier varchar(100), facebook varchar(100), twitter varchar(100), linkedIn varchar(100), googlePlus varchar(100)")
+	@SqlUpdate("create table utilisateurs (idt integer primary key autoincrement, photo varchar(255), nom varchar(100), prenom varchar(100), codePostal varchar(5),ville varchar(100), mail varchar(100), mdp varchar(40), dateNaiss varchar(20), tel varchar(20), metier varchar(100), facebook varchar(100), twitter varchar(100), linkedIn varchar(100), googlePlus varchar(100))")
 	public void createUtilisateurTable();
 
 	@SqlUpdate("insert into utilisateurs (photo, nom, prenom, codePostal, ville, mail, mdp, dateNaiss, tel, metier, facebook, twitter, linkedIn, googlePlus) values (:photo, :nom, :prenom, :codePostal, :ville, :mail, :mdp, :dateNaiss, :tel, :fax, :metier, :facebook, :twitter, :linkedIn, :googlePlus)")

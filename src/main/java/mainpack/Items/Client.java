@@ -1,7 +1,5 @@
 package mainpack.Items;
 
-import java.sql.Date;
-
 /**
  * 
  * @author jourdail La classe Client permet de créer des clients ainsi que leur
