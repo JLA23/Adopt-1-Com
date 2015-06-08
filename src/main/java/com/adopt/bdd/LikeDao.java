@@ -35,7 +35,7 @@ public interface LikeDao {
 	public int deleteLike(@Bind("idUtilisateur") int idUtilisateur, @Bind("idVendeur") int idVendeur);
 
 	@SqlUpdate("drop table if exists likes")
-	public void dropServiceTable();
+	public void dropLikeTable();
 
 	public void close();
 }

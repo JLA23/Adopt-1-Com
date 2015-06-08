@@ -30,7 +30,7 @@ public interface PromoDao {
 	
 	@SqlQuery("select * from promos where idVendeur = :idVendeur")
 	@RegisterMapperFactory(BeanMapperFactory.class)
-	List<Produit> listerProduitsParIdClient(@Bind("idVendeur") int idVendeur);
+	List<Produit> listerPromoParIdClient(@Bind("idVendeur") int idVendeur);
 	
 	@SqlUpdate("delete from promos where idt = :idt")
 	int deletePromo(@Bind("idt")int idt);
