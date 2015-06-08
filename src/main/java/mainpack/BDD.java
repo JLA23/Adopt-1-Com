@@ -2,62 +2,49 @@ package mainpack;
 
 import java.util.Random;
 
+import com.adopt.bdd.ClientDao;
+import com.adopt.bdd.ProduitDao;
+
 import mainpack.Items.*;
 
 public class BDD {
 
-	private Client[] tabCli;
-	private Produit[] tabPro;
-	private Service[] tabServ;
-	private Promo[] tabOff;
+	Init init;
 
 	public BDD() {
-		tabCli = new Client[2];
-		tabPro = new Produit[2];
-		tabServ = new Service[2];
-		tabOff = new Promo[2];
-		
-		
-	
-	}
-
-	public Client[] getClients() {
-		return this.tabCli;
+		init = Init.getInstance();
 	}
 
 	public Item getRandomItem() {
-		int r=(int) new Random().nextInt(4);
-		if(r==0){
+		int r = (int) new Random().nextInt(4);
+		if (r == 0) {
 			return getRandomClient();
-		}
-		else if(r==1){
+		} else if (r == 1) {
 			return getRandomProduit();
-		}
-		else if(r==2){
+		} else if (r == 2) {
 			return getRandomService();
-		}
-		else if(r==3){
-			return getRandomOffre();
+		} else if (r == 3) {
+			return getRandomPromo();
 		}
 		return null;
 	}
 
-	private Item getRandomOffre() {
-		return tabOff[(int) new Random().nextInt(tabOff.length)];
-
+	private Item getRandomPromo() {
+		return null;
 	}
 
 	private Item getRandomService() {
-		return tabServ[(int) new Random().nextInt(tabServ.length)];
+		return null;
 	}
 
 	private Item getRandomProduit() {
-		return tabPro[(int) new Random().nextInt(tabPro.length)];
+		ProduitDao pd = init.getProduitDao();
+		return pd.findByIdt((int)new Random().nextInt(pd.count())+1);
 	}
 
-	private Item getRandomClient() {
-		return tabCli[(int) new Random().nextInt(tabCli.length)];
+	public Item getRandomClient() {
+		ClientDao cd = init.getClientDao();
+		return cd.findByIdt((int)new Random().nextInt(cd.count())+1);		
 	}
-
 
 }
