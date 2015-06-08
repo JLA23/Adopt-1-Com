@@ -40,13 +40,12 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.3.0.M2</version>
 				<configuration>
-   						 <scanIntervalSeconds>5</scanIntervalSeconds>
-   						 <war>${project.basedir}/target/${project.artifactId}.war</war>
-   						  <webApp>
-            <webInfIncludeJarPattern>^$</webInfIncludeJarPattern>
-            <containerIncludeJarPattern>^$</containerIncludeJarPattern>
-          </webApp>
-  				</configuration>
+					<scanIntervalSeconds>5</scanIntervalSeconds>
+					<webApp>
+						<webInfIncludeJarPattern>^$</webInfIncludeJarPattern>
+						<containerIncludeJarPattern>^$</containerIncludeJarPattern>
+					</webApp>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
