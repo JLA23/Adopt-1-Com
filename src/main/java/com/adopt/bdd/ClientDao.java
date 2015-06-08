@@ -21,11 +21,11 @@ public interface ClientDao {
 	@SqlUpdate("update clients set valide = :valide where idt= :idt")
 	int validerClient(@Bind("idt") int idt, @Bind("valide") boolean valide);
 	
-	@SqlUpdate("delete")
-	int supprimerClient(@Bind("idt") int idt);
+	@SqlUpdate("delete from clients where idt = :idt")
+	int deleteClient(@Bind("idt") int idt);
 
 	@SqlUpdate("drop table if exists clients")
-	void dropUserTable();
+	void dropClientTable();
 
 	void close();
 }

@@ -17,7 +17,7 @@ public class Offre extends Item {
 	private String datefin;
 
 	
-	public Offre(String id, String libelle, String prix, String prixBase, String reduc, String description, String datefin){
+	public Offre(int id, String libelle, String prix, String prixBase, String reduc, String description, String datefin){
 		super(id);
 		this.libelle=libelle;
 		this.prix=prix;

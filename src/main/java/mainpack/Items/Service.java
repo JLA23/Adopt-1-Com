@@ -7,7 +7,7 @@ public class Service extends Item {
 	private String description;
 
 
-	public Service(String id, String libelle, String prix, String description){
+	public Service(int id, String libelle, String prix, String description){
 		super(id);
 		this.libelle=libelle;
 		this.prix=prix;
