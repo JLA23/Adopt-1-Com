@@ -86,8 +86,14 @@ public class Formulaire extends HttpServlet {
 				+ "<label for='profession'>Métier (*) : </label>"
 				+ "<INPUT type='text' value='' name='profession' required class='form-control'>"
 			+ "</div>");
+		out.println("<div class='form-group'>"
+				+ "<label for='domaine'>Domaine d'Activité (*) : </label>"
+				+ "<select name='domaine' id='domaine' required class='form-control'>"
+				+ "<option value='agriculture'>Agriculture</option>"
+				+ "<option value='plomberie'>Plomberie</option>"
+				+ "<option value='services'>Services</option>"
+			+ "</select></div>");
 		
-		out.println("Domaine d'activité (*) : <INPUT type='text' value='' name='activite' required>");
 
 		out.println("<label for='description'>Description</label>");
 		out.println("<textarea name='description' id='description' rows='8' cols='30'>Comment voyez vous votre métier ?</textarea>");
