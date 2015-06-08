@@ -1,6 +1,6 @@
 package mainpack.Items;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * 
@@ -81,6 +81,7 @@ public class Client extends Item {
 		this.setValide(valide);
 	}
 
+	
 	public String toString() {
 		return id + "; " + nom + "; " + prenom + "; " + entite + ".";
 	}
