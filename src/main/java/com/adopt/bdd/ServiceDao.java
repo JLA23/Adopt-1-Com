@@ -14,7 +14,7 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface ServiceDao {
 	@SqlUpdate("create table services (idt integer primary key autoincrement, libelle varchar(100), photo varchar(255), description varchar(240), idVendeur integer, promo varchar(100), offreGroupe boolean, categorie varchar(100))")
-	public void createClientTable();
+	public void createServiceTable();
 
 	@SqlUpdate("insert into services (libelle, photo, description, idVendeur, promo, offreGroupe, categorie) values (:libelle, :photo, :description, :idVendeur, :promo, :offreGroupe, :categorie)")
 	@GetGeneratedKeys

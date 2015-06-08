@@ -12,9 +12,9 @@ import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
-public interface LikeDao {
-	@SqlUpdate("create table likes (idVendeur integer, idUtilisateur integer, aime boolean)")
-	public void createLikeTable();
+public class UtilisateurDao {
+	@SqlUpdate("create table utilisateurs (idVendeur integer, idUtilisateur integer, aime boolean)")
+	public void createUtilisateurTable();
 
 	@SqlUpdate("insert into likes (idVendeur, idUtilisateur, aime) values (:idVendeur, :idUtilisateur, :aime)")
 	@GetGeneratedKeys
