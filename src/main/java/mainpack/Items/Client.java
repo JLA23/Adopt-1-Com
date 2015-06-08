@@ -1,5 +1,7 @@
 package mainpack.Items;
 
+import java.util.Date;
+
 /**
  * 
  * @author jourdail La classe Client permet de créer des clients ainsi que leur
@@ -17,6 +19,7 @@ public class Client extends Item {
 	private String ville;
 	private String mail;
 	private String mdp;
+	private Date dateNaiss;
 	private String tel;
 	private String fax;
 	private String metier;
@@ -45,12 +48,12 @@ public class Client extends Item {
 	 */
 	
 	public Client(){
-		super(-1);
+		super(1);
 	}
 
 	public Client(int idt, String photo, String prenom, String nom,
 			String entite, String adresse, String codePostal, String ville,
-			String mail, String mdp, String tel, String fax, String metier,
+			String mail, String mdp, Date dateNaiss, String tel, String fax, String metier,
 			String domaineAct, String description, String facebook,
 			String twitter, String linkedIn, String googlePlus, String typeDePrestation, String listeProduits, boolean valide) {
 		super(idt);
@@ -63,6 +66,7 @@ public class Client extends Item {
 		this.setVille(ville);
 		this.setMail(mail);
 		this.setMdp(mdp);
+		this.setDateNaiss(dateNaiss);
 		this.setTel(tel);
 		this.setFax(fax);
 		this.setMetier(metier);
@@ -265,6 +269,14 @@ public class Client extends Item {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public Date getDateNaiss() {
+		return dateNaiss;
+	}
+
+	public void setDateNaiss(Date dateNaiss) {
+		this.dateNaiss = dateNaiss;
 	}
 
 }

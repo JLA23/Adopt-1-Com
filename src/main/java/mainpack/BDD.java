@@ -9,13 +9,13 @@ public class BDD {
 	private Client[] tabCli;
 	private Produit[] tabPro;
 	private Service[] tabServ;
-	private Offre[] tabOff;
+	private Promo[] tabOff;
 
 	public BDD() {
 		tabCli = new Client[2];
 		tabPro = new Produit[2];
 		tabServ = new Service[2];
-		tabOff = new Offre[2];
+		tabOff = new Promo[2];
 		
 		
 	

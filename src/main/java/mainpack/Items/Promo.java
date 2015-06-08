@@ -6,10 +6,10 @@ package mainpack.Items;
  *         attributs. Les getters permettent de récupérer ces derniers.
  */
 
-public class Offre extends Item {
+public class Promo extends Item {
 
 
-	private String libelle;
+	private int idProduit;
 	private String prix;
 	private String prixBase;
 	private String reduc;
@@ -17,9 +17,8 @@ public class Offre extends Item {
 	private String datefin;
 
 	
-	public Offre(int id, String libelle, String prix, String prixBase, String reduc, String description, String datefin){
+	public Promo(int id, String libelle, String prix, String prixBase, String reduc, String description, String datefin){
 		super(id);
-		this.libelle=libelle;
 		this.prix=prix;
 		this.prixBase=prixBase;
 		this.reduc=reduc;
@@ -29,7 +28,7 @@ public class Offre extends Item {
 		
 		
 	public String renderHTML() {
-		String res="<td>Id : "+id+"<br> Libellé : "+libelle+"<br> Prix : "+prix+"<br> Prix de base : "+prixBase+"<br> Économisez "+reduc+"<br> Description : "+description+"<br> Date de fin : "+datefin;
+		String res="<td>Id : "+id+"<br> Prix : "+prix+"<br> Prix de base : "+prixBase+"<br> Économisez "+reduc+"<br> Description : "+description+"<br> Date de fin : "+datefin;
 
 		return res;
 	}
