@@ -27,8 +27,10 @@ public class Formulaire extends HttpServlet{
 		
 		// ENLEVER LE TABLEAU, A FAIRE EN BOOTSTRAP
 		out.println("<html><head><meta charset=UTF-8>");
-		out.println("<link rel=stylesheet type=text/css href=style.css>");
-		out.println("<title>Formulaire</title></head>");
+		out.println("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">");
+		out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+		out.println("<title>Formulaire</title>");
+		out.println("<link href=\"../../bootstrap/css/dist/bootstrap.css\" rel=\"stylesheet\"></head>");
 		out.println("<body><center>");
 		out.println("<h1>Formulaire Inscription</h1>" );
 		
@@ -46,7 +48,7 @@ public class Formulaire extends HttpServlet{
 		
 		out.println("<td>Fax : <td><INPUT type='text' value='' name='fax'></td>");
 		out.println("<tr><td>Métier (*) : <td><INPUT type='text' value='' name='profession' required></td>");
-		out.println("<td>Champ d'activité (*) : <td><INPUT type='text' value='' name='activite' required></td>"); // MENU DEROULANT
+		out.println("<td>Domaine d'activité (*) : <td><INPUT type='text' value='' name='activite' required></td>"); // MENU DEROULANT
 		out.println("<tr><td><label for='description'>Description</label>");     
 		out.println("<tr><td><textarea name='description' id='description' rows='8' cols='30'>Comment voyez vous votre métier ?</textarea></td>");
 		
