@@ -54,7 +54,18 @@ public class PageProfil extends HttpServlet{
 		out.println("fjs.parentNode.insertBefore(js, fjs);");
 		out.println("}(document, 'script', 'facebook-jssdk'));");
 		out.println("</script>");
-		out.println("<a href=\"\" onblur=\"open_infos()\"><img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"image profil\" style=\"width:300px;heigth:300px\"></a>");
+		out.println("<center>");
+		
+		out.println("<table>");
+		out.println("<tr>");
+		out.println("<td><a href=\"\" onblur=\"open_infos()\"><img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"image profil\" style=\"width:300px;heigth:300px\"></a></td>");
+		out.println("<td><img src=\"http://www.clementpellerin.fr/wp-content/uploads/2011/05/facebook-icon.png\" alt=\"lien Facebook\" style=\"width:50px;heigth:50px\"></td>");
+		out.println("<img src=\"http://www.sidassport.com/docs/2280-1-logo-twitter-gif.gif\" alt=\"lien Facebook\" style=\"width:50px;heigth:50px\">");
+		out.println("<img src=\"http://blog.datanyze.com/wp-content/uploads/2014/09/LinkedIn-large-logo.jpg\" style=\"width:50px;heigth:50px\">");
+		out.println("<img src=\"http://www.uha.fr/images/google_icon\" style=\"width:50px;heigth:50px\">");
+		out.println("</tr>");
+		out.println("<tr>");
+		out.println("<td>");
 		out.println("<b> ");
 		out.println("<p> Nom:</p>");
 		out.println("<p> Prenom:</p>");
@@ -66,10 +77,13 @@ public class PageProfil extends HttpServlet{
 		out.println("<p> Fax:</p>");
 		out.println("<p> Mail:</p>");
 		out.println("</b>");
-		out.println("<img src=\"http://www.clementpellerin.fr/wp-content/uploads/2011/05/facebook-icon.png\" alt=\"lien Facebook\" style=\"width:50px;heigth:50px\">");
-		out.println("<img src=\"http://www.sidassport.com/docs/2280-1-logo-twitter-gif.gif\" alt=\"lien Facebook\" style=\"width:50px;heigth:50px\">");
-		out.println("<img src=\"http://blog.datanyze.com/wp-content/uploads/2014/09/LinkedIn-large-logo.jpg\" style=\"width:50px;heigth:50px\">");
-		out.println("<img src=\"http://www.uha.fr/images/google_icon\" style=\"width:50px;heigth:50px\">");
+		out.println("</td>");
+		out.println("</tr>");
+
+		
+		out.println("</table>");
+		
+		out.println("</center>");
 		out.println("</body>");
 		out.println("</html>");
 
