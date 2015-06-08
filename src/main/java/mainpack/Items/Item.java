@@ -1,18 +1,21 @@
 package mainpack.Items;
 
 abstract public class Item {
-	int id;
+	int idt;
+	
+	public Item(){}
+	
 	
 	public Item(int idt){
-		this.id=idt;
+		this.idt=idt;
 	}
 	
 	public int getId(){
-		return id;
+		return idt;
 	}
 	
 	public void setId(int id){
-		this.id=id;
+		this.idt=id;
 	}
 	
 	public abstract String renderHTML();

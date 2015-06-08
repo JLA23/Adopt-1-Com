@@ -45,9 +45,7 @@ public class Client extends Item {
 	 *            de l'entreprise ou du commerçant
 	 */
 	
-	public Client(){
-		super(1);
-	}
+	public Client(){}
 
 	public Client(int idt, String photo, String prenom, String nom,
 			String entite, String adresse, String codePostal, String ville,
@@ -81,7 +79,7 @@ public class Client extends Item {
 
 	
 	public String toString() {
-		return id + "; " + nom + "; " + prenom + "; " + entite + ".";
+		return idt + "; " + nom + "; " + prenom + "; " + entite + ".";
 	}
 
 	public String renderHTML() {
@@ -91,11 +89,11 @@ public class Client extends Item {
 	}
 
 	public int getId() {
-		return id;
+		return idt;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idt = id;
 	}
 
 	public String getNom() {
