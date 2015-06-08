@@ -2,6 +2,7 @@ package mainpack;
 
 import java.sql.*;
 import java.util.List;
+import java.sql.Date;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -31,9 +32,9 @@ public class ListeProfil extends HttpServlet
 			ClientDao dao = App.dbi.open(ClientDao.class);
 			
 			dao.createClientTable();
-			Client client1 = new Client(1, "dqznidn", "dylan", "defives", "etudiant", "11 rue des ormes", "59112", "Annoeullin", "dyl59gamegmail.com", "mdr", "0684859696", "0505050505", "etudiant", "etudiant", "lol", "a", "a", "a", "a", "a", "a", true);
-			Client client2 = new Client(1, "dqznidn", "dylan", "defives", "etudiant", "11 rue des ormes", "59112", "Annoeullin", "dyl59gamegmail.com", "mdr", "0684859696", "0505050505", "etudiant", "etudiant", "lol", "a", "a", "a", "a", "a", "a", true);
-			client1.setMdp("toto");
+			Client client1 = new Client(1, "lol", "Dylan", "Defives", "IUTALille", "Lille", "59000", "Lille", "a", "a", "01/02/1194", "06", "06", "etudiant", "etude", "lol", "lol", "lol", "lol", "lol", "lol", "lol", true);
+			Client client2 = new Client(2, "lol", "Luc", "Jourdain", "IUTALille", "Lille", "59000", "Lille", "a", "a", "01/02/2012", "06", "06", "etudiant", "etude", "lol", "lol", "lol", "lol", "lol", "lol", "lol", true);
+
 			dao.insert(client1);
 			dao.insert(client2);
 			
@@ -59,6 +60,7 @@ public class ListeProfil extends HttpServlet
 			}
 			
 		    out.println("</table>");
+		    out.println("<br>");
 		    
 			out.println("");
 			out.println("</center></body></html>");
