@@ -23,6 +23,9 @@ public interface ProduitDao {
 	@SqlUpdate("update produits set libelle = :libelle, photo = :photo, description = :description, idVendeur = :idVendeur, promo = :promo, offreGroupe = :offreGroupe, categorie = :categorie")
 	void update(@BindBean Produit p);
 	
+	@SqlQuery("select count(*) from produits")
+	public int count();
+	
 	@SqlQuery("select * from produits where idt = :idt")
     @RegisterMapperFactory(BeanMapperFactory.class)
 	Produit findByIdt(@Bind("idt") int idt);

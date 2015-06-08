@@ -14,19 +14,18 @@ import com.adopt.bdd.PromoDao;
 import com.adopt.bdd.ServiceDao;
 import com.adopt.bdd.UtilisateurDao;
 
-import fr.iutinfo.App;
-
 public class Init {
 	
-	DBI dbi;
-	ClientDao clientDao;
-	ProduitDao produitDao;
-	ServiceDao serviceDao;
-	PromoDao promoDao;
-	LikeDao likeDao;
-	UtilisateurDao utilisateurDao;
+	private static Init instance=null;
+	private DBI dbi;
+	private static ClientDao clientDao;
+	private static ProduitDao produitDao;
+	private static ServiceDao serviceDao;
+	private static PromoDao promoDao;
+	private static LikeDao likeDao;
+	private static UtilisateurDao utilisateurDao;
 	
-	public Init(){
+	private Init(){
 		SQLiteDataSource ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:" + System.getProperty("java.io.tmpdir")
 				+ System.getProperty("file.separator") + "data.db");
@@ -35,28 +34,36 @@ public class Init {
 		initTables();
 	}
 	
+	public static Init getInstance(){
+		if(instance==null){
+			instance = new Init();
+		}
+		return instance;
+	}
+	
+	
 	public void initClientDao(){
-		clientDao=App.dbi.open(ClientDao.class);
+		clientDao=dbi.open(ClientDao.class);
 	}
 	
 	public void initProduitDao(){
-		produitDao=App.dbi.open(ProduitDao.class);
+		produitDao=dbi.open(ProduitDao.class);
 	}
 	
 	public void initServiceDao(){
-		serviceDao=App.dbi.open(ServiceDao.class);
+		serviceDao=dbi.open(ServiceDao.class);
 	}
 	
 	public void initPromoDao(){
-		promoDao=App.dbi.open(PromoDao.class);
+		promoDao=dbi.open(PromoDao.class);
 	}
 	
 	public void initLikeDao(){
-		likeDao=App.dbi.open(LikeDao.class);
+		likeDao=dbi.open(LikeDao.class);
 	}
 	
 	public void initUtilisateurDao(){
-		utilisateurDao=App.dbi.open(UtilisateurDao.class);
+		utilisateurDao=dbi.open(UtilisateurDao.class);
 	}
 	
 	public ClientDao getClientDao(){
@@ -113,7 +120,7 @@ public class Init {
 	}
 	
 	public void exempleClient(){
-		clientDao.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", "59000", "Lille", "bourbie@gmail.com", "bourbie", "0606060606", "01/01/0001", "0404040404", "Bourbiste", "Bourbe", "Blblblblblblblblbblblblblbl", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, null, "service", "talent", true));
+		clientDao.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", "59000", "Lille", "bourbie@gmail.com", "bourbie", "0606060606", "01/01/0001", "0404040404", "Bourbiste", "Bourb0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e", "Blblblblblblblblbblblblblbl", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, null, "service", "talent", true));
 	}
 	
 	public void exempleProduit(){
@@ -122,5 +129,9 @@ public class Init {
 	
 	public void exempleService(){
 		serviceDao.insert(new Service(-1, "Massage", "10€", "Massage d'une heure"));
+	}
+	
+	public void exemplePromo(){
+		//promoDao.insert(new Promo(-1, 1, "", "10", description))
 	}
 }

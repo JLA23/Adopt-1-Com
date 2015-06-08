@@ -23,6 +23,9 @@ public interface ClientDao {
 	@SqlUpdate("update clients set photo = :photo, nom = :nom, prenom = :prenom, entite = :entite, adresse = :adresse, codePostal = :codePostal, ville = :ville, mail = :mail, mdp = :mdp, dateNaiss = :dateNaiss, tel = :tel, fax = :fax, metier = :metier, domaineAct = :domaineAct, description = :description, facebook = :facebook, twitter = :twitter, linkedIn = :linkedIn, googlePlus = :googlePlus, typeDePrestation = :typeDePrestation, listeProduits = :listeProduits where idt = :idt")
 	public void update(@BindBean Client c);
 	
+	@SqlQuery("select count(*) from clients")
+	public int count();
+	
 	@SqlQuery("select * from clients where idt = :idt")
     @RegisterMapperFactory(BeanMapperFactory.class)
 	public Client findByIdt(@Bind("idt") int idt);
