@@ -1,8 +1,8 @@
 package com.adopt.bdd;
-
+// TODO Ajouter aime et aimepas dans tous les items
 import java.util.List;
 
-import mainpack.Items.Like;
+import mainpack.Items.Utilisateur;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.BindBean;
@@ -12,30 +12,30 @@ import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
-public class UtilisateurDao {
-	@SqlUpdate("create table utilisateurs (idVendeur integer, idUtilisateur integer, aime boolean)")
+public interface UtilisateurDao {
+	@SqlUpdate("create table utilisateurs (idt integer primary key autoincrement, photo varchar(255), nom varchar(100), prenom varchar(100), codePostal varchar(5),ville varchar(100), mail varchar(100), mdp varchar(40), dateNaiss varchar(20), tel varchar(20), metier varchar(100), facebook varchar(100), twitter varchar(100), linkedIn varchar(100), googlePlus varchar(100)")
 	public void createUtilisateurTable();
 
-	@SqlUpdate("insert into likes (idVendeur, idUtilisateur, aime) values (:idVendeur, :idUtilisateur, :aime)")
+	@SqlUpdate("insert into utilisateurs (photo, nom, prenom, codePostal, ville, mail, mdp, dateNaiss, tel, metier, facebook, twitter, linkedIn, googlePlus) values (:photo, :nom, :prenom, :codePostal, :ville, :mail, :mdp, :dateNaiss, :tel, :fax, :metier, :facebook, :twitter, :linkedIn, :googlePlus)")
 	@GetGeneratedKeys
-	public int insert(@BindBean Like l);
+	public int insert(@BindBean Utilisateur u);
 
-	@SqlUpdate("update likes set idVendeur = :idVendeur, idUtilisateur = :idUtilisateur, aime = :aime")
-	public void update(@BindBean Like l);
-
-	@SqlQuery("select * from likes where idVendeur = :idVendeur")
+	@SqlUpdate("update clients set photo = :photo, nom = :nom, prenom = :prenom, codePostal = :codePostal, ville = :ville, mail = :mail, mdp = :mdp, dateNaiss = :dateNaiss, tel = :tel, fax = :fax, metier = :metier, facebook = :facebook, twitter = :twitter, linkedIn = :linkedIn, googlePlus = :googlePlus where idt = :idt")
+	public void update(@BindBean Utilisateur u);
+	
+	@SqlQuery("select * from utilisateurs where idt = :idt")
+    @RegisterMapperFactory(BeanMapperFactory.class)
+	public Utilisateur findByIdt(@Bind("idt") int idt);
+	
+	@SqlQuery("select * from utilisateurs order by ville, nom")
 	@RegisterMapperFactory(BeanMapperFactory.class)
-	public List<Like> findByVendeur(@Bind("idVendeur") int idVendeur);
+	public List<Utilisateur> listerUtilisateur();
+	
+	@SqlUpdate("delete from utilisateurs where idt = :idt")
+	public int deleteUtilisateur(@Bind("idt") int idt);
 
-	@SqlQuery("select * from likes where idUtilisateur = :idUtilisateur")
-	@RegisterMapperFactory(BeanMapperFactory.class)
-	public List<Like> findByUtilisateur(@Bind("idUtilisateur") int idUtilisateur);
-
-	@SqlUpdate("delete from likes where idVendeur = :idVendeur and idUtilisateur = :idUtilisateur")
-	public int deleteLike(@Bind("idUtilisateur") int idUtilisateur, @Bind("idVendeur") int idVendeur);
-
-	@SqlUpdate("drop table if exists likes")
-	public void dropServiceTable();
+	@SqlUpdate("drop table if exists utilisateurs")
+	public void dropUtilisateurTable();
 
 	public void close();
 }

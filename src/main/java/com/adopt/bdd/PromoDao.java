@@ -28,15 +28,15 @@ public interface PromoDao {
     @RegisterMapperFactory(BeanMapperFactory.class)
 	Produit findByIdt(@Bind("idt") int idt);
 	
-	@SqlQuery("select * from produits where idVendeur = :idVendeur")
+	@SqlQuery("select * from promos where idVendeur = :idVendeur")
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	List<Produit> listerProduitsParIdClient(@Bind("idVendeur") int idVendeur);
 	
-	@SqlUpdate("delete from produits where idt = :idt")
-	int deleteProd(@Bind("idt")int idt);
+	@SqlUpdate("delete from promos where idt = :idt")
+	int deletePromo(@Bind("idt")int idt);
 	
-	@SqlUpdate("drop table if exists produits")
-	void dropProductTable(); 
+	@SqlUpdate("drop table if exists promos")
+	void dropPromoTable(); 
 	
 	void close();
 }
