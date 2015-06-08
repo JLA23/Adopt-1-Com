@@ -11,14 +11,14 @@ public class InitTest {
 	@Before
 	public void before(){
 		init = new Init();
-		init.initDao();
-		init.initTables();
 		
 	}
 	@Test
-	public void test() {
+	public void testClient() {
+		init.exempleClient();
 		Client cl = init.getClientDao().findByIdt(1);
-		assertEquals("Bourbie", cl.getPrenom());	
+		assertEquals("Bourbie", cl.getPrenom());
+		System.out.println(cl.getId());
 	}
 
 }
