@@ -71,7 +71,7 @@ public class Utilisateur extends Item {
 
 	
 	public String toString() {
-		return id + "; " + nom + "; " + prenom + "; ";
+		return idt + "; " + nom + "; " + prenom + "; ";
 	}
 
 	public String renderHTML() {
@@ -81,11 +81,11 @@ public class Utilisateur extends Item {
 	}
 
 	public int getId() {
-		return id;
+		return idt;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idt = id;
 	}
 
 	public String getNom() {
