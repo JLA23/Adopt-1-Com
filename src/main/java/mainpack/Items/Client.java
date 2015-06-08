@@ -227,7 +227,7 @@ public class Client extends Item {
 		return mdp;
 	}
 
-	private void setMdp(String mdp) {
+	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
 

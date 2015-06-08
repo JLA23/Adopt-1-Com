@@ -33,6 +33,7 @@ public class ListeProfil extends HttpServlet
 			dao.createClientTable();
 			Client client1 = new Client(1, "dqznidn", "dylan", "defives", "etudiant", "11 rue des ormes", "59112", "Annoeullin", "dyl59gamegmail.com", "mdr", "0684859696", "0505050505", "etudiant", "etudiant", "lol", "a", "a", "a", "a", "a", "a", true);
 			Client client2 = new Client(1, "dqznidn", "dylan", "defives", "etudiant", "11 rue des ormes", "59112", "Annoeullin", "dyl59gamegmail.com", "mdr", "0684859696", "0505050505", "etudiant", "etudiant", "lol", "a", "a", "a", "a", "a", "a", true);
+			client1.setMdp("toto");
 			dao.insert(client1);
 			dao.insert(client2);
 			
@@ -45,7 +46,7 @@ public class ListeProfil extends HttpServlet
 			out.println("<body><center>");
 			out.println("<h1>Liste des Profils</h1>" );
 			
-			out.println("<table border='none'><tr>");
+			out.println("<table border='0'><tr>");
 			
 			for(int i = 0; i < l.size(); i++){
 				out.println("<tr>");
