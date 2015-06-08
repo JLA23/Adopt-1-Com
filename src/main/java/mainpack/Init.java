@@ -1,5 +1,7 @@
 package mainpack;
 
+import mainpack.Items.Client;
+
 import org.skife.jdbi.v2.DBI;
 import org.sqlite.SQLiteDataSource;
 
@@ -27,6 +29,8 @@ public class Init {
 		ds.setUrl("jdbc:sqlite:" + System.getProperty("java.io.tmpdir")
 				+ System.getProperty("file.separator") + "data.db");
 		dbi = new DBI(ds);
+		initDao();
+		initTables();
 	}
 	
 	public void initClientDao(){
@@ -104,5 +108,9 @@ public class Init {
 		
 		utilisateurDao.dropUtilisateurTable();
 		utilisateurDao.createUtilisateurTable();
+	}
+	
+	public void exempleClient(){
+		clientDao.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", "59000", "Lille", "bourbie@gmail.com", "bourbie", "0606060606", "01/01/0001", "0404040404", "Bourbiste", "Bourbe", "Blblblblblblblblbblblblblbl", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, null, "service", "talent", true));
 	}
 }
