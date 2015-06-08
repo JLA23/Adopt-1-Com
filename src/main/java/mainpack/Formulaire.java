@@ -22,7 +22,7 @@ public class Formulaire extends HttpServlet {
 			throws ServletException, IOException {
 		boolean mdpEgaux;
 		boolean mailEgaux;
-		String nomValidation = ""; 
+		String nomValidation = "";
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 
@@ -35,31 +35,60 @@ public class Formulaire extends HttpServlet {
 		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css\">");
 		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css\">");
 		out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js\"></script>");
-		
+
 		out.println("<title>Formulaire</title>");
 
 		out.println("<body><div class='container'>");
 		out.println("<h1>Formulaire Inscription</h1>");
 
-
 		out.print("<form method='post' action='VerifForm'>");
-		out.println("<div class='form-group "+nomValidation+"'>" +
-						"<label for='nom'>Nom (*) : </label>" +
-						"<INPUT type='text' value='' name='nom' required class='form-control'>" +
-					"</div>");
-		out.println("Prénom (*) : <INPUT type='text' value='' name='prenom' required></td>");
-		out.println("Entreprise (*) : <INPUT type='text' value='' name='entreprise' required>");
-		out.println("Adresse (*) :<INPUT type='text' value='' name='adresse' required>");
-		out.println("Code Postal (*) : <INPUT type='text' value='' name='codepost' required>");
-		out.println("Ville (*) : <INPUT type='text' value='' name='ville' required>");
-		out.println("E-mail (*) :<INPUT type='email' value='' name='mail' required placeholder='thierry.dupont@gmail.com'>");
-		out.println("Confirmer E-mail (*) : <INPUT type='email' value='' name='mail2' required placeholder='thierry.dupont@gmail.com'>");
-		out.println("Téléphone (*) : <INPUT type='tel' value='' name='tel' required placeholder='0675000000'>");
-
-		out.println("Fax : <INPUT type='text' value='' name='fax'>");
-		out.println("Métier (*) : <INPUT type='text' value='' name='profession' required>");
-		out.println("Domaine d'activité (*) : <INPUT type='text' value='' name='activite' required>"); 
+		out.println("<div class='form-group'>"
+					+ "<label for='nom'>Nom (*) : </label>"
+					+ "<INPUT type='text' value='' name='nom' required class='form-control'>"
+				+ "</div>");
+		out.println("<div class='form-group'>"
+					+ "<label for='prenom'>Prénom (*) : </label>"
+					+ "<INPUT type='text' value='' name='prenom' required class='form-control'>"
+				+ "</div>");
+		out.println("<div class='form-group'>"
+				+ "<label for='entreprise'>Entreprise (*) : </label>"
+				+ "<INPUT type='text' value='' name='entreprise' required class='form-control'>"
+			+ "</div>");
+		out.println("<div class='form-group'>"
+				+ "<label for='adresse'>Adresse (*) : </label>"
+				+ "<INPUT type='text' value='' name='adresse' required class='form-control'>"
+			+ "</div>");
+		out.println("<div class='form-group'>"
+				+ "<label for='codep'>Code Postal (*) : </label>"
+				+ "<INPUT type='text' value='' name='codep' required class='form-control'>"
+			+ "</div>");
+		out.println("<div class='form-group'>"
+				+ "<label for='ville'>Ville (*) : </label>"
+				+ "<INPUT type='text' value='' name='ville' required class='form-control'>"
+			+ "</div>");
+		out.println("<div class='form-group'>"
+				+ "<label for='mail'>E-Mail (*) : </label>"
+				+ "<INPUT type='text' value='' name='mail' required placeholder='thierry.dupont@gmail.com' class='form-control'>"
+			+ "</div>");
+		out.println("<div class='form-group'>"
+				+ "<label for='mail2'>Confirmer E-Mail (*) : </label>"
+				+ "<INPUT type='text' value='' name='mail2' required placeholder='thierry.dupont@gmail.com' class='form-control'>"
+			+ "</div>");
+		out.println("<div class='form-group'>"
+				+ "<label for='tel'>Téléphone (*) : </label>"
+				+ "<INPUT type='text' value='' name='tel' required placeholder='0675000000' class='form-control'>"
+			+ "</div>");
+		out.println("<div class='form-group'>"
+				+ "<label for='fax'>Fax : </label>"
+				+ "<INPUT type='text' value='' name='fax' class='form-control'>"
+			+ "</div>");
+		out.println("<div class='form-group'>"
+				+ "<label for='profession'>Métier (*) : </label>"
+				+ "<INPUT type='text' value='' name='profession' required class='form-control'>"
+			+ "</div>");
 		
+		out.println("Domaine d'activité (*) : <INPUT type='text' value='' name='activite' required>");
+
 		out.println("<label for='description'>Description</label>");
 		out.println("<textarea name='description' id='description' rows='8' cols='30'>Comment voyez vous votre métier ?</textarea>");
 
