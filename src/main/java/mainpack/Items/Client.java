@@ -19,7 +19,7 @@ public class Client extends Item {
 	private String ville;
 	private String mail;
 	private String mdp;
-	private Date dateNaiss;
+	private String dateNaiss;
 	private String tel;
 	private String fax;
 	private String metier;
@@ -53,7 +53,7 @@ public class Client extends Item {
 
 	public Client(int idt, String photo, String prenom, String nom,
 			String entite, String adresse, String codePostal, String ville,
-			String mail, String mdp, Date dateNaiss, String tel, String fax, String metier,
+			String mail, String mdp, String dateNaiss, String tel, String fax, String metier,
 			String domaineAct, String description, String facebook,
 			String twitter, String linkedIn, String googlePlus, String typeDePrestation, String listeProduits, boolean valide) {
 		super(idt);
@@ -272,11 +272,11 @@ public class Client extends Item {
 		this.photo = photo;
 	}
 
-	public Date getDateNaiss() {
+	public String getDateNaiss() {
 		return dateNaiss;
 	}
 
-	public void setDateNaiss(Date dateNaiss) {
+	public void setDateNaiss(String dateNaiss) {
 		this.dateNaiss = dateNaiss;
 	}
 

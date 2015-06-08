@@ -13,7 +13,7 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface ClientDao {
-	@SqlUpdate("create table clients (idt integer primary key autoincrement, photo varchar(255), nom varchar(100), prenom varchar(100), entite varchar(100), adresse varchar(100), codePostal varchar(5),ville varchar(100), mail varchar(100), mdp varchar(40), dateNaiss date, tel varchar(20), fax varchar(20), metier varchar(100), domaineAct varchar(100), description varchar(250), facebook varchar(100), twitter varchar(100), linkedIn varchar(100), googlePlus varchar(100), typeDePrestation varchar(100), listeProduits varchar(250), valide boolean)")
+	@SqlUpdate("create table clients (idt integer primary key autoincrement, photo varchar(255), nom varchar(100), prenom varchar(100), entite varchar(100), adresse varchar(100), codePostal varchar(5),ville varchar(100), mail varchar(100), mdp varchar(40), dateNaiss varchar(20), tel varchar(20), fax varchar(20), metier varchar(100), domaineAct varchar(100), description varchar(250), facebook varchar(100), twitter varchar(100), linkedIn varchar(100), googlePlus varchar(100), typeDePrestation varchar(100), listeProduits varchar(250), valide boolean)")
 	public void createClientTable();
 
 	@SqlUpdate("insert into clients (photo, nom, prenom, entite, adresse, codePostal, ville, mail, mdp, dateNaiss, tel, fax, metier, domaineAct, description, facebook, twitter, linkedIn, googlePlus, typeDePrestation, listeProduits, valide) values (:photo, :nom, :prenom, :entite, :adresse, :codePostal, :ville, :mail, :mdp, :dateNaiss, :tel, :fax, :metier, :domaineAct, :description, :facebook, :twitter, :linkedIn, :googlePlus, :typeDePrestation, :listeProduits, :valide)")
