@@ -45,7 +45,7 @@ public class Client extends Item {
 	 */
 	
 	public Client(){
-		super(-1);
+		super(1);
 	}
 
 	public Client(int idt, String photo, String prenom, String nom,
@@ -223,7 +223,7 @@ public class Client extends Item {
 		return mdp;
 	}
 
-	private void setMdp(String mdp) {
+	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
 

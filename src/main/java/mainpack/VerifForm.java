@@ -58,7 +58,7 @@ public class VerifForm extends HttpServlet {
 					|| profession == null) {
 				res.sendRedirect("Formulaire?error=1");
 			} else {
-				dao.insert(nom, prenom, entreprise);
+				//dao.insert(nom, prenom, entreprise);
 				res.sendRedirect("Formulaire");
 			}
 
