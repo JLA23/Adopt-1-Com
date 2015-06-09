@@ -4,7 +4,7 @@ import java.sql.Date;
 
 /**
  * 
- * @author anget La classe Client permet de créer des Offres ainsi que leur
+ * @author anget La classe Promo permet de créer des Promos ainsi que leur
  *         attributs. Les getters permettent de récupérer ces derniers.
  */
 

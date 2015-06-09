@@ -9,9 +9,9 @@ public class Produit extends Item {
 	private int idVendeur;
 	private String promo;
 	private boolean offreGroupe;
-	private String catégorie;
+	private String categorie;
 
-	public Produit(int id, String libelle, String photo, String prix, String description, int idVendeur, String promo, boolean offreGroupe, String catégorie) {
+	public Produit(int id, String libelle, String photo, String prix, String description, int idVendeur, String promo, boolean offreGroupe, String categorie) {
 		super(id);
 		this.setLibelle(libelle);
 		this.setPrix(prix);
@@ -20,7 +20,7 @@ public class Produit extends Item {
 		this.setIdVendeur(idVendeur);
 		this.setPromo(promo);
 		this.setOffreGroupe(offreGroupe);
-		this.setCatégorie(catégorie);
+		this.setCategorie(categorie);
 		
 		
 	}
@@ -93,20 +93,20 @@ public class Produit extends Item {
 		this.offreGroupe = offreGroupe;
 	}
 
-	public String getCatégorie() {
-		return catégorie;
-	}
-
-	public void setCatégorie(String catégorie) {
-		this.catégorie = catégorie;
-	}
-
 	public String getPhoto() {
 		return photo;
 	}
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public String getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
 	}
 
 }

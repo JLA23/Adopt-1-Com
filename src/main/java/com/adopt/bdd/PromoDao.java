@@ -19,23 +19,28 @@ public interface PromoDao {
 	@SqlUpdate("insert into promos (libelle, photo, description, idVendeur, promo, offreGroupe, categorie) values (:libelle, :photo, :description, :idVendeur, :promo, :offreGroupe, :categorie)")
 	@GetGeneratedKeys
 	int insert(@BindBean Promo p);
-	
+
 	@SqlUpdate("update promos set libelle = :libelle, photo = :photo, description = :description, idVendeur = :idVendeur, promo = :promo, offreGroupe = :offreGroupe, categorie = :categorie")
 	void update(@BindBean Promo p);
-	
+
 	@SqlQuery("select * from promos where idt = :idt")
-    @RegisterMapperFactory(BeanMapperFactory.class)
+	@RegisterMapperFactory(BeanMapperFactory.class)
 	Promo findByIdt(@Bind("idt") int idt);
-	
+
+	///Compte le nombre de lignes
+	@SqlQuery("select count(*) from promos")
+	public int count();
+
 	@SqlQuery("select * from promos where idVendeur = :idVendeur")
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	List<Promo> listerPromoParIdClient(@Bind("idVendeur") int idVendeur);
-	
+
 	@SqlUpdate("delete from promos where idt = :idt")
-	int deletePromo(@Bind("idt")int idt);
-	
+	int deletePromo(@Bind("idt") int idt);
+
 	@SqlUpdate("drop table if exists promos")
-	void dropPromoTable(); 
-	
+	void dropPromoTable();
+
 	void close();
+
 }
