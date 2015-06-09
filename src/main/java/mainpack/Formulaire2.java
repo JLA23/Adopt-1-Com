@@ -19,10 +19,9 @@ public class Formulaire2 extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		
 		Map<String, String[]> params = req.getParameterMap();
 		System.out.println(params.get("photo")[0]);
-		
+
 		String emailconf = "";
 		String passwdconf = "";
 		String warning = "";
@@ -37,30 +36,72 @@ public class Formulaire2 extends HttpServlet {
 			warning = "has-warning";
 			checked = false;
 		}
-		
+
 		// redirection basique
 		if (checked == true) {
 			Client c = new Client();
-			c.setIdt(-1);
-			if(params.get("photo")!=null) c.setPhoto(params.get("photo")[0]);
-			if(params.get("nom")!=null) c.setNom(params.get("nom")[0]);
-			if(params.get("prenom")!=null) c.setPrenom(params.get("prenom")[0]);
-			if(params.get("entite")!=null) c.setEntite(params.get("entite")[0]);
-			if(params.get("site")!=null) c.setSite(params.get("site")[0]);
-			if(params.get("adresse")!=null) c.setAdresse(params.get("adresse")[0]);
-
-			Client cucucpranslin = new Client(-1, null, params.get("prenom")[0], params.get("nom")[0], params.get("entreprise")[0], params.get("site")[0], params.get("adresse")[0], params.get("codep")[0], params.get("ville")[0], params.get("mail")[0], params.get("password")[0], params.get("date")[0], params.get("tel")[0], params.get("fax")[0], params.get("profession")[0], params.get("domaine")[0], params.get("description")[0], params.get("facebook")[0], params.get("twitter")[0], params.get("linkedIn")[0], params.get("google")[0], params.get("prestation")[0], null, true); //TODO Ajouter listeProduits dans le formulaire
+			generateClient(c, params);
 			Init.getInstance().getClientDao().insert(c);
 			res.sendRedirect("matching.jsp");
 		}
-			
+
 		// Redirection avec attribut
-		
+
 		req.setAttribute("emailconf", emailconf);
 		req.setAttribute("passwdconf", passwdconf);
 		req.setAttribute("warning", warning);
-		
+
 		RequestDispatcher rd = req.getRequestDispatcher("/formulaire.jsp");
 		rd.forward(req, res);
+	}
+	
+	private void generateClient(Client c, Map<String, String[]> params){
+		c.setIdt(-1);
+		if (params.get("photo") != null)
+			c.setPhoto(params.get("photo")[0]);
+		if (params.get("nom") != null)
+			c.setNom(params.get("nom")[0]);
+		if (params.get("prenom") != null)
+			c.setPrenom(params.get("prenom")[0]);
+		if (params.get("entreprise") != null)
+			c.setEntite(params.get("entreprise")[0]);
+		if (params.get("site") != null)
+			c.setSite(params.get("site")[0]);
+		if (params.get("adresse") != null)
+			c.setAdresse(params.get("adresse")[0]);
+		if (params.get("codep") != null)
+			c.setCodePostal(params.get("codep")[0]);
+		if (params.get("ville") != null)
+			c.setVille(params.get("ville")[0]);
+		if (params.get("mail") != null)
+			c.setMail(params.get("mail")[0]);
+		if (params.get("password") != null)
+			c.setMdp(params.get("password")[0]);
+		if (params.get("date") != null)
+			c.setDateNaiss(params.get("date")[0]);
+		if (params.get("tel") != null)
+			c.setTel(params.get("tel")[0]);
+		if (params.get("fax") != null)
+			c.setFax(params.get("fax")[0]);
+		if (params.get("profession") != null)
+			c.setMetier(params.get("profession")[0]);
+		if (params.get("domaine") != null)
+			c.setDomaineAct(params.get("domaine")[0]);
+		if (params.get("description") != null)
+			c.setDescription(params.get("description")[0]);
+		if (params.get("facebook") != null)
+			c.setFacebook(params.get("facebook")[0]);
+		if (params.get("twitter") != null)
+			c.setTwitter(params.get("twitter")[0]);
+		if (params.get("linkedIn") != null)
+			c.setLinkedIn(params.get("linkedIn")[0]);
+		if (params.get("google") != null)
+			c.setGooglePlus(params.get("google")[0]);
+		if (params.get("prestation") != null)
+			c.setTypeDePrestation(params.get("prestation")[0]);
+		if (params.get("produits") != null)
+			c.setListeProduits(params.get("produits")[0]);
+		c.setValide(true); 
+		// TODO Ajouter listeProduits dans le formulaire
 	}
 }
