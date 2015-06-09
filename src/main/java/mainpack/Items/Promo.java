@@ -1,6 +1,5 @@
 package mainpack.Items;
 
-import java.sql.Date;
 
 /**
  * 
@@ -12,14 +11,16 @@ public class Promo extends Item {
 
 
 	private int idProduit;
-	private Date datefin;
+	private int idService;
+	private String datefin;
 	private String remise;
 	private String description;
 
 	
-	public Promo(int id, int idProduit, Date datefin, String remise, String description){
+	public Promo(int id, int idProduit, int idService, String datefin, String remise, String description){
 		super(id);
 		this.setIdProduit(idProduit);
+		this.setIdService(idService);
 		this.setDatefin(datefin);
 		this.setRemise(remise);
 		this.setDescription(description);
@@ -44,12 +45,12 @@ public class Promo extends Item {
 	}
 
 
-	public Date getDatefin() {
+	public String getDatefin() {
 		return datefin;
 	}
 
 
-	public void setDatefin(Date datefin) {
+	public void setDatefin(String datefin) {
 		this.datefin = datefin;
 	}
 
@@ -71,5 +72,15 @@ public class Promo extends Item {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+
+	public int getIdService() {
+		return idService;
+	}
+
+
+	public void setIdService(int idService) {
+		this.idService = idService;
 	}
 }

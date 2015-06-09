@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.adopt.bdd.ClientDao;
 import com.adopt.bdd.ProduitDao;
-import com.adopt.bdd.PromoDao;
 import com.adopt.bdd.ServiceDao;
 
 import mainpack.Items.*;
@@ -18,22 +17,15 @@ public class BDD {
 	}
 
 	public Item getRandomItem() {
-		int r = (int) new Random().nextInt(4);
+		int r = (int) new Random().nextInt(3);
 		if (r == 0) {
 			return getRandomClient();
 		} else if (r == 1) {
 			return getRandomProduit();
 		} else if (r == 2) {
 			return getRandomService();
-		} else if (r == 3) {
-			return getRandomPromo();
 		}
 		return null;
-	}
-
-	private Item getRandomPromo() {
-		PromoDao pd = init.getPromoDao();
-		return pd.findByIdt((int)new Random().nextInt(pd.count())+1);
 	}
 
 	private Item getRandomService() {

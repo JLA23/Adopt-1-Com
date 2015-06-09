@@ -2,6 +2,7 @@ package mainpack;
 
 import mainpack.Items.Client;
 import mainpack.Items.Produit;
+import mainpack.Items.Promo;
 import mainpack.Items.Service;
 
 import org.skife.jdbi.v2.DBI;
@@ -120,7 +121,7 @@ public class Init {
 	}
 	
 	public void exempleClient(){
-		clientDao.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", "59000", "Lille", "bourbie@gmail.com", "bourbie", "0606060606", "01/01/0001", "0404040404", "Bourbiste", "Bourbe", "Blblblblblblblblbblblblblbl", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, null, "service", "talent", true));
+		clientDao.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
 	}
 	
 	public void exempleProduit(){
@@ -132,6 +133,6 @@ public class Init {
 	}
 	
 	public void exemplePromo(){
-		//promoDao.insert(new Promo(-1, 1, "", "10", description))
+		promoDao.insert(new Promo(-1, 1, -1, "10/06/2015", "15€", "Remise exceptionnelle sur les chaises de jardin"));
 	}
 }
