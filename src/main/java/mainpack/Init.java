@@ -137,7 +137,7 @@ public class Init {
 	}
 	
 	public void exempleService(){
-		serviceDao.insert(new Service(-1, "Massage", null, "1000€", "Massage agréable et gentil", 1, null, false, "Bien-être"));
+		serviceDao.insert(new Service(-1, "Massage", null, "100€", "Massage plutot sympathique", 1, null, false, "Bien-être"));
 	}
 	
 	public void exemplePromo(){
