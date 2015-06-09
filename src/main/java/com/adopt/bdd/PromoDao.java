@@ -14,11 +14,11 @@ public interface PromoDao {
 	@SqlUpdate("create table promos (idt integer primary key autoincrement, idProduit integer, idService integer, date varchar(100), remise varchar(255), description varchar(240))")
 	void createPromoTable();
 
-	@SqlUpdate("insert into promos (idProduit, idService, date, remise, description) values (:idProduit, :idService , :date, :remise, :description)")
+	@SqlUpdate("insert into promos (idProduit, idService, datefin, remise, description) values (:idProduit, :idService , :datefin, :remise, :description)")
 	@GetGeneratedKeys
 	int insert(@BindBean Promo p);
 	
-	@SqlUpdate("update promos set idProduit = :idProduit, idService = :idService, date = :date, remise = :remise, description = :description")
+	@SqlUpdate("update promos set idProduit = :idProduit, idService = :idService, datefin = :datefin, remise = :remise, description = :description")
 	void update(@BindBean Promo p);
 	
 	@SqlQuery("select * from promos where idt = :idt")
