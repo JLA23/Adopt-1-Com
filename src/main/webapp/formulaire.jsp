@@ -52,7 +52,8 @@
 				</div>
 
 				<div class='col-md-2'>
-					<div class='form-group <%out.println(request.getAttribute("warning"));%>'>
+					<div
+						class='form-group <%out.println(request.getAttribute("warning"));%>'>
 						<label for='date'>Date de Naissance (*) : </label> <input
 							type='date' class='form-control'
 							value="<%out.println(ServletHelper.getValue("date", params));%>"
@@ -64,7 +65,8 @@
 			<div class='row'>
 
 				<div class='col-md-4 col-sm-offset-1'>
-					<div class='form-group <%out.println(request.getAttribute("warning"));%>'>
+					<div
+						class='form-group <%out.println(request.getAttribute("warning"));%>'>
 						<label for='nom'>Photo (*) : </label><input type='hidden'
 							name='MAX_FILE_SIZE' value='1048576' /><input type='file'
 							value='' name='photo' required class='form-control'>
@@ -103,7 +105,7 @@
 				<div class='col-md-4 col-sm-offset-1'>
 					<div class='form-group'>
 						<label for='codep'>Code Postal (*) : </label> <input type='text'
-							class='form-control'
+							class='form-control' id='cp'
 							value="<%out.println(ServletHelper.getValue("codep", params));%>"
 							name='codep' required>
 					</div>
@@ -111,10 +113,11 @@
 
 				<div class='col-md-4'>
 					<div class='form-group'>
-						<label for='ville'>Ville (*) : </label> <input type='text'
-							class='form-control'
-							value="<%out.println(ServletHelper.getValue("ville", params));%>"
-							name='ville' required>
+						<label for='ville'>Ville (*) : </label> <select
+							class='form-control' id='ville' name='ville' required>
+							<option value="<%out.println(ServletHelper.getValue("ville", params));%>">
+							<%out.println(ServletHelper.getValue("ville", params));%></option>
+						</select>
 					</div>
 				</div>
 			</div>
@@ -130,7 +133,8 @@
 				</div>
 
 				<div class='col-md-4'>
-					<div class='form-group <%out.println(request.getAttribute("emailconf"));%>'>
+					<div
+						class='form-group <%out.println(request.getAttribute("emailconf"));%>'>
 						<label for='mail2'>Confirmer E-Mail (*) : </label> <input
 							type='email' class='form-control'
 							placeholder='thierry.dupont@gmail.com'
@@ -176,9 +180,11 @@
 					<div class='form-group'>
 						<label for='prestation'>Type de Prestation (*) : </label> <select
 							name='prestation' id='prestation' class='form-control'>
-							<option value='produit'>Produit</option>
-							<option value='service'>Service</option>
-							<option value='both'>Les deux</option>
+							<option value="<%out.println(ServletHelper.getValue("prestation", params));%>">
+							<%out.println(ServletHelper.getValue("prestation", params));%></option>
+							<option value='produit'>produit</option>
+							<option value='service'>service</option>
+							<option value='les deux'>les deux</option>
 						</select>
 					</div>
 				</div>
@@ -187,9 +193,11 @@
 					<div class='form-group'>
 						<label for='domaine'>Domaine d'Activité (*) : </label> <select
 							name='domaine' id='domaine' required class='form-control'>
-							<option value='agriculture'>Agriculture</option>
-							<option value='plomberie'>Plomberie</option>
-							<option value='librairie'>Librairie</option>
+							<option value="<%out.println(ServletHelper.getValue("domaine", params));%>">
+							<%out.println(ServletHelper.getValue("domaine", params));%></option>
+							<option value='agriculture'>agriculture</option>
+							<option value='plomberie'>plomberie</option>
+							<option value='librairie'>librairie</option>
 						</select>
 					</div>
 				</div>
@@ -200,9 +208,7 @@
 				<div class='col-md-8 col-sm-offset-1'>
 					<div class='form-group'>
 						<label for='description'>Description : </label>
-						<textarea name='description' id='description' rows=5 class='form-control'><%
-								out.println(params.get("description") != null ? params.get("description")[0] +"" : "Comment voyez vous votre métier ?");
-						%></textarea>
+						<textarea name='description' id='description' rows=5 class='form-control'><%out.print(params.get("description") != null ? params.get("description")[0] +"" : "Comment voyez vous votre métier ?");%></textarea>
 					</div>
 				</div>
 			</div>
@@ -258,7 +264,8 @@
 				</div>
 
 				<div class='col-md-4'>
-					<div class='form-group <%out.println(request.getAttribute("passwdconf"));%>'>
+					<div
+						class='form-group <%out.println(request.getAttribute("passwdconf"));%>'>
 						<label for='password2'>Confirmer Mot de passe (*) : </label> <input
 							type='password' class='form-control'
 							value="<%out.println(ServletHelper.getValue("password2", params));%>"
@@ -277,4 +284,20 @@
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#cp").change(function() {
+				getVilles($('#cp').val())
+			});
+		});
+		function getVilles(cp) {
+			$.getJSON("v2/cpdb/" + cp, function(data) {
+				var html = "";
+				for ( var index = 0; index < data.length; ++index) {
+					html = html + "<option value='"+data[index].ville+"'>" + data[index].ville + "</option>";
+				}
+				$("#ville").html(html);
+			})
+		}
+	</script>
 </body>
