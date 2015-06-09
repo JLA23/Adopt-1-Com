@@ -14,7 +14,7 @@ public interface PromoDao {
 	@SqlUpdate("create table promos (idt integer primary key autoincrement, idProduit integer, idService integer, date varchar(100), remise varchar(255), description varchar(240))")
 	void createPromoTable();
 
-	@SqlUpdate("insert into promos (idProduit, idService, date, remise, description) values (:idProduit, :idService , :date, :remise, :description, :idVendeur)")
+	@SqlUpdate("insert into promos (idProduit, idService, date, remise, description) values (:idProduit, :idService , :date, :remise, :description)")
 	@GetGeneratedKeys
 	int insert(@BindBean Promo p);
 	
