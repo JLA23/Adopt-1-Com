@@ -11,7 +11,7 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface PromoDao {
-	@SqlUpdate("create table promos (idt integer primary key autoincrement, idProduit integer, idService integer, date varchar(100), remise varchar(255), description varchar(240))")
+	@SqlUpdate("create table promos (idt integer primary key autoincrement, idProduit integer, idService integer, datefin varchar(100), remise varchar(255), description varchar(240))")
 	void createPromoTable();
 
 	@SqlUpdate("insert into promos (idProduit, idService, datefin, remise, description) values (:idProduit, :idService , :datefin, :remise, :description)")
