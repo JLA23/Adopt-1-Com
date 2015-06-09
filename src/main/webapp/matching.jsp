@@ -1,4 +1,5 @@
 <%@ page import="mainpack.Items.Item"%>
+<%@ page import="mainpack.Init"%>
 <%@ page import="mainpack.BDD"%>
 
 <html>
@@ -23,6 +24,7 @@
 <%
 	BDD bdd = new BDD();
 	Item item = bdd.getRandomItem();
+	int likes = Init.getInstance().getLikeDao().nbLikes(item.getIdt(), item.getType());
 %>
 
 <body>
@@ -39,6 +41,7 @@
 						<div class="caption">
 							<h3>
 								<%out.println(item.getTitle());%>
+								<span class="glyphicon glyphicon-heart pull-right"></span><span class="pull-right"><%out.println(likes);%></span>
 							</h3>
 							<p>
 								<%out.println(item.renderHTML());%>
@@ -47,9 +50,11 @@
 								<button type='submit' id='yes' class='btn btn-success btn-lg'>
 									<span class="glyphicon glyphicon-heart"></span>
 								</button>
+								<span class="pull-right">
 								<button type='submit' id='no' class='btn btn-danger btn-lg'>
 									<span class="glyphicon glyphicon-remove"></span>
 								</button>
+								</span>
 							</p>
 						</div>
 					</div>
@@ -67,6 +72,7 @@
 				contentType : 'application/json',
 				url : "v2/like/",
 				dataType : "json",
+				async : false,
 				data : JSON.stringify({
 					"userid" : 1,
 					"itemid" : $("#iditem").val(),
