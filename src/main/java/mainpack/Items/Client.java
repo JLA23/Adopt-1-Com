@@ -12,6 +12,7 @@ public class Client extends Item {
 	private String nom;
 	private String prenom;
 	private String entite;
+	private String site;
 	private String adresse;
 	private String codePostal;
 	private String ville;
@@ -48,7 +49,7 @@ public class Client extends Item {
 	public Client(){}
 
 	public Client(int idt, String photo, String prenom, String nom,
-			String entite, String adresse, String codePostal, String ville,
+			String entite, String site, String adresse, String codePostal, String ville,
 			String mail, String mdp, String dateNaiss, String tel, String fax, String metier,
 			String domaineAct, String description, String facebook,
 			String twitter, String linkedIn, String googlePlus, String typeDePrestation, String listeProduits, boolean valide) {
@@ -57,6 +58,7 @@ public class Client extends Item {
 		this.setNom(nom);
 		this.setPrenom(prenom);
 		this.setEntite(entite);
+		this.setSite(site);
 		this.setAdresse(adresse);
 		this.setCodePostal(codePostal);
 		this.setVille(ville);
@@ -286,6 +288,14 @@ public class Client extends Item {
 	@Override
 	public String getType() {
 		return "clients";
+	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
 	}
 
 }

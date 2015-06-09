@@ -75,10 +75,10 @@ public class Produit extends Item {
 				+ description
 				+ "<br>Vendu par "
 				+ Init.getInstance().getClientDao().findByIdt(idVendeur)
-						.getEntite()
+						.getEntite() //Nom entreprise
 				+ " à "
 				+ Init.getInstance().getClientDao().findByIdt(idVendeur)
-						.getVille();
+						.getVille(); 
 
 		return res;
 	}
