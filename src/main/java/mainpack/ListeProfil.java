@@ -25,11 +25,6 @@ public class ListeProfil extends HttpServlet
 		PrintWriter out=res.getWriter();;
 		
 		try{
-			/*SQLiteDataSource ds = new SQLiteDataSource();
-			ds.setUrl("jdbc:sqlite:" + System.getProperty("java.io.tmpdir")
-					+ System.getProperty("file.separator") + "data.db");
-			DBI dbi = new DBI(ds);
-			ClientDao dao = App.dbi.open(ClientDao.class);*/
 			
 			Init init = Init.getInstance();
 			ClientDao dao = init.getClientDao();
@@ -54,9 +49,8 @@ public class ListeProfil extends HttpServlet
 			
 			for(int i = 0; i < l.size(); i++){
 				if(l.get(i).isValide()==true){
-					out.println("<tr>");
-					out.println("<td><img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"image profil\" style=\"width:300px;heigth:300px\"></td>");
 					int id = l.get(i).getIdt();
+					out.println("<tr><td><img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"image profil\" style=\"width:300px;heigth:300px\"></td>");			
 					out.println("<td>" + l.get(i).getPrenom() + " " + l.get(i).getNom() + "<br>" + l.get(i).getMetier() + "<br>" + l.get(i).getEntite() + "<br>" + l.get(i).getVille() + "\n<br><br><input type=\"button\" name=\"submit\" value=\"Profil\" onclick=\"self.location='localhost:8080/PageProfil?id="+id+"'\" target=\"_blank\"> </td>");
 					out.println("</tr><tr>");
 					out.println("<td><a href="+l.get(i).getFacebook()+"><img src=\"http://www.clementpellerin.fr/wp-content/uploads/2011/05/facebook-icon.png\" alt=\"lien Facebook\" style=\"width:30px;heigth:30px\"></a>");
@@ -69,9 +63,6 @@ public class ListeProfil extends HttpServlet
 			}
 			
 		    out.println("</table>");
-		    out.println("<br>");
-		    
-			out.println("");
 			out.println("</center></body></html>");
 			
 		} catch(Exception e){
