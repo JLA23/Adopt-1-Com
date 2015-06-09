@@ -91,14 +91,6 @@ public class Client extends Item {
 		return res;
 	}
 
-	public int getId() {
-		return idt;
-	}
-
-	public void setId(int id) {
-		this.idt = id;
-	}
-
 	public String getNom() {
 		return nom;
 	}

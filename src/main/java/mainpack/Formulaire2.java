@@ -40,8 +40,17 @@ public class Formulaire2 extends HttpServlet {
 		
 		// redirection basique
 		if (checked == true) {
-			Client c = new Client(-1, params.get("photo")[0], params.get("prenom")[0], params.get("nom")[0], params.get("entreprise")[0], params.get("site")[0], params.get("adresse")[0], params.get("codep")[0], params.get("ville")[0], params.get("mail")[0], params.get("password")[0], params.get("date")[0], params.get("tel")[0], params.get("fax")[0], params.get("profession")[0], params.get("domaine")[0], params.get("description")[0], params.get("facebook")[0], params.get("twitter")[0], params.get("linkedIn")[0], params.get("google")[0], params.get("prestation")[0], null, true); //TODO Ajouter listeProduits dans le formulaire
-			//Init.getInstance().getClientDao().insert(c);
+			Client c = new Client();
+			c.setIdt(-1);
+			if(params.get("photo")!=null) c.setPhoto(params.get("photo")[0]);
+			if(params.get("nom")!=null) c.setNom(params.get("nom")[0]);
+			if(params.get("prenom")!=null) c.setPrenom(params.get("prenom")[0]);
+			if(params.get("entite")!=null) c.setEntite(params.get("entite")[0]);
+			if(params.get("site")!=null) c.setSite(params.get("site")[0]);
+			if(params.get("adresse")!=null) c.setAdresse(params.get("adresse")[0]);
+
+			Client cucucpranslin = new Client(-1, null, params.get("prenom")[0], params.get("nom")[0], params.get("entreprise")[0], params.get("site")[0], params.get("adresse")[0], params.get("codep")[0], params.get("ville")[0], params.get("mail")[0], params.get("password")[0], params.get("date")[0], params.get("tel")[0], params.get("fax")[0], params.get("profession")[0], params.get("domaine")[0], params.get("description")[0], params.get("facebook")[0], params.get("twitter")[0], params.get("linkedIn")[0], params.get("google")[0], params.get("prestation")[0], null, true); //TODO Ajouter listeProduits dans le formulaire
+			Init.getInstance().getClientDao().insert(c);
 			res.sendRedirect("matching.jsp");
 		}
 			

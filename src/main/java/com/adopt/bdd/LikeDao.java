@@ -28,11 +28,11 @@ public interface LikeDao {
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	public int nbVues(@Bind("idCible") int idCible, @Bind("typeCible") String typeCible);
 
-	@SqlQuery("select count(*) from likes where idCible = :idCible and typeCible=:typeCible and aime = true")
+	@SqlQuery("select count(*) from likes where idCible = :idCible and typeCible=:typeCible and aime = 'true'")
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	public int nbLikes(@Bind("idCible") int idCible, @Bind("typeCible") String typeCible);
 	
-	@SqlQuery("select count(*) from likes where idCible = :idCible and typeCible=:typeCible and aime = false")
+	@SqlQuery("select count(*) from likes where idCible = :idCible and typeCible=:typeCible and aime = 'false'")
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	public int nbDislikes(@Bind("idCible") int idCible, @Bind("typeCible") String typeCible);
 	
