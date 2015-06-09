@@ -55,15 +55,17 @@ public class ListeProfil extends HttpServlet
 
 
 			//Debut du corps de la page
-			out.println("<body><center>");
-			out.println("<h1>Liste des Profils</h1>" );
-
-
+			out.println("<body><div class='container'>");
+			out.println("<h1 class='text-center'>Liste des Profils</h1>" );
+			out.println("<br />");
 			for(int i = 0; i < l.size(); i++){
-				if(l.get(i).isValide()==true){
+				if(l.get(i).isValide()){
+					int j = i%3;
 					int id = l.get(i).getIdt();
-					out.println("<div class=\"row\">");
-					out.println("<div class=\"col-md-2\">");
+					if(j == 0){
+						out.println("<div class='row'>");
+					}
+					out.println("<div class='col-md-4 text-center'>");
 					out.println("<div class=\"thumbnail\">");
 					out.println("<img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"...\">");
 					out.println("<p><a href=\"#\" class=\"btn btn-success\" role=\"\">J'aime</a> <a href=\"#\" class=\"btn btn-danger\" role=\"button\">J'aime pas</a></p>");
@@ -71,11 +73,12 @@ public class ListeProfil extends HttpServlet
 					out.println("" + l.get(i).getMetier() + "<br>" + l.get(i).getEntite() + "<br>" + l.get(i).getVille() + "\n<br><br><a class=\"btn btn-warning btn-lg\" href=\"PageProfil?id="+id+"\" role=\"button\">En savoir plus</a>");
 					out.println("</div>");
 					out.println("</div>");
-					out.println("</div>");
+					if(j == 0 && i != 0){
+						out.println("</div>");
+					}
 				}
 			}
-
-			out.println("</center></body></html>");
+			out.println("</div></body></html>");
 
 		} catch(Exception e){
 			out.println(e.getMessage());
