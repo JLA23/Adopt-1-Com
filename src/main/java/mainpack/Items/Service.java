@@ -1,5 +1,7 @@
 package mainpack.Items;
 
+import mainpack.Init;
+
 public class Service extends Item {
 
 	private String libelle;
@@ -57,8 +59,16 @@ public class Service extends Item {
 	}
 
 	public String renderHTML() {
-		String res = "<td>Id : " + idt + "<br> Libellé : " + libelle
-				+ "<br> Prix : " + prix + "<br> Description : " + description;
+		String res = "<td>"
+				+ prix
+				+ "<br>"
+				+ description
+				+ "<br>Proposé par "
+				+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+						.getEntite() //Nom entreprise
+				+ " à "
+				+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+						.getVille(); 
 
 		return res;
 	}
