@@ -9,10 +9,7 @@ public class BDDTest {
 	@Before
 	public void before(){
 		bdd=new BDD();
-		Init.getInstance().exempleClient();
-		Init.getInstance().exempleProduit();
-		Init.getInstance().exemplePromo();
-		Init.getInstance().exempleService();
+		Init.getInstance();
 	}
 	
 	@Test

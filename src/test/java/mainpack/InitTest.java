@@ -15,7 +15,6 @@ public class InitTest {
 	}
 	@Test
 	public void testClient() {
-		init.exempleClient();
 		Client cl = init.getClientDao().findByIdt(1);
 		assertEquals("Bourbie", cl.getPrenom());
 		System.out.println(cl.getId());
