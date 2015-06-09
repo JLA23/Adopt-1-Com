@@ -47,6 +47,10 @@ public class Service extends Item {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+	
+	public String getLibelle(){
+		return libelle;
+	}
 
 	public String renderHTML() {
 		String res = "<td>Id : " + idt + "<br> Libellé : " + libelle
