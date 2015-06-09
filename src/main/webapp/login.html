@@ -1,22 +1,123 @@
 <html>
-  <head><meta charset="UTF-8">
-  <link rel=stylesheet type=text/css href=style.css>
-  <title>Page de login</title>
-  </head>
-<body><center>
-<h1> Connection Adopt-1-Com </h1>
-<h3>
-<FORM METHOD="POST" ACTION="Connection"><br>
-Email :
-<INPUT type="text" value="" name="email" required="require"><br>
-<br/>
-Mot de passe :
-<INPUT type="password" value="" name="mdp" required="require"><br><br>
-<br/>
-<INPUT type="submit" value="Se connecter">
-</FORM></h3>
-<br/>
-<h2><a href='Formulaire'>Inscription</a></h2>
-</center>
-</body>
+	<head>
+
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" media="all" title="style de la page" href="login.css" />
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<title>Page de login</title>
+ 
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+		<script>
+			$(document).ready(function() {
+		 	 $('.nav-toggle').click(function(){
+				//get collapse content selector
+				var collapse_content_selector = $(this).attr('href');					
+ 
+				//make the collapse content to be shown or hide
+				var toggle_switch = $(this);
+				$(collapse_content_selector).toggle(function(){
+			 	 if($(this).css('display')=='none'){
+                                //change the button label to be 'Show'
+					toggle_switch.html('Connection'); 
+				 }else{
+                                //change the button label to be 'Hide'
+					toggle_switch.html('Renseignez les champs ci-dessous');
+			 	 }
+				});
+		  	});
+ 
+		  });
+
+
+		</script>
+
+		<script>
+			$(document).ready(function() {
+		  	$('.nav-toggle2').click(function(){
+				//get collapse content selector
+					var collapse_content_selector = $(this).attr('href');					
+ 
+				//make the collapse content to be shown or hide
+				var toggle_switch = $(this);
+				$(collapse_content_selector).toggle(function(){
+			 	 if($(this).css('display')=='none'){
+                                //change the button label to be 'Show'
+					toggle_switch.html('Inscription');
+			  	}else{
+                	                //change the button label to be 'Hide'
+					toggle_switch.html('Veuillez choisir le formulaire');
+			  	}
+				});
+		 	 });
+ 
+			});	
+
+		</script>
+
+		<style>	
+		.round-border {
+			border: 1px solid #eee;
+			border: 1px solid rgba(0, 0, 0, 0.05);
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+			padding: 10px;
+			margin-bottom: 5px;
+		}
+		</style>
+		</head>
+		<body>
+				<center>
+					<section class="round-border">
+					<h2>Adopt-1-Com</h2>
+				</center>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<button href="#collapse1" class="btn btn-lg btn-warning nav-toggle">Connexion</button>
+						</div>
+						<div class="col-md-6">
+							<button href="#collapse2" class="btn btn-lg btn-warning nav-toggle2">Inscription</button>
+						</div>	
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div id="collapse1" style="display:none">
+								<div style="margin:1em">
+									<form METHOD="POST" ACTION="Connection">
+										<div class="form-group">
+											<label for="email"> Email :</label>
+											<input type="text" value="" name="email" required="require" class="form-control">
+										</div>
+										<div class="form-group">
+											<label for="mdp">Mot de passe :</label>
+											<input type="password" value="" name="mdp" required="require" class="form-control">
+										</div>
+										<div class="form-group">
+											<button type="submit" class="btn btn-default">Se connecter</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div id="collapse2" style="display:none">
+								<div style="margin:1em">
+									<div class="form-group">
+										<br><a class="btn btn-default" href="formulaire.jsp">Formulaire Client</a>
+									</div>
+									<div class="form-group">
+										<a class="btn btn-default" href="utilisateur.jsp">Formulaire Particulier</a>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+		</section>
+	</body>
 </html>
