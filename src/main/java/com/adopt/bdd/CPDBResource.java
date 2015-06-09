@@ -39,7 +39,6 @@ public class CPDBResource {
 			br.close();
 			dao.load(code, ville);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

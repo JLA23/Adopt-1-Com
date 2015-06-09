@@ -43,13 +43,13 @@ public class ListeProfil extends HttpServlet
 			out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css\">");
 			out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js\"></script>");
 
-			out.println("<title>Liste des Profils</title>");
+			out.println("<title>Entreprises, commerçants et artisans locaux</title>");
 			out.println("</head>");
 
 
 			//Debut du corps de la page
 			out.println("<body><div class='container'>");
-			out.println("<h1 class='text-center'>Liste des Profils</h1>" );
+			out.println("<h1 class='text-center'>Entreprises, commerçants et artisans locaux</h1>" );
 			out.println("<br />");
 			out.println("<div class='row'>");
 			for(int i = 0; i < l.size(); i++){

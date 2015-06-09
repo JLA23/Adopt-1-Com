@@ -40,7 +40,7 @@ public class Formulaire2 extends HttpServlet {
 		// redirection basique
 		if (checked == true) {
 			Client c = new Client();
-			generateClient(c, params);
+			generateClient(c, params);//TODO Ajouter client dans la base utilisateur
 			Init.getInstance().getClientDao().insert(c);
 			res.sendRedirect("matching.jsp");
 		}
