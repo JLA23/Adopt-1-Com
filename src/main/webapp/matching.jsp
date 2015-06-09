@@ -54,4 +54,20 @@
 				</div>
 		</form>
 	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#cp").change(function() {
+				getVilles($('#cp').val())
+			});
+		});
+		function getVilles(cp) {
+			$.getJSON("v2/cpdb/" + cp, function(data) {
+				var html = "";
+				for ( var index = 0; index < data.length; ++index) {
+					html = html + "<option value='"+data[index].ville+"'>" + data[index].ville + "</option>";
+				}
+				$("#ville").html(html);
+			})
+		}
+	</script>
 </body>

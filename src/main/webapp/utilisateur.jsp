@@ -43,7 +43,7 @@
 
 				<div class='col-md-3'>
 					<div class='form-group'>
-						<label for='prenom'>PrÃ©nom : </label> <input type='text'
+						<label for='prenom'>Prénom : </label> <input type='text'
 							class='form-control'
 							value="<%out.println(ServletHelper.getValue("prenom", params));%>"
 							name='prenom'>
@@ -135,7 +135,7 @@
 			<div class='row'>
 				<div class='col-md-4 col-sm-offset-1'>
 					<div class='form-group'>
-						<label for='tel'>TÃ©lÃ©phone : </label> <input type='text'
+						<label for='tel'>Téléphone : </label> <input type='text'
 							class='form-control' placeholder='0670000000'
 							value="<%out.println(ServletHelper.getValue("tel", params));%>"
 							name='tel'>

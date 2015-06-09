@@ -27,7 +27,7 @@
 <body>
 	<div class="container">
 		<div class='page-header col-sm-offset-1'>
-			<h1>Formulaire Inscription <small>Client</small></h1>
+			<h1>Formulaire Inscription <small>Artisan / Commerçant / TPE / PME</small></h1>
 		</div>
 		<form method='post' action='Formulaire2'>
 
@@ -79,7 +79,7 @@
 			</div>
 
 			<div class='row'>
-				<div class='col-md-8 col-sm-offset-1'>
+				<div class='col-md-4 col-sm-offset-1'>
 					<div class='form-group'>
 						<label for='entreprise'>Entreprise (*) : </label> <input
 							type='text' class='form-control'
@@ -87,12 +87,22 @@
 							name='entreprise' required>
 					</div>
 				</div>
+
+			
+			<div class='col-md-4'>
+					<div class='form-group'>
+						<label for='site'>Site Internet de l'Entreprise : </label> <input type='url'
+							class='form-control'
+							value="<%out.println(ServletHelper.getValue("site", params));%>"
+							name='site' placeholder='http://www.mon-site.fr'>
+					</div>
+				</div>
 			</div>
 
 			<div class='row'>
 				<div class='col-md-8 col-sm-offset-1'>
 					<div class='form-group'>
-						<label for='adresse'>Adresse (*) : </label> <input type='text'
+						<label for='adresse'>Adresse de l'Entreprise(*) : </label> <input type='text'
 							class='form-control'
 							value="<%out.println(ServletHelper.getValue("adresse", params));%>"
 							name='adresse' required>
