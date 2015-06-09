@@ -1,7 +1,5 @@
 package com.adopt.bdd;
 
-import java.util.List;
-
 import mainpack.Items.Promo;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
@@ -13,34 +11,33 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface PromoDao {
-	@SqlUpdate("create table promos (idt integer primary key autoincrement, libelle varchar(100), photo varchar(255), description varchar(240), idVendeur integer, promo varchar(100), offreGroupe boolean, categorie varchar(100))")
+	@SqlUpdate("create table promos (idt integer primary key autoincrement, idProduit integer, idService integer, date varchar(100), remise varchar(255), description varchar(240))")
 	void createPromoTable();
 
-	@SqlUpdate("insert into promos (libelle, photo, description, idVendeur, promo, offreGroupe, categorie) values (:libelle, :photo, :description, :idVendeur, :promo, :offreGroupe, :categorie)")
+	@SqlUpdate("insert into promos (idProduit, idService, date, remise, description) values (:idProduit, :idService , :date, :remise, :description, :idVendeur)")
 	@GetGeneratedKeys
 	int insert(@BindBean Promo p);
-
-	@SqlUpdate("update promos set libelle = :libelle, photo = :photo, description = :description, idVendeur = :idVendeur, promo = :promo, offreGroupe = :offreGroupe, categorie = :categorie")
+	
+	@SqlUpdate("update promos set idProduit = :idProduit, idService = :idService, date = :date, remise = :remise, description = :description")
 	void update(@BindBean Promo p);
-
+	
 	@SqlQuery("select * from promos where idt = :idt")
-	@RegisterMapperFactory(BeanMapperFactory.class)
+    @RegisterMapperFactory(BeanMapperFactory.class)
 	Promo findByIdt(@Bind("idt") int idt);
-
-	///Compte le nombre de lignes
-	@SqlQuery("select count(*) from promos")
-	public int count();
-
-	@SqlQuery("select * from promos where idVendeur = :idVendeur")
+	
+	@SqlQuery("select * from promos where idProduit = :idProduit")
 	@RegisterMapperFactory(BeanMapperFactory.class)
-	List<Promo> listerPromoParIdClient(@Bind("idVendeur") int idVendeur);
-
+	Promo findByIdProduct(@Bind("idProduit") int idProduit);
+	
+	@SqlQuery("select * from promos where idService = :idService")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	Promo findByIdService(@Bind("idService") int idService);
+	
 	@SqlUpdate("delete from promos where idt = :idt")
-	int deletePromo(@Bind("idt") int idt);
-
+	int deletePromo(@Bind("idt")int idt);
+	
 	@SqlUpdate("drop table if exists promos")
-	void dropPromoTable();
-
+	void dropPromoTable(); 
+	
 	void close();
-
 }
