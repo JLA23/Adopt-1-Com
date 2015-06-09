@@ -1,0 +1,6 @@
+adopt-1-com:
+  image: jla23/adopt-1-com
+  ports:
+  - ip: 37.59.171.4 
+    host_port: 80
+    container_port: 8080
