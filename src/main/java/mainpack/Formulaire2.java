@@ -19,6 +19,7 @@ public class Formulaire2 extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Map<String, String[]> params = req.getParameterMap();
+		System.out.println(params.get("photo")[0]);
 		
 		String emailconf = "";
 		String passwdconf = "";

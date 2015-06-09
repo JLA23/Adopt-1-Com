@@ -2,7 +2,6 @@ package mainpack;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mainpack.Items.Client;
 import mainpack.Items.Item;
 
 @WebServlet(name = "Matching", urlPatterns = { "/Matching" }, initParams = { @WebInitParam(name = "simpleParam", value = "paramValue") })
@@ -47,7 +45,7 @@ public class Matching extends HttpServlet {
 				+ "<div class='col-md-6 col-sm-offset-1'>");
 		out.println("<div class='form-group'>");
 		out.println(item.renderHTML());
-		out.println("</div></div></div>");
+		out.println("</div></div></div></div>");
 		
 		out.println("<div class='row'>");
 		out.println("<div class='form-group col-sm-offset-1'>"
