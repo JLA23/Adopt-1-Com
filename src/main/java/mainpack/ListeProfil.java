@@ -25,20 +25,18 @@ public class ListeProfil extends HttpServlet
 		PrintWriter out=res.getWriter();;
 		
 		try{
-			SQLiteDataSource ds = new SQLiteDataSource();
+			/*SQLiteDataSource ds = new SQLiteDataSource();
 			ds.setUrl("jdbc:sqlite:" + System.getProperty("java.io.tmpdir")
 					+ System.getProperty("file.separator") + "data.db");
 			DBI dbi = new DBI(ds);
-			ClientDao dao = App.dbi.open(ClientDao.class);
+			ClientDao dao = App.dbi.open(ClientDao.class);*/
+			
+			Init init = Init.getInstance();
+			ClientDao dao = init.getClientDao();
 			
 			try{
-				dao.createClientTable();
-				Client client1 = new Client(1, "lol", "Dylan", "Defives", "IUTALille", "Lille", "59000", "Lille", "a", "a", "01/02/1194", "06", "06", "etudiant", "etude", "lol", "lol", "lol", "lol", "lol", "lol", "lol", true);
-				Client client2 = new Client(2, "lol", "Luc", "Jourdain", "IUTALille", "Lille", "59000", "Lille", "a", "a", "01/02/2012", "06", "06", "etudiant", "etude", "lol", "lol", "lol", "lol", "lol", "lol", "lol", true);
-				Client client3 = new Client(3, "lol", "Moi", "Toi", "IUTALille", "Lille", "59000", "Lille", "a", "a", "01/02/2012", "06", "06", "etudiant", "etude", "lol", "lol", "lol", "lol", "lol", "lol", "lol", false);
-				dao.insert(client1);
-				dao.insert(client2);
-				dao.insert(client3);
+				init.initTables();
+				init.exempleClient();
 			} catch(Exception e){
 				System.out.println("BDD déjà faite !");
 			}
@@ -55,16 +53,16 @@ public class ListeProfil extends HttpServlet
 			out.println("<table border='0'><tr>");
 			
 			for(int i = 0; i < l.size(); i++){
-				if(l.get(i).isValide()){
+				if(l.get(i).isValide()==true){
 					out.println("<tr>");
-					out.println("<td><img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"image profil\" style=\"width:200px;heigth:200px\"></td>");
+					out.println("<td><img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"image profil\" style=\"width:300px;heigth:300px\"></td>");
 					int id = l.get(i).getIdt();
-					out.println("<td>" + l.get(i).getNom() + " " + l.get(i).getPrenom() + "<br>" + l.get(i).getMetier() + "<br>" + l.get(i).getEntite() + "<br>" + l.get(i).getVille() + "\n<br><br><input type=\"button\" name=\"submit\" value=\"Profil\" onclick=\"self.location='localhost:8080/PageProfil&id="+id+"'\" target=\"_blank\"> </td>");
+					out.println("<td>" + l.get(i).getPrenom() + " " + l.get(i).getNom() + "<br>" + l.get(i).getMetier() + "<br>" + l.get(i).getEntite() + "<br>" + l.get(i).getVille() + "\n<br><br><input type=\"button\" name=\"submit\" value=\"Profil\" onclick=\"self.location='localhost:8080/PageProfil?id="+id+"'\" target=\"_blank\"> </td>");
 					out.println("</tr><tr>");
-					out.println("<td><img src=\"http://www.clementpellerin.fr/wp-content/uploads/2011/05/facebook-icon.png\" alt=\"lien Facebook\" style=\"width:30px;heigth:30px\">");
-					out.println("<img src=\"http://www.sidassport.com/docs/2280-1-logo-twitter-gif.gif\" alt=\"lien Facebook\" style=\"width:30px;heigth:30px\">");
-					out.println("<img src=\"http://blog.datanyze.com/wp-content/uploads/2014/09/LinkedIn-large-logo.jpg\" style=\"width:30px;heigth:30px\">");
-					out.println("<img src=\"http://www.uha.fr/images/google_icon\" style=\"width:30px;heigth:30px\">");
+					out.println("<td><a href="+l.get(i).getFacebook()+"><img src=\"http://www.clementpellerin.fr/wp-content/uploads/2011/05/facebook-icon.png\" alt=\"lien Facebook\" style=\"width:30px;heigth:30px\"></a>");
+					out.println("<a href="+l.get(i).getTwitter()+"><img src=\"http://www.sidassport.com/docs/2280-1-logo-twitter-gif.gif\" alt=\"lien Facebook\" style=\"width:30px;heigth:30px\"></a>");
+					out.println("<a href="+l.get(i).getGooglePlus()+"><img src=\"http://blog.datanyze.com/wp-content/uploads/2014/09/LinkedIn-large-logo.jpg\" style=\"width:30px;heigth:30px\"></a>");
+					out.println("<a href="+l.get(i).getLinkedIn()+"><img src=\"http://www.uha.fr/images/google_icon\" style=\"width:30px;heigth:30px\"></a>");
 					out.println("<br><br></td>");
 					out.println("<td></td></tr>");
 				}
