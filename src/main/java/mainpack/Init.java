@@ -139,7 +139,7 @@ public class Init {
 		produitDao.insert(new Produit(-1, "Chaise", null, "18€", "Jolie chaise rouge de jardin", 1, null, false, "Mobilier"));
 		produitDao.insert(new Produit(-1, "Bureau", null, "50€", "Joli bureau rouge de jardin", 1, null, false, "Mobilier"));
 		produitDao.insert(new Produit(-1, "Lampe", null, "10€", "Jolie lampe rouge de jardin", 1, null, false, "Mobilier"));
-		produitDao.insert(new Produit(-1, "Jambon", null, "€", "Joli jambon rouge de jardin", 1, null, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Jambon", null, "20€", "Joli jambon rouge de jardin", 1, null, false, "Mobilier"));
 	}
 	
 	public void exempleService(){
