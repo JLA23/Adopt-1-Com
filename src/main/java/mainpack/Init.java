@@ -36,7 +36,7 @@ public class Init {
 		initExemples();
 	}
 	
-	public static Init getInstance(){
+	public static synchronized Init getInstance(){
 		if(instance==null){
 			instance = new Init();
 		}
@@ -92,7 +92,7 @@ public class Init {
 		return utilisateurDao;
 	}
 	
-	public void initDao(){
+	private void initDao(){
 		initClientDao();
 		initProduitDao();
 		initServiceDao();
@@ -101,7 +101,8 @@ public class Init {
 		initUtilisateurDao();
 	}
 	
-	public void initTables(){
+	private void initTables(){
+		System.out.println("init table");
 		clientDao.dropClientTable();
 		clientDao.createClientTable();
 		
@@ -128,14 +129,14 @@ public class Init {
 		exempleService();
 	}
 	
-	public void exempleClient(){
+	private void exempleClient(){
 		clientDao.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
 		clientDao.insert(new Client(-1, null, "Bourbia", "Rita", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
 		clientDao.insert(new Client(-1, null, "Bourbiu", "Ritu", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
 		clientDao.insert(new Client(-1, null, "Bourbiy", "Rity", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
 	}
 	
-	public void exempleProduit(){
+	private void exempleProduit(){
 		produitDao.insert(new Produit(-1, "Chaise", null, "18€", "Jolie chaise rouge de jardin", 1, null, false, "Mobilier"));
 		produitDao.insert(new Produit(-1, "Bureau", null, "50€", "Joli bureau rouge de jardin", 1, null, false, "Mobilier"));
 		produitDao.insert(new Produit(-1, "Lampe", null, "10€", "Jolie lampe rouge de jardin", 1, null, false, "Mobilier"));
@@ -146,14 +147,14 @@ public class Init {
 		produitDao.insert(new Produit(-1, "Paillon", null, "5€", "Joli paillon vert de compétition", 1, null, false, "Mobilier"));
 	}
 	
-	public void exempleService(){
+	private void exempleService(){
 		serviceDao.insert(new Service(-1, "Massage", null, "40€", "Massage plutot sympathique", 1, null, false, "Bien-être"));
 		serviceDao.insert(new Service(-1, "Ménage", null, "20€", "Ménage plutot sympathique", 1, null, false, "Entretien"));
 		serviceDao.insert(new Service(-1, "Restauration", null, "100€", "Resto plutot sympathique", 1, null, false, "Nourriture"));
 
 	}
 	
-	public void exemplePromo(){
+	private void exemplePromo(){
 		promoDao.insert(new Promo(-1, 1, -1, "10/06/2015", "15€", "Remise exceptionnelle sur les chaises de jardin"));
 	}
 }

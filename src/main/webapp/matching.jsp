@@ -34,6 +34,8 @@
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
 						<img src="http://static.openruby.com/assets/pages/d9/41/d9412a06dcc425bcc72a91c523749725_330.jpg" alt="image">
+						<input type="hidden" id='iditem' name="idItem"  value="<%out.println(item.getIdt());%>">
+						<input type="hidden"  id='itemtype' name="idType"  value="<%out.println(item.getType());%>">
 						<div class="caption">
 							<h3>
 								<%out.println(item.getTitle());%>
@@ -42,10 +44,10 @@
 								<%out.println(item.renderHTML());%>
 							</p>
 							<p>
-								<button type='submit' class='btn btn-success btn-lg'>
+								<button type='submit' id='yes' class='btn btn-success btn-lg'>
 									<span class="glyphicon glyphicon-heart"></span>
 								</button>
-								<button type='submit' class='btn btn-danger btn-lg'>
+								<button type='submit' id='no' class='btn btn-danger btn-lg'>
 									<span class="glyphicon glyphicon-remove"></span>
 								</button>
 							</p>
@@ -56,18 +58,29 @@
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("#cp").change(function() {
-				getVilles($('#cp').val())
-			});
+			$("#yes").click(function() {postLike(true);	});
+			$("#no").click(function() {postLike(false);	});
 		});
-		function getVilles(cp) {
-			$.getJSON("v2/cpdb/" + cp, function(data) {
-				var html = "";
-				for ( var index = 0; index < data.length; ++index) {
-					html = html + "<option value='"+data[index].ville+"'>" + data[index].ville + "</option>";
+		function postLike(aime) {
+			$.ajax({
+				type : 'POST',
+				contentType : 'application/json',
+				url : "v2/like/",
+				dataType : "json",
+				data : JSON.stringify({
+					"userid" : 1,
+					"itemid" : $("#iditem").val(),
+					"itemtype" : $("#itemtype").val(),
+					"aime": aime
+				}),
+				success : function(data, textStatus, jqXHR) {
+					$(location).attr('href',"/matching.jsp");
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert('postUser error: ' + textStatus);
 				}
-				$("#ville").html(html);
-			})
+			});
+			
 		}
 	</script>
 </body>

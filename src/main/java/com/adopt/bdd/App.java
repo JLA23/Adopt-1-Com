@@ -2,6 +2,8 @@ package com.adopt.bdd;
 
 import javax.ws.rs.ApplicationPath;
 
+import mainpack.LikeResource;
+
 import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.skife.jdbi.v2.DBI;
@@ -13,6 +15,7 @@ public class App extends ResourceConfig {
     public App() {
     	packages("com.adopt.bdd");
     	register(LoggingFilter.class);
+    	register(LikeResource.class);
     }
     
     public static DBI dbi;
