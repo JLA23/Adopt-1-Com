@@ -22,10 +22,6 @@ public class Utilisateur extends Item {
 	private String twitter;
 	private String linkedIn;
 	private String googlePlus;
-	private String typeDePrestation; // Produits, services ou les deux?
-	private String listeProduits; // Liste non exhaustive des articles ou des
-									// services proposés
-	private boolean valide;
 
 	/**
 	 * Constructeur
@@ -64,9 +60,6 @@ public class Utilisateur extends Item {
 		this.setTwitter(twitter);
 		this.setLinkedIn(linkedIn);
 		this.setGooglePlus(googlePlus);
-		this.setTypeDePrestation(typeDePrestation);
-		this.setListeProduits(listeProduits);
-		this.setValide(valide);
 	}
 
 	
@@ -186,30 +179,6 @@ public class Utilisateur extends Item {
 
 	public void setGooglePlus(String googlePlus) {
 		this.googlePlus = googlePlus;
-	}
-
-	public String getTypeDePrestation() {
-		return typeDePrestation;
-	}
-
-	public void setTypeDePrestation(String typeDePrestation) {
-		this.typeDePrestation = typeDePrestation;
-	}
-
-	public String getListeProduits() {
-		return listeProduits;
-	}
-
-	public void setListeProduits(String listeProduits) {
-		this.listeProduits = listeProduits;
-	}
-
-	public boolean isValide() {
-		return valide;
-	}
-
-	public void setValide(boolean valide) {
-		this.valide = valide;
 	}
 
 	public String getPhoto() {

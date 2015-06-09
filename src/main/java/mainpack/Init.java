@@ -33,6 +33,7 @@ public class Init {
 		dbi = new DBI(ds);
 		initDao();
 		initTables();
+		initExemples();
 	}
 	
 	public static Init getInstance(){
@@ -118,6 +119,13 @@ public class Init {
 		
 		utilisateurDao.dropUtilisateurTable();
 		utilisateurDao.createUtilisateurTable();
+	}
+	
+	public void initExemples(){
+		exempleClient();
+		exempleProduit();
+		exemplePromo();
+		exempleService();
 	}
 	
 	public void exempleClient(){

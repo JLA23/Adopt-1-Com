@@ -20,7 +20,7 @@ public interface UtilisateurDao {
 	@GetGeneratedKeys
 	public int insert(@BindBean Utilisateur u);
 
-	@SqlUpdate("update clients set photo = :photo, nom = :nom, prenom = :prenom, codePostal = :codePostal, ville = :ville, mail = :mail, mdp = :mdp, dateNaiss = :dateNaiss, tel = :tel, fax = :fax, metier = :metier, facebook = :facebook, twitter = :twitter, linkedIn = :linkedIn, googlePlus = :googlePlus where idt = :idt")
+	@SqlUpdate("update utilisateurs set photo = :photo, nom = :nom, prenom = :prenom, codePostal = :codePostal, ville = :ville, mail = :mail, mdp = :mdp, dateNaiss = :dateNaiss, tel = :tel, fax = :fax, metier = :metier, facebook = :facebook, twitter = :twitter, linkedIn = :linkedIn, googlePlus = :googlePlus where idt = :idt")
 	public void update(@BindBean Utilisateur u);
 	
 	@SqlQuery("select * from utilisateurs where idt = :idt")
