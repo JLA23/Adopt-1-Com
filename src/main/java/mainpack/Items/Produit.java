@@ -115,7 +115,7 @@ public class Produit extends Item {
 
 	@Override
 	public String getTitle() {
-		return "<span class='glyphicon glyphicon-shopping-cart'></span>" + libelle;
+		return "<span class='glyphicon glyphicon-shopping-cart'></span> " + libelle;
 	}
 
 }

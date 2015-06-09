@@ -14,14 +14,14 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 import com.adopt.items.Like;
 
 public interface LikeDao {
-	@SqlUpdate("create table likes (idVendeur integer, idUtilisateur integer, aime boolean)")
+	@SqlUpdate("create table likes (idCible integer, idUtilisateur integer, typecible varchar(10), aime boolean)")
 	public void createLikeTable();
 
-	@SqlUpdate("insert into likes (idVendeur, idUtilisateur, aime) values (:idVendeur, :idUtilisateur, :aime)")
+	@SqlUpdate("insert into likes (idCible, idUtilisateur, typeCible, aime) values (:idVendeur, :idUtilisateur, :typeCible, :aime)")
 	@GetGeneratedKeys
 	public int insert(@BindBean Like l);
 
-	@SqlUpdate("update likes set idVendeur = :idVendeur, idUtilisateur = :idUtilisateur, aime = :aime")
+	@SqlUpdate("update likes set idCible = :idCible, idUtilisateur = :idUtilisateur, aime = :aime")
 	public void update(@BindBean Like l);
 
 	@SqlQuery("select * from likes where idVendeur = :idVendeur")
