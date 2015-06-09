@@ -75,11 +75,12 @@
 				async : false,
 				data : JSON.stringify({
 					"userid" : 1,
-					"itemid" : $("#iditem").val(),
-					"itemtype" : $("#itemtype").val(),
+					"itemid" : $("#iditem").val().trim(),
+					"itemType" : $("#itemtype").val().trim(),
 					"aime": aime
 				}),
 				success : function(data, textStatus, jqXHR) {
+					console.log(data);
 					$(location).attr('href',"/matching.jsp");
 				},
 				error : function(jqXHR, textStatus, errorThrown) {

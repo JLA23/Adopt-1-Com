@@ -44,4 +44,7 @@ public class Like {
 	public void setAime(boolean aime) {
 		this.aime = aime;
 	}
+	public String toString(){
+		return idCible+", "+idUtilisateur+", "+typeCible+", "+aime;
+	}
 }
