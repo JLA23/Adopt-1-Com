@@ -35,27 +35,35 @@ public class Matching extends HttpServlet {
 
 		out.println("<title>Matching</title></head><body>");
 		out.println("<body><div class='container'>");
-		out.println("<div class='col-sm-offset-1'><center>");
 		
-		out.println("<h1>Matching</h1>");
+		out.println("<div class='page-header'>" +
+				"<h1>Matching</h1></div>");
 		
 		out.println("<form action='/Matching' method = 'post'>");
 		
 		out.println("<div class='row'>"
-				+ "<div class='col-md-6 col-sm-offset-1'>");
+				+ "<div class=''>");
 		out.println("<div class='form-group'>");
+		
+		out.println("<div class='panel panel-default col-md-4'>");
+		out.println("<div class='panel-heading'>");
+		out.println("<h3 class='panel-title'>"+item.getTitle()+"</h3>");
+		out.println("</div>");
+		out.println("<div class='panel-body'>");
 		out.println(item.renderHTML());
-		out.println("</div></div></div></div>");
+		out.println("</div></div>");
+		
+		out.println("</div></div></div>");
 		
 		out.println("<div class='row'>");
-		out.println("<div class='form-group col-sm-offset-1'>"
+		out.println("<div class='form-group col-md-1'>"
 				+ "<button type='submit' class='btn btn-success btn-lg'>J'aime</button>"
 				+ "</div>");
-		out.println("<div class='form-group col-sm-offset-1'>"
+		out.println("<div class='form-group col-sm-offset-2'>"
 				+ "<button type='submit' class='btn btn-danger btn-lg'>J'aime pas</button>"
 				+ "</div></div>");
 		
-		out.println("</form>");
+		out.println("</div></form>");
 
 		out.close();
 	}
