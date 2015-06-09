@@ -33,6 +33,7 @@ public class Init {
 		dbi = new DBI(ds);
 		initDao();
 		initTables();
+		initExemples();
 	}
 	
 	public static Init getInstance(){
@@ -120,6 +121,13 @@ public class Init {
 		utilisateurDao.createUtilisateurTable();
 	}
 	
+	public void initExemples(){
+		exempleClient();
+		exempleProduit();
+		exemplePromo();
+		exempleService();
+	}
+	
 	public void exempleClient(){
 		clientDao.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
 	}
@@ -129,7 +137,7 @@ public class Init {
 	}
 	
 	public void exempleService(){
-		serviceDao.insert(new Service(-1, "Massage", null, "1000€", "Massage agréable et gentil", 1, null, false, "Bien-être"));
+		serviceDao.insert(new Service(-1, "Massage", null, "100€", "Massage plutot sympathique", 1, null, false, "Bien-être"));
 	}
 	
 	public void exemplePromo(){
