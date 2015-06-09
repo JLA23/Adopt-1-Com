@@ -83,8 +83,9 @@ public class Client extends Item {
 	}
 
 	public String renderHTML() {
-		String res = "<td>Prénom : " + prenom + "<br> Métier : " + metier
-				+ "<br> Ville : " + ville;
+		String res = "<td>" + metier +" à "+entite
+				+ "<br>" + ville
+				+ "<br> "+ description;
 		return res;
 	}
 
@@ -279,6 +280,12 @@ public class Client extends Item {
 	@Override
 	public String getTitle() {
 		return "<span class='glyphicon glyphicon-user'></span> "+prenom+" "+nom;
+	}
+
+	///Renvoie le nom de la table dans laquelle doit être stockée l'Item
+	@Override
+	public String getType() {
+		return "clients";
 	}
 
 }

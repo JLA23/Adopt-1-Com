@@ -20,5 +20,7 @@ abstract public class Item {
 	
 	abstract public String getTitle();
 	
+	abstract public String getType();
+	
 	public abstract String renderHTML();
 }

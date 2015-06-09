@@ -201,5 +201,11 @@ public class Utilisateur extends Item {
 	public String getTitle() {
 		return prenom+" "+nom;
 	}
+	
+	///Renvoie le nom de la table dans laquelle doit être stockée l'Item
+	@Override
+	public String getType() {
+		return "utilisateurs";
+	}
 
 }

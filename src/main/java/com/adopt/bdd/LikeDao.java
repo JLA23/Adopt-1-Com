@@ -24,16 +24,25 @@ public interface LikeDao {
 	@SqlUpdate("update likes set idCible = :idCible, idUtilisateur = :idUtilisateur, aime = :aime")
 	public void update(@BindBean Like l);
 
-	@SqlQuery("select * from likes where idVendeur = :idVendeur")
+	@SqlQuery("select count(*) from likes where idCible = :idCible and typeCible = :typeCible")
 	@RegisterMapperFactory(BeanMapperFactory.class)
-	public List<Like> findByVendeur(@Bind("idVendeur") int idVendeur);
+	public int nbVues(@Bind("idCible") int idCible, @Bind("typeCible") String typeCible);
 
-	@SqlQuery("select * from likes where idUtilisateur = :idUtilisateur")
+	@SqlQuery("select count(*) from likes where idCible = :idCible and typeCible=:typeCible and aime = true")
 	@RegisterMapperFactory(BeanMapperFactory.class)
-	public List<Like> findByUtilisateur(@Bind("idUtilisateur") int idUtilisateur);
+	public int nbLikes(@Bind("idCible") int idCible, @Bind("typeCible") String typeCible);
+	
+	@SqlQuery("select count(*) from likes where idCible = :idCible and typeCible=:typeCible and aime = false")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	public int nbDislikes(@Bind("idCible") int idCible, @Bind("typeCible") String typeCible);
+	
+	///Le paramètre aime permet de choisir entre les j'aime et les j'aime pas
+	@SqlQuery("select * from likes where idUtilisateur = :idUtilisateur and aime = :aime")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	public List<Like> findByUtilisateur(@Bind("idUtilisateur") int idUtilisateur, @Bind("aime") boolean aime);
 
-	@SqlUpdate("delete from likes where idVendeur = :idVendeur and idUtilisateur = :idUtilisateur")
-	public int deleteLike(@Bind("idUtilisateur") int idUtilisateur, @Bind("idVendeur") int idVendeur);
+	@SqlUpdate("delete from likes where idCible = :idCible and idUtilisateur = :idUtilisateur")
+	public int deleteLike(@Bind("idUtilisateur") int idUtilisateur, @Bind("idCible") int idCible);
 
 	@SqlUpdate("drop table if exists likes")
 	public void dropLikeTable();

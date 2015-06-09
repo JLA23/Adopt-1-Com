@@ -89,4 +89,10 @@ public class Promo extends Item {
 	public String getTitle() {
 		return null; //TODO getTitle Promo
 	}
+	
+	///Renvoie le nom de la table dans laquelle doit être stockée l'Item
+	@Override
+	public String getType() {
+		return "promos";
+	}
 }

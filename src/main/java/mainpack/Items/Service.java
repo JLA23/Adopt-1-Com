@@ -107,5 +107,11 @@ public class Service extends Item {
 	public String getTitle() {
 		return "<span class='glyphicon glyphicon-thumbs-up'></span> "+libelle;
 	}
+	
+	///Renvoie le nom de la table dans laquelle doit être stockée l'Item
+	@Override
+	public String getType() {
+		return "services";
+	}
 
 }
