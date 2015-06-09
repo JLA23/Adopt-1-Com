@@ -140,6 +140,10 @@ public class Init {
 		produitDao.insert(new Produit(-1, "Bureau", null, "50€", "Joli bureau rouge de jardin", 1, null, false, "Mobilier"));
 		produitDao.insert(new Produit(-1, "Lampe", null, "10€", "Jolie lampe rouge de jardin", 1, null, false, "Mobilier"));
 		produitDao.insert(new Produit(-1, "Jambon", null, "20€", "Joli jambon rouge de jardin", 1, null, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Poulet", null, "1000€", "Jolie poulet rouge de compagnie", 1, null, false, "Animaux"));
+		produitDao.insert(new Produit(-1, "Poney", null, "273€", "Joli poney disco à paillettes de jardin", 1, null, false, "Animaux"));
+		produitDao.insert(new Produit(-1, "Pingouin", null, "10€", "Jolie pingouin bleu de cuisine", 1, null, false, "Ustensiles"));
+		produitDao.insert(new Produit(-1, "Paillon", null, "5€", "Joli paillon vert de compétition", 1, null, false, "Mobilier"));
 	}
 	
 	public void exempleService(){
