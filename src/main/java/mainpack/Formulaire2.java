@@ -39,7 +39,7 @@ public class Formulaire2 extends HttpServlet {
 		// redirection basique
 		if (checked == true) {
 			//Insertion BDD
-			res.sendRedirect("Matching");
+			res.sendRedirect("matching.jsp");
 		}
 			
 		// Redirection avec attribut

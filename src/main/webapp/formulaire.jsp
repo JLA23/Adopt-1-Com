@@ -26,9 +26,8 @@
 
 <body>
 	<div class="container">
-
-		<div class='col-sm-offset-1'>
-			<h1>Formulaire Inscription</h1>
+		<div class='page-header col-sm-offset-1'>
+			<h1>Formulaire Inscription <small>Client</small></h1>
 		</div>
 		<form method='post' action='Formulaire2'>
 
