@@ -25,6 +25,7 @@
 	BDD bdd = new BDD();
 	Item item = bdd.getRandomItem();
 	int likes = Init.getInstance().getLikeDao().nbLikes(item.getIdt(), item.getType());
+	int views = Init.getInstance().getLikeDao().nbVues(item.getIdt(), item.getType());
 %>
 
 <body>
@@ -41,7 +42,8 @@
 						<div class="caption">
 							<h3>
 								<%out.println(item.getTitle());%>
-								<span class="glyphicon glyphicon-heart pull-right"></span><span class="pull-right"><%out.println(likes);%></span>
+								<small><span class="pull-right"><span class="glyphicon glyphicon-heart"></span> <%out.println(likes);%>
+								<span class="glyphicon glyphicon-eye-open"></span> <%out.println(views);%></span></small>
 							</h3>
 							<p>
 								<%out.println(item.renderHTML());%>

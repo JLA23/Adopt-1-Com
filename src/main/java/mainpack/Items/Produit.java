@@ -125,8 +125,7 @@ public class Produit extends Item {
 
 	@Override
 	public String getTitle() {
-		return "<span class='glyphicon glyphicon-shopping-cart'></span> "
-				+ libelle;
+		return "<span class='glyphicon glyphicon-tags'></span>&nbsp; " + libelle;
 	}
 
 	// /Renvoie le nom de la table dans laquelle doit être stockée l'Item
