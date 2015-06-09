@@ -136,11 +136,17 @@ public class Init {
 	}
 	
 	public void exempleProduit(){
-		produitDao.insert(new Produit(-1, "Chaise", null, "10€", "Jolie chaise rouge de jardin", 1, null, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Chaise", null, "18€", "Jolie chaise rouge de jardin", 1, null, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Bureau", null, "50€", "Joli bureau rouge de jardin", 1, null, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Lampe", null, "10€", "Jolie lampe rouge de jardin", 1, null, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Jambon", null, "€", "Joli jambon rouge de jardin", 1, null, false, "Mobilier"));
 	}
 	
 	public void exempleService(){
-		serviceDao.insert(new Service(-1, "Massage", null, "100€", "Massage plutot sympathique", 1, null, false, "Bien-être"));
+		serviceDao.insert(new Service(-1, "Massage", null, "40€", "Massage plutot sympathique", 1, null, false, "Bien-être"));
+		serviceDao.insert(new Service(-1, "Ménage", null, "20€", "Ménage plutot sympathique", 1, null, false, "Entretien"));
+		serviceDao.insert(new Service(-1, "Restauration", null, "100€", "Resto plutot sympathique", 1, null, false, "Nourriture"));
+
 	}
 	
 	public void exemplePromo(){
