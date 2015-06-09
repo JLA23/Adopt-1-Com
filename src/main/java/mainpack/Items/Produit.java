@@ -69,9 +69,16 @@ public class Produit extends Item {
 	}
 
 	public String renderHTML() {
-		String res = "<td>"+prix
-				+ "<br>" + description
-				+ "<br>Vendu par "+Init.getInstance().getClientDao().findByIdt(idVendeur).getEntite();
+		String res = "<td>"
+				+ prix
+				+ "<br>"
+				+ description
+				+ "<br>Vendu par "
+				+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+						.getEntite()
+				+ " à "
+				+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+						.getVille();
 
 		return res;
 	}
