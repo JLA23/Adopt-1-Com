@@ -6,7 +6,7 @@ public class Like {
 	private String typeCible; //Valeur possible : "clients", "produits", "services", etc.. qui sont les noms des tables (Défini par getItem)
 	private boolean aime; // True si c'est un j'aime, false pour un j'aime pas
 	
-	public Like(int idCible, int idUtilisateur, boolean aime){
+	public Like(int idCible, int idUtilisateur, String typeCible, boolean aime){
 		this.setIdCible(idCible);
 		this.setIdUtilisateur(idUtilisateur);
 		this.setTypeCible(typeCible);
