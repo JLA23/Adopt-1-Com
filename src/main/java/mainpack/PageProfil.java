@@ -39,14 +39,14 @@ public class PageProfil extends HttpServlet{
 			out.println("<head>");
 			out.println("<style>");
 			out.println(".slideshow {");
-			out.println("width: 350px;");
+			out.println("width: 300px;");
 			out.println(" height: 200px;");
 			out.println("overflow: hidden;");
 			out.println("border: 3px solid #F2F2F2;");
 			out.println("}");
 			out.println(".slideshow ul {");
 			out.println("width: 400%;");
-			out.println("height: 200px;");
+			out.println("height: 300px;");
 			out.println("padding:0; margin:0;");
 			out.println("list-style: none;");
 			out.println("}");
@@ -81,6 +81,7 @@ public class PageProfil extends HttpServlet{
 			out.println("<body>");
 			out.println("<div class=\"col-md-8\">");
 			out.println("<div class=\"thumbnail\">");
+			
 			out.println("<div class=\"row\">");
 			out.println("<div class=\"col-md-6\">");
 			out.println("<div class=\"thumbnail\">");
@@ -92,11 +93,9 @@ public class PageProfil extends HttpServlet{
 			out.println("<li><img src=\"http://www.rfimusique.com/sites/rfimusique.files/imagecache/rfi_43_large/sites/images.rfi.fr/files/aef_image/PaulPersonne5.jpg\" alt=\"\" width=\"350\" height=\"200\"/></li>");
 			out.println("</ul>");
 			out.println("</div>");
-
-
 			out.println("<div class=\"caption\">");
 			out.println("<h3>Ma vision du métier!</h3>");
-			out.println("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras iaculis sed ipsum et lacinia. Sed eget sem ipsum.Donec auctor dignissim nisi, sed tempus dolor iaculis sed. Vivamus eget gravida libero. Aliquam erat volutpat. Donec auctor tristique cras amet.</p>");
+			out.println(""+cl.getDescription()+"");
 			out.println("<nav class=\"navbar navbar-default\">");
 			out.println("<div class=\"container-fluid\">");
 			out.println("<div class=\"navbar-header\">");
@@ -121,14 +120,14 @@ public class PageProfil extends HttpServlet{
 			out.println("</div>");
 			out.println("<div class=\"col-md-6\">");
 			out.println("<h4>Nom: "+cl.getNom()+"</h4><br />");
-			out.println("<h4>Prenom: </h4><br />");
-			out.println("<h4>Date de Naissance: </h4><br />");
-			out.println("<h4>Profession: </h4><br />");
-			out.println("<h4>Entreprise: </h4><br />");
-			out.println("<h4>Adresse du metier: </h4><br />");
-			out.println("<h4>Telephone: </h4><br />");
-			out.println("<h4>Fax: </h4><br />");
-			out.println("<h4>Mail: </h4><br />");
+			out.println("<h4>Prenom: "+cl.getPrenom()+" </h4><br />");
+			out.println("<h4>Date de Naissance: "+cl.getDateNaiss()+"</h4><br />");
+			out.println("<h4>Profession: "+cl.getDomaineAct()+"</h4><br />");
+			out.println("<h4>Entreprise: "+cl.getEntite()+"</h4><br />");
+			out.println("<h4>Adresse de l'entreprise: "+cl.getAdresse()+"</h4><br />");
+			out.println("<h4>Telephone: "+cl.getTel()+"</h4><br />");
+			out.println("<h4>Fax: "+cl.getFax()+"</h4><br />");
+			out.println("<h4>Mail: "+cl.getMail()+"</h4><br />");
 			out.println("</div>");
 			out.println("</div>");
 			out.println("</div>");
