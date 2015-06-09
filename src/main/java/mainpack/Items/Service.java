@@ -105,7 +105,7 @@ public class Service extends Item {
 
 	@Override
 	public String getTitle() {
-		return libelle;
+		return "<span class='glyphicon glyphicon-thumbs-up'></span> "+libelle;
 	}
 
 }

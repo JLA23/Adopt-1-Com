@@ -278,7 +278,7 @@ public class Client extends Item {
 
 	@Override
 	public String getTitle() {
-		return prenom+" "+nom;
+		return "<span class='glyphicon glyphicon-user'></span> "+prenom+" "+nom;
 	}
 
 }
