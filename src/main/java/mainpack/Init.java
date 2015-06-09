@@ -130,6 +130,9 @@ public class Init {
 	
 	public void exempleClient(){
 		clientDao.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
+		clientDao.insert(new Client(-1, null, "Bourbia", "Rita", "Bourbie & co", "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
+		clientDao.insert(new Client(-1, null, "Bourbiu", "Ritu", "Bourbie & co", "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
+		clientDao.insert(new Client(-1, null, "Bourbiy", "Rity", "Bourbie & co", "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
 	}
 	
 	public void exempleProduit(){
