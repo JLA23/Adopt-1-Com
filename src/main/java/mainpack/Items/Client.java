@@ -276,4 +276,9 @@ public class Client extends Item {
 		this.dateNaiss = dateNaiss;
 	}
 
+	@Override
+	public String getTitle() {
+		return prenom+" "+nom;
+	}
+
 }

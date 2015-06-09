@@ -11,6 +11,10 @@ public class Service extends Item {
 	private boolean offreGroupe;
 	private String categorie;
 
+	public Service(){
+		
+	}
+	
 	public Service(int id, String libelle, String photo, String prix,
 			String description, int idVendeur, String promo,
 			boolean offreGroupe, String categorie) {
@@ -97,6 +101,11 @@ public class Service extends Item {
 
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
+	}
+
+	@Override
+	public String getTitle() {
+		return libelle;
 	}
 
 }

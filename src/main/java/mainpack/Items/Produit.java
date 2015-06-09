@@ -10,6 +10,10 @@ public class Produit extends Item {
 	private String promo;
 	private boolean offreGroupe;
 	private String categorie;
+	
+	public Produit(){
+		
+	}
 
 	public Produit(int id, String libelle, String photo, String prix, String description, int idVendeur, String promo, boolean offreGroupe, String categorie) {
 		super(id);
@@ -107,6 +111,11 @@ public class Produit extends Item {
 
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
+	}
+
+	@Override
+	public String getTitle() {
+		return libelle;
 	}
 
 }

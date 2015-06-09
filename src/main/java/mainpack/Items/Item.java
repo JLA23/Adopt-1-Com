@@ -18,5 +18,7 @@ abstract public class Item {
 		this.idt=id;
 	}
 	
+	abstract public String getTitle();
+	
 	public abstract String renderHTML();
 }

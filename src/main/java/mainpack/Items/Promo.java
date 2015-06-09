@@ -83,4 +83,10 @@ public class Promo extends Item {
 	public void setIdService(int idService) {
 		this.idService = idService;
 	}
+
+
+	@Override
+	public String getTitle() {
+		return null; //TODO getTitle Promo
+	}
 }

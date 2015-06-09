@@ -30,6 +30,10 @@ public interface ClientDao {
     @RegisterMapperFactory(BeanMapperFactory.class)
 	public Client findByIdt(@Bind("idt") int idt);
 	
+	@SqlQuery("select * from clients where mail = :mail and mdp = :mdp")
+    @RegisterMapperFactory(BeanMapperFactory.class)
+	public Client logIn(@Bind("mail") String mail, @Bind("mdp") String mdp);
+	
 	@SqlQuery("select * from clients order by ville, entite, nom")
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	public List<Client> listerClients();
