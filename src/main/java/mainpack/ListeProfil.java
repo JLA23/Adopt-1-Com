@@ -23,48 +23,60 @@ public class ListeProfil extends HttpServlet
 	public void service( HttpServletRequest req, HttpServletResponse res ) throws ServletException, IOException
 	{	
 		PrintWriter out=res.getWriter();;
-		
+
 		try{
-			
+
 			Init init = Init.getInstance();
 			ClientDao dao = init.getClientDao();
-			
+
 			try{
 				init.initTables();
 				init.exempleClient();
 			} catch(Exception e){
 				System.out.println("BDD déjà faite !");
 			}
-			
+
 			res.setContentType( "text/html" );
-			
+
 			List<Client> l = dao.listerClients();
-			 
-			out.println("<html><head><meta charset=UTF-8>");
-			out.println("<title>Liste des Profils</title></head>");
+
+			//Debut de l'en-tête de la page
+			out.println("<html><head>");
+			out.println("<meta charset='utf-8'>");
+
+			out.println("<script src=\"//code.jquery.com/jquery-1.11.2.min.js\"></script>");
+			out.println("<script src=\"//code.jquery.com/jquery-migrate-1.2.1.min.js\"></script>");
+			out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css\">");
+			out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css\">");
+			out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js\"></script>");
+
+			out.println("<title>Liste des Profils</title>");
+			out.println("</head>");
+
+
+			//Debut du corps de la page
 			out.println("<body><center>");
 			out.println("<h1>Liste des Profils</h1>" );
-			
-			out.println("<table border='0'><tr>");
-			
+
+
 			for(int i = 0; i < l.size(); i++){
 				if(l.get(i).isValide()==true){
 					int id = l.get(i).getIdt();
-					out.println("<tr><td><img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"image profil\" style=\"width:300px;heigth:300px\"></td>");			
-					out.println("<td>" + l.get(i).getPrenom() + " " + l.get(i).getNom() + "<br>" + l.get(i).getMetier() + "<br>" + l.get(i).getEntite() + "<br>" + l.get(i).getVille() + "\n<br><br><a href='PageProfil?id="+id+"'><button>Profil</button></a></td>");
-					out.println("</tr><tr>");
-					out.println("<td><a href="+l.get(i).getFacebook()+"><img src=\"http://www.clementpellerin.fr/wp-content/uploads/2011/05/facebook-icon.png\" alt=\"lien Facebook\" style=\"width:30px;heigth:30px\"></a>");
-					out.println("<a href="+l.get(i).getTwitter()+"><img src=\"http://www.sidassport.com/docs/2280-1-logo-twitter-gif.gif\" alt=\"lien Facebook\" style=\"width:30px;heigth:30px\"></a>");
-					out.println("<a href="+l.get(i).getGooglePlus()+"><img src=\"http://blog.datanyze.com/wp-content/uploads/2014/09/LinkedIn-large-logo.jpg\" style=\"width:30px;heigth:30px\"></a>");
-					out.println("<a href="+l.get(i).getLinkedIn()+"><img src=\"http://www.uha.fr/images/google_icon\" style=\"width:30px;heigth:30px\"></a>");
-					out.println("<br><br></td>");
-					out.println("<td></td></tr>");
+					out.println("<div class=\"row\">");
+					out.println("<div class=\"col-md-2\">");
+					out.println("<div class=\"thumbnail\">");
+					out.println("<img src=\"http://www.expert-juridique.fr/images/profile/lawyer/default.gif\" alt=\"...\">");
+					out.println("<p><a href=\"#\" class=\"btn btn-success\" role=\"\">J'aime</a> <a href=\"#\" class=\"btn btn-danger\" role=\"button\">J'aime pas</a></p>");
+					out.println("<h3>" +l.get(i).getPrenom() + " " + l.get(i).getNom()+"</h3>");
+					out.println("" + l.get(i).getMetier() + "<br>" + l.get(i).getEntite() + "<br>" + l.get(i).getVille() + "\n<br><br><a class=\"btn btn-warning btn-lg\" href=\"PageProfil?id="+id+"\" role=\"button\">En savoir plus</a>");
+					out.println("</div>");
+					out.println("</div>");
+					out.println("</div>");
 				}
 			}
-			
-		    out.println("</table>");
+
 			out.println("</center></body></html>");
-			
+
 		} catch(Exception e){
 			out.println(e.getMessage());
 			e.printStackTrace();
