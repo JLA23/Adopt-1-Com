@@ -26,9 +26,8 @@
 
 <body>
 	<div class="container">
-
-		<div class='col-sm-offset-1'>
-			<h1>Formulaire Inscription</h1>
+		<div class='page-header col-sm-offset-1'>
+			<h1>Formulaire Inscription <small>Utilisateur</small></h1>
 		</div>
 		<form method='post' action='Formulaire2'>
 
@@ -136,24 +135,13 @@
 			<div class='row'>
 				<div class='col-md-4 col-sm-offset-1'>
 					<div class='form-group'>
-						<label for='tel'>T�l�phone : </label> <input type='text'
+						<label for='tel'>Téléphone (*) : </label> <input type='text'
 							class='form-control' placeholder='0670000000'
 							value="<%out.println(ServletHelper.getValue("tel", params));%>"
-							name='tel'>
-					</div>
-				</div>
-
-			<div class='row'>
-				<div class='col-md-8 col-sm-offset-1'>
-					<div class='form-group'>
-						<label for='profession'>M�tier : </label> <input type='text'
-							class='form-control'
-							value="<%out.println(ServletHelper.getValue("profession", params));%>"
-							name='profession'>
+							name='tel' required>
 					</div>
 				</div>
 			</div>
-
 
 
 			<div class='row'>
