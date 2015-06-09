@@ -17,7 +17,7 @@ public interface LikeDao {
 	@SqlUpdate("create table likes (idCible integer, idUtilisateur integer, typecible varchar(10), aime boolean)")
 	public void createLikeTable();
 
-	@SqlUpdate("insert into likes (idCible, idUtilisateur, typeCible, aime) values (:idVendeur, :idUtilisateur, :typeCible, :aime)")
+	@SqlUpdate("insert into likes (idCible, idUtilisateur, typeCible, aime) values (:idCible, :idUtilisateur, :typeCible, :aime)")
 	@GetGeneratedKeys
 	public int insert(@BindBean Like l);
 
