@@ -7,6 +7,15 @@ public class LikeDto {
 	private String itemType;
 	private boolean aime;
 	
+	public LikeDto(){}
+	
+	public LikeDto(int userid, int itemid, String itemType, boolean aime){
+		this.setUserid(userid);
+		this.setItemid(itemid);
+		this.setItemType(itemType);
+		this.setAime(aime);
+	}
+	
 	public int getUserid() {
 		return userid;
 	}
