@@ -15,16 +15,16 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 public interface ServiceDao {
 	
 	///Création
-	@SqlUpdate("create table services (idt integer primary key autoincrement, libelle varchar(100), photo varchar(255), description varchar(240), idVendeur integer, promo varchar(100), offreGroupe boolean, categorie varchar(100))")
+	@SqlUpdate("create table services (idt integer primary key autoincrement, libelle varchar(100), photo varchar(255), prix varchar(100), description varchar(240), idVendeur integer, promo varchar(100), offreGroupe boolean, categorie varchar(100))")
 	public void createServiceTable();
 
 	///Insert
-	@SqlUpdate("insert into services (libelle, photo, description, idVendeur, promo, offreGroupe, categorie) values (:libelle, :photo, :description, :idVendeur, :promo, :offreGroupe, :categorie)")
+	@SqlUpdate("insert into services (libelle, photo, prix, description, idVendeur, promo, offreGroupe, categorie) values (:libelle, :photo, :prix, :description, :idVendeur, :promo, :offreGroupe, :categorie)")
 	@GetGeneratedKeys
 	public int insert(@BindBean Service s);
 	
 	///Update
-	@SqlUpdate("update services set libelle = :libelle, photo = :photo, description = :description, idVendeur = :idVendeur, promo = :promo, offreGroupe = :offreGroupe, categorie = :categorie")
+	@SqlUpdate("update services set libelle = :libelle, photo = :photo, prix=:prix, description = :description, idVendeur = :idVendeur, promo = :promo, offreGroupe = :offreGroupe, categorie = :categorie")
 	public void update(@BindBean Service s);
 	
 	///Trouver un client grace à son id
