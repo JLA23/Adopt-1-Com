@@ -1,5 +1,7 @@
 package mainpack.Items;
 
+import mainpack.Init;
+
 public class Produit extends Item {
 
 	private String libelle;
@@ -10,12 +12,14 @@ public class Produit extends Item {
 	private String promo;
 	private boolean offreGroupe;
 	private String categorie;
-	
-	public Produit(){
-		
+
+	public Produit() {
+
 	}
 
-	public Produit(int id, String libelle, String photo, String prix, String description, int idVendeur, String promo, boolean offreGroupe, String categorie) {
+	public Produit(int id, String libelle, String photo, String prix,
+			String description, int idVendeur, String promo,
+			boolean offreGroupe, String categorie) {
 		super(id);
 		this.setLibelle(libelle);
 		this.setPrix(prix);
@@ -25,10 +29,9 @@ public class Produit extends Item {
 		this.setPromo(promo);
 		this.setOffreGroupe(offreGroupe);
 		this.setCategorie(categorie);
-		
-		
+
 	}
-	
+
 	public int getId() {
 		return idt;
 	}
@@ -61,14 +64,14 @@ public class Produit extends Item {
 		this.description = description;
 	}
 
-
 	public String toString() {
 		return idt + "; " + libelle + "; " + prix + "; " + description + ".";
 	}
 
 	public String renderHTML() {
-		String res = "<td>Libellé : " + libelle
-				+ "<br> Prix : " + prix + "<br> Description : " + description;
+		String res = "<td>"+prix
+				+ "<br>" + description
+				+ "<br>Vendu par "+Init.getInstance().getClientDao().findByIdt(idVendeur).getEntite();
 
 		return res;
 	}
@@ -115,10 +118,11 @@ public class Produit extends Item {
 
 	@Override
 	public String getTitle() {
-		return "<span class='glyphicon glyphicon-shopping-cart'></span> " + libelle;
+		return "<span class='glyphicon glyphicon-shopping-cart'></span> "
+				+ libelle;
 	}
-	
-	///Renvoie le nom de la table dans laquelle doit être stockée l'Item
+
+	// /Renvoie le nom de la table dans laquelle doit être stockée l'Item
 	@Override
 	public String getType() {
 		return "produits";
