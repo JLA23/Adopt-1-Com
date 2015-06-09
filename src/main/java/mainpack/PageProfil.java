@@ -116,36 +116,38 @@ public class PageProfil extends HttpServlet{
 
 
 
+			
+			
+			
+			
+			
+			
 			//Debut du corps de la page
 
 			out.println("<body>");
 
 			out.println("<div class=\"container\">");
 
-			out.println("<div class=\"row\">");
-
-			out.println("<div class=\"col-md-6\">");
-			out.println("<div class=\"thumbnail\">");
-
+			out.println("<div class=\"row\">");//1
+			out.println("<div class=\"col-md-6\">");//2
+			out.println("<div class=\"thumbnail\">");//3
 			//Slide Image profil
-			out.println("<div class=\"slideshow center-block\">");
+			out.println("<div class=\"slideshow center-block\">");//4
 			out.println("<ul>");
 			out.println("<li><img src=\"http://cdn-premiere.ladmedia.fr/var/premiere/storage/images/series/news-series/dexter-eli-stone-en-personne-dans-la-saison-5-2357793/34818104-1-fre-FR/Dexter-Eli-Stone-en-personne-dans-la-saison-5_portrait_w532.jpg\" alt=\"\" width=\"450\" height=\"250\"/></li>");
 			out.println("<li><img src=\"http://cdn3-public.ladmedia.fr/var/public/storage/images/news/robert-pattinson-il-n-a-personne-a-qui-parler-de-sa-rupture-alors-il-passe-son-temps-a-jouer-a-l-ordinateur-288278/3007198-1-fre-FR/Robert-Pattinson-il-n-a-personne-a-qui-parler-de-sa-rupture-alors-il-passe-son-temps-a-jouer-a-l-ordinateur_portrait_w674.jpg\" alt=\"\" width=\"450\" height=\"250\"/></li>");
 			out.println("<li><img src=\"http://fr.web.img4.acsta.net/r_640_600/b_1_d6d6d6/medias/nmedia/18/36/27/48/18670912.jpg\" alt=\"\" width=\"450\" height=\"250\"/></li>");
 			out.println("<li><img src=\"http://www.rfimusique.com/sites/rfimusique.files/imagecache/rfi_43_large/sites/images.rfi.fr/files/aef_image/PaulPersonne5.jpg\" alt=\"\" width=\"450\" height=\"250\"/></li>");
 			out.println("</ul>");
-			out.println("</div>");
-
+			out.println("</div>");//4f
 			//Description de Metier
-			out.println("<div class=\"caption\">");
+			out.println("<div class=\"caption\">");//5
 			out.println("<h3>Ma vision du métier!</h3>");
 			out.println(""+cl.getDescription()+"");
-
 			//Image Reseaux Sociaux
 			out.println("<nav class=\"navbar navbar-default\">");
-			out.println("<div class=\"container-fluid\">");
-			out.println("<div class=\"navbar-header\">");
+			out.println("<div class=\"container-fluid\">");//6
+			out.println("<div class=\"navbar-header\">");//7
 			out.println("<a class=\"navbar-brand\" href=\"#\">");
 			out.println("<img alt=\"Brand\" src=\"http://www.freecomicbookday.com/GenericImages/facebook-icon.png\">");
 			out.println("</a>");
@@ -158,17 +160,15 @@ public class PageProfil extends HttpServlet{
 			out.println("<a class=\"navbar-brand\" href=\"#\">");
 			out.println("<img alt=\"Brand\" src=\"http://mikeunclebach.com/wp-content/uploads/2013/03/linkedin-icon-30x30.png\">");
 			out.println("</a>");
-			out.println("</div>");
-			out.println("</div>");
+			out.println("</div>");//7f
+			out.println("</div>");//6f
 			out.println("</nav>");
+			out.println("</div>");//5f
 
-
-
-
-			out.println("</div>");
-			out.println("</div>");
-
-			out.println("<div class=\"col-md-6\">");
+			out.println("</div>");//3f			
+			out.println("</div>");//2f
+			out.println("<div class=\"col-md-6\">");//8
+			out.println("<div class=\"thumbnail\">");//3
 			out.println("<h4>Nom: "+cl.getNom()+"</h4>");
 			out.println("<h4>Prenom: "+cl.getPrenom()+" </h4>");
 			out.println("<h4>Date de Naissance: "+cl.getDateNaiss()+"</h4>");
@@ -178,9 +178,12 @@ public class PageProfil extends HttpServlet{
 			out.println("<h4>Telephone: "+cl.getTel()+"</h4>");
 			out.println("<h4>Fax: "+cl.getFax()+"</h4>");
 			out.println("<h4>Mail: "+cl.getMail()+"</h4>");
-			out.println("</div>");
-			out.println("</div>");
-			out.println("</div>");
+			out.println("</div>");//3f
+			out.println("</div>");//8f
+			
+			out.println("</div>");//1f
+
+
 
 			//bouton Mes produits
 			out.println("<section>");
