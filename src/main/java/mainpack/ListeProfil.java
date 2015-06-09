@@ -29,13 +29,6 @@ public class ListeProfil extends HttpServlet
 			Init init = Init.getInstance();
 			ClientDao dao = init.getClientDao();
 
-			try{
-				init.initTables();
-				init.exempleClient();
-			} catch(Exception e){
-				System.out.println("BDD déjà faite !");
-			}
-
 			res.setContentType( "text/html" );
 
 			List<Client> l = dao.listerClients();
