@@ -18,7 +18,7 @@ public class BDD {
 	}
 
 	public Item getRandomItem() {
-		int r = (int) new Random().nextInt(4);
+		int r = (int) new Random().nextInt(3);
 		if (r == 0) {
 			return getRandomClient();
 		} else if (r == 1) {
@@ -26,7 +26,7 @@ public class BDD {
 		} else if (r == 2) {
 			return getRandomService();
 		} else if (r == 3) {
-			return getRandomGroupe();
+			//return getRandomGroupe();
 		}
 		return null;
 	}
@@ -46,10 +46,10 @@ public class BDD {
 		return cd.findByIdt((int) new Random().nextInt(cd.count()) + 1);
 	}
 
-	private Item getRandomGroupe() {
+	/*private Item getRandomGroupe() {
 		GroupeDao gd = init.getGroupeDao();
 		return gd.findByIdt((int) new Random().nextInt(gd.count()) + 1);
 		
-	}
+	}*/
 
 }
