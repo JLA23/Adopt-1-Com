@@ -51,12 +51,20 @@ public class ListeProfil extends HttpServlet
 			out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css\">");
 			out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js\"></script>");
 
-			out.println("<title>Entreprises, commerçants et artisans locaux</title>");
+			out.println("<br><br><br><title>Entreprises, commerçants et artisans locaux</title>");
 			out.println("</head>");
 
 
 			//Debut du corps de la page
 			out.println("<body><div class='container'>");
+			out.println("<nav class=\"navbar navbar-inverse navbar-fixed-top\">");
+			out.println("<div class=\"container\">");
+			out.println("<a class=\"navbar-brand\" href=\"ListeProfil\">Adopt' 1 Com'</a>");
+			out.println("<p class=\"navbar-text navbar-left\"><a href=\"login.html\" class=\"navbar-link\">Connexion et Insciption</a></p>");
+			out.println("<p class=\"navbar-text navbar-left\"><a href=\"ListeProfil\" class=\"navbar-link\">Liste des profils</a></p>");
+			out.println("<p class=\"navbar-text navbar-left\"><a href=\"Matching\" class=\"navbar-link\">Matching</a></p>");
+			out.println("</div>");
+			out.println("</nav>");
 			out.println("<h1 class='text-center'>Entreprises, commerçants et artisans locaux</h1>" );
 			out.println("<br />");
 			out.println("<form action='/ListeProfil'><div class=\"input-group\">");
