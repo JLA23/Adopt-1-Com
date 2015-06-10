@@ -29,7 +29,7 @@
 		<div class='page-header col-sm-offset-1'>
 			<h1>Formulaire Inscription <small>Artisan / Commerçant / TPE / PME</small></h1>
 		</div>
-		<form method='post' action='Formulaire2'>
+		<form method='post' action='Formulaire2' enctype='multipart/form-data' action='fup.cgi'>
 
 			<div class='row'>
 				<div class='col-md-3 col-sm-offset-1'>
