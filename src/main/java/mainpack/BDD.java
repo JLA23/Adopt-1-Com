@@ -5,6 +5,7 @@ import java.util.Random;
 import mainpack.Items.Item;
 
 import com.adopt.bdd.ClientDao;
+import com.adopt.bdd.GroupeDao;
 import com.adopt.bdd.ProduitDao;
 import com.adopt.bdd.ServiceDao;
 
@@ -17,7 +18,7 @@ public class BDD {
 	}
 
 	public Item getRandomItem() {
-		int r = (int) new Random().nextInt(3);
+		int r = (int) new Random().nextInt(4);
 		if (r == 0) {
 			return getRandomClient();
 		} else if (r == 1) {
@@ -25,7 +26,7 @@ public class BDD {
 		} else if (r == 2) {
 			return getRandomService();
 		} else if (r == 3) {
-			//return getRandomGroupe();
+			return getRandomGroupe();
 		}
 		return null;
 	}
@@ -45,10 +46,10 @@ public class BDD {
 		return cd.findByIdt((int) new Random().nextInt(cd.count()) + 1);
 	}
 
-	/*private Item getRandomGroupe() {
+	private Item getRandomGroupe() {
 		GroupeDao gd = init.getGroupeDao();
 		return gd.findByIdt((int) new Random().nextInt(gd.count()) + 1);
 		
-	}*/
+	}
 
 }

@@ -135,7 +135,7 @@ public class Service extends Item {
 	@Override
 	public String getTitle() {
 		if(promo==0)
-			return "<span class='glyphicon glyphicon-thumbs-up'></span> "+libelle;
+			return "<span class='glyphicon glyphicon-wrench'></span> "+libelle;
 		else
 			return "<span class='glyphicon glyphicon-euro'></span> "
 		+ libelle;

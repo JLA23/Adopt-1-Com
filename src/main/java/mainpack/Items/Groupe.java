@@ -36,10 +36,12 @@ public class Groupe extends Item {
 		Service s;
 		if(idProduit>0){
 			p =Init.getInstance().getProduitDao().findByIdt(idProduit);
-			res = "<s>"
+			res = "Offre de groupe"
+				+ "<br><s>"
 				+ p.getPrix()
 				+ "</s> "
 				+ nvPrix
+				+" à partir de "+nbPersonnes+" achats"
 				+ "<br>"
 				+ p.getDescription()
 				+ "<br>"
@@ -53,10 +55,11 @@ public class Groupe extends Item {
 		}
 		if(idService>0){
 			s =Init.getInstance().getServiceDao().findByIdt(idService);
-			res = "<s>"
+			res = "<br><s>"
 				+ s.getPrix()
 				+ "</s> "
 				+ nvPrix
+				+ " à partir de "+nbPersonnes+" achats"
 				+ "<br>"
 				+ s.getDescription()
 				+ "<br>"
