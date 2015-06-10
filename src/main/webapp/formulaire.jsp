@@ -221,6 +221,16 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class='row'>
+
+				<div class='col-md-8 col-sm-offset-1'>
+					<div class='form-group'>
+						<label for='liste'>Liste de Produits (*) : </label>
+						<textarea name='liste' id='liste' rows=5 class='form-control' placeholder='Quel genre de produits/services vendez-vous/proposez-vous ?' required><%out.print(params.get("liste") != null ? params.get("liste")[0] +"" : "");%></textarea>
+					</div>
+				</div>
+			</div>
 
 			<div class='row'>
 				<div class='col-md-4 col-sm-offset-1'>
