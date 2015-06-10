@@ -33,7 +33,7 @@ public class PageProfil extends HttpServlet{
 			ClientDao daoClient = init.getClientDao();
 			ProduitDao daoProduit = init.getProduitDao();
 			String id = req.getParameter("id");
-			int idClient = Integer.parseInt(id);
+			int idClient = Integer.valueOf(id);
 
 			Client cl = daoClient.findByIdt(idClient);
 			List<Produit> lp = daoProduit.listerProduitsParIdClient(idClient);
@@ -147,6 +147,8 @@ public class PageProfil extends HttpServlet{
 			if(cl.getFax() != null){	
 				out.println("<h4>Fax: "+cl.getFax()+"</h4>");
 			}
+			out.println(""+idClient+"");
+			out.println("<p><a href=\"ListeProfil\" class=\"nav-toggle btn btn-warning\" role=\"button\">Retour</a>");
 			out.println("</div>");//3f
 			out.println("</div>");//8f
 
@@ -201,50 +203,53 @@ public class PageProfil extends HttpServlet{
 			out.println("</body>");
 			out.println("</html>");
 			
+			
+			
 			//Formulaire ajout de produits
 			out.println("<div id=\"formulaireAjoutProduit\" class=\"popup_block text-center\">");
 			out.println("<h2>Ajouter produit</h2>");
 			out.println("<div class=\"container-fluid\">");
+			out.println("<FORM Method=\"POST\"ACTION=\"InserProduit\">");
 			out.println("<div class=\"row\">");
 			out.println("<div class=\"col-md-6\">");
 			out.println("<div class=\"input-group input-group-lg\">");
-			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Nom</span>");
-			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<span for=\"nom\" class=\"input-group-addon\" id=\"sizing-addon1\">Nom</span>");
+			out.println("<input type=\"text\" name=\"nom\" value=\"\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>	");
 			out.println("<div class=\"col-md-6\">");
 			out.println("<div class=\"input-group input-group-lg\">");
-			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Prix</span>");
-			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<span for=\"prix\" class=\"input-group-addon\" id=\"sizing-addon1\">Prix</span>");
+			out.println("<input type=\"text\" name=\"prix\" value=\"\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>");
 			out.println("</div><br />");
 			out.println("<div class=\"row\">");
 			out.println("<div class=\"col-md-12\">");
 			out.println("<div class=\"input-group input-group-lg\">");
-			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Catégorie</span>");
-			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<span for=\"categ\" class=\"input-group-addon\" id=\"sizing-addon1\">Catégorie</span>");
+			out.println("<input type=\"text\" name=\"categ\" value=\"\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>");	
 			out.println("</div><br />");
 			out.println("<div class=\"row\">");
 			out.println("<div class=\"col-md-12\">");
 			out.println("<div class=\"input-group input-group-lg\">");
-			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Image</span>");
-			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<span for=\"image\" class=\"input-group-addon\" id=\"sizing-addon1\">Image</span>");
+			out.println("<input type=\"text\" name=\"image\" value=\"\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>");	
 			out.println("</div><br />");
 			out.println("<div class=\"row\">");
 			out.println("<div class='col-md-12 col-sm-offset-0'>");
 			out.println("<div class='form-group'>");
-			out.println("<label class=\"text-center\">Description</label>");
-			out.println("<textarea name='description' id='description' rows=5 class='form-control' placeholder=\"Description du produit\" aria-describedby=\"basic-addon1\"></textarea>");
+			out.println("<label for=\"description\"class=\"text-center\">Description</label>");
+			out.println("<textarea name='description' value=\"\" name=\"description\" id='description' rows=5 class='form-control' placeholder=\"Description du produit\" aria-describedby=\"basic-addon1\"></textarea>");
 			out.println("</div>");
 			out.println("</div>");
 			out.println("</div>");
-			out.println("<p><a type='Button' class='btn btn-default btn-lg'>Ajouter</a></p>");
-				
+			out.println("<p><input type='submit' class='btn btn-default btn-lg'>Ajouter</input></p>");
+			out.println("</Form>");
 			out.println("</div>");
 			out.println("</div>");
 			
