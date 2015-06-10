@@ -43,24 +43,11 @@ public class PageProfil extends HttpServlet{
 			//Debut de l'en_tête de la page
 			out.println("<head>");
 
-			//CSS pour le slider
-			out.println("<style>");
-			out.println(".slideshow {");
-			out.println("width: 450px;");
-			out.println(" height: 250px;");
-			out.println("overflow: hidden;");
-			out.println("border: 3px solid #F2F2F2;");
-			out.println("}");
-			out.println(".slideshow ul {");
-			out.println("width: 400%;");
-			out.println("height: 250px;");
-			out.println("padding:0; margin:0;");
-			out.println("list-style: none;");
-			out.println("}");
-			out.println(".slideshow li {");
-			out.println("float: left;");
-			out.println("}");
-			out.println("</style>");
+			out.println("<meta charset=\"UTF-8\"/>");
+			// Lien vers le fichier CSS 
+			out.println("<link rel=\"stylesheet\" href=\"style.css\" />");
+
+			out.println("<title>Page Profil</title>");
 
 			//Script pour bootStrap
 			out.println("<script src=\"//code.jquery.com/jquery-1.11.2.min.js\"></script>");
@@ -69,59 +56,28 @@ public class PageProfil extends HttpServlet{
 			out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css\">");
 			out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js\"></script>");
 
-			//script pour le Slider
+			// Script pour le Slider
 			out.println("<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js\"></script>");
-			out.println("<script type=\"text/javascript\">");
-			out.println("$(function(){");
-			out.println("setInterval(function(){");
-			out.println("$(\".slideshow ul\").animate({marginLeft:-350},800,function(){");
-			out.println("$(this).css({marginLeft:0}).find(\"li:last\").after($(this).find(\"li:first\"));");
-			out.println("})");
-			out.println("}, 3500);");
-			out.println("});");
-			out.println("</script>");
 
 			//Script pour les toggles
 			out.println("<script type=\"text/javascript\" src=\"http://code.jquery.com/jquery-1.7.2.js\"></script>");
-			out.println("<script>");
-			out.println("$(document).ready(function() {");
-			out.println("$('.nav-toggle').click(function(){");
-			out.println("var collapse_content_selector = $(this).attr('href');");					
-			out.println("var toggle_switch = $(this);");
-			out.println("$(collapse_content_selector).toggle(function(){");
-			out.println("if($(this).css('display')=='none'){");
-			out.println("toggle_switch.html('Mes Produits');");
-			out.println("}else{");
-			out.println("toggle_switch.html('Mes Produits');");
-			out.println("}");
-			out.println("});");
-			out.println("});");
-			out.println("});	");
-			out.println("</script>");
 
-			//Css pour les bouton
-			out.println("<style>	");
-			out.println(".round-border {");
-			out.println("border: 1px solid #eee;");
-			out.println("border: 1px solid rgba(0, 0, 0, 0.05);");
-			out.println("-webkit-border-radius: 4px;");
-			out.println("-moz-border-radius: 4px;");
-			out.println("border-radius: 4px;");
-			out.println("padding: 10px;");
-			out.println("margin-bottom: 5px;");
-			out.println("}");
-			out.println("</style>");
+			//Script pour la pop-up		
+			out.println("<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js\"></script>");
+
+			//Appel vers notre fichier js contenant nos fonctions 
+			out.println("<script type=\"text/javascript\" src=\"les_scripts.js\"></script>");
 
 			out.println("</head>");
 
 
 
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
 			//Debut du corps de la page
 
 			out.println("<body>");
@@ -140,72 +96,100 @@ public class PageProfil extends HttpServlet{
 			out.println("<li><img src=\"http://www.rfimusique.com/sites/rfimusique.files/imagecache/rfi_43_large/sites/images.rfi.fr/files/aef_image/PaulPersonne5.jpg\" alt=\"\" width=\"450\" height=\"250\"/></li>");
 			out.println("</ul>");
 			out.println("</div>");//4f
-			//Description de Metier
-			out.println("<div class=\"caption\">");//5
-			out.println("<h3>Ma vision du métier!</h3>");
-			out.println(""+cl.getDescription()+"");
-			//Image Reseaux Sociaux
-			out.println("<nav class=\"navbar navbar-default\">");
-			out.println("<div class=\"container-fluid\">");//6
-			out.println("<div class=\"navbar-header\">");//7
-			out.println("<a class=\"navbar-brand\" href=\"#\">");
-			out.println("<img alt=\"Brand\" src=\"http://www.freecomicbookday.com/GenericImages/facebook-icon.png\">");
-			out.println("</a>");
-			out.println("<a class=\"navbar-brand\" href=\"#\">");
-			out.println("<img alt=\"Brand\" src=\"http://www.paprikawriting.com/wp-content/uploads/twitter-icon-30x30.gif\">");
-			out.println("</a>");
-			out.println("<a class=\"navbar-brand\" href=\"#\">");
-			out.println("<img alt=\"Brand\" src=\"http://malaysianseoservices.com/wp-content/uploads/2014/06/Google-Icon-30-x-30.png\">");
-			out.println("</a>");
-			out.println("<a class=\"navbar-brand\" href=\"#\">");
-			out.println("<img alt=\"Brand\" src=\"http://mikeunclebach.com/wp-content/uploads/2013/03/linkedin-icon-30x30.png\">");
-			out.println("</a>");
-			out.println("</div>");//7f
-			out.println("</div>");//6f
-			out.println("</nav>");
-			out.println("</div>");//5f
 
-			out.println("</div>");//3f			
-			out.println("</div>");//2f
+			//Description de Metier
+			out.println("<div class=\"caption\">");
+			out.println("<h3>Ma vision du métier!</h3>");
+			out.println("<nav class=\"navbar navbar-default\">");
+			out.println("<div class=\"container-fluid\">");
+			out.println("<div class=\"navbar-header\">");
+			out.println("<p>");
+			out.println("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum tempor arcu, eu aliquet nisi ullamcorper ac. Vestibulum vulputate euismod velit a vulputate. Nulla in velit eget tellus mollis auctor et a nunc. Quisque laoreet eros scelerisque posuere.");
+			out.println("</p>");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("</nav>");
+			out.println("</div>");
+			out.println("<div class=\"col-sm-3 \">");
+			out.println("<div class=\"thumbnail\">");
+			out.println("<a href=\"#\"><img src=\"http://www.freecomicbookday.com/GenericImages/facebook-icon.png\" alt=\"Facebook\"></a>");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("<div class=\"col-sm-3 \">");
+			out.println("<div class=\"thumbnail\">");
+			out.println("<a href=\"#\"><img src=\"http://www.paprikawriting.com/wp-content/uploads/twitter-icon-30x30.gif\"></a>");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("<div class=\"col-sm-3\">");
+			out.println("<div class=\"thumbnail\">");
+			out.println("<a href=\"#\"><img src=\"http://malaysianseoservices.com/wp-content/uploads/2014/06/Google-Icon-30-x-30.png\"></a>");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("<div class=\"col-sm-3\">");
+			out.println("<div class=\"thumbnail\">");
+			out.println("<a href=\"#\"><img src=\"http://mikeunclebach.com/wp-content/uploads/2013/03/linkedin-icon-30x30.png\"></a>");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("</div>");			
+			out.println("</div>");
+			//2eme colonne avec les infos du profil
 			out.println("<div class=\"col-md-6\">");//8
 			out.println("<div class=\"thumbnail\">");//3
 			out.println("<h4>Nom: "+cl.getNom()+"</h4>");
 			out.println("<h4>Prenom: "+cl.getPrenom()+" </h4>");
 			out.println("<h4>Date de Naissance: "+cl.getDateNaiss()+"</h4>");
-			out.println("<h4>Profession: "+cl.getDomaineAct()+"</h4>");
+			out.println("<h4>Domaine: "+cl.getDomaineAct()+"</h4>");
+			out.println("<h4>Profession: "+cl.getMetier()+"</h4>");
 			out.println("<h4>Entreprise: "+cl.getEntite()+"</h4>");
-			out.println("<h4>Adresse de l'entreprise: "+cl.getAdresse()+"</h4>");
+			out.println("<h4>Adresse de l'entreprise: "+cl.getAdresse()+", "+ cl.getVille() +"</h4>");
 			out.println("<h4>Telephone: "+cl.getTel()+"</h4>");
-			out.println("<h4>Fax: "+cl.getFax()+"</h4>");
 			out.println("<h4>Mail: "+cl.getMail()+"</h4>");
+			if(cl.getFax() != null){	
+				out.println("<h4>Fax: "+cl.getFax()+"</h4>");
+			}
 			out.println("</div>");//3f
 			out.println("</div>");//8f
-			
+
 			out.println("</div>");//1f
 
 
 
 			//bouton Mes produits
 			out.println("<section>");
-			out.println("<div>");
-			out.println("<p><a href=\"#collapse1\" class=\"nav-toggle btn btn-warning\" role=\"button\">Mes Produits</a><p>");
+			out.println("<div class='row'>");
+			out.println("<div class=\"col-sm-2\">");
+			out.println("<p><a href=\"#collapse1\" class=\"nav-toggle btn btn-warning\" role=\"button\">Mes Produits</a><a href=\"#?w=600\" rel=\"formulaireAjoutProduit\" class=\"btn btn-warning poplight\" role=\"button\">+</a></p>");
 			out.println("</div>");
+			out.println("<div class=\"col-sm-2\">");
+			out.println("<p><a href=\"#collapse2\" class=\"nav-toggle2 btn btn-warning\" role=\"button\">Mes services</a><a href=\"#\"  class=\"btn btn-warning\" role=\"button\">+</a></p>");
+			out.println("</div>");
+			out.println("</div>");
+
 			out.println("<div id=\"collapse1\" style=\"display:none\">");
 			out.println("<p>");
+			out.println("<h3>Mes produits</h3>");
 			out.println("<div class='row'>");
+
 			for(int i = 0; i < lp.size(); i++){
 				int j = i%4;
 				out.println("<div class=\"col-sm-3 \">");
 				out.println("<div class=\"thumbnail\">");
-				out.println("<img src=\""+lp.get(i).getPhoto()+"\" alt=\"image profil\" style=\"width=50px;heigth=50px;\">");
+				out.println("<img src=\""+lp.get(i).getPhoto()+"\" alt=\"image profil\">");
 				out.println("<h4>"+ lp.get(i).getLibelle() +"</h4>");
 				out.println("<p>"+lp.get(i).getDescription()+"</p>");
 				out.println("<p>"+lp.get(i).getPrix()+"</p>");	
-				out.println("<button type='submit' class='btn btn-success btn-lg'>");
-				out.println("<span class=\"glyphicon glyphicon-heart\"></span>");
-				out.println("</button>");
-				out.println("<button type='submit' class='btn btn-danger btn-lg'>");
+				out.println("<a type='submit' class='btn btn-success btn-lg'>");
+				out.println("<span class=\"glyphicon glyphicon-thumbs-up\"></span>");
+				out.println("</a>");
+				out.println("<a type='submit' class='btn btn-danger btn-lg'>");
+				out.println("<span class=\"glyphicon glyphicon-thumbs-down\"></span>");
+				out.println("</a>");
+				out.println("<a href=\"#?w=600\" rel=\"formulaireModifProduit\" type='Button' class='btn btn-primary btn-sm poplight'>");
+				out.println("<span class=\"glyphicon glyphicon-pencil\"></span>");
+				out.println("</a>");
+				out.println("<a href=\"#?w=500\" rel=\"Validation\" type='Button' class='btn btn-danger btn-sm poplight'>");
 				out.println("<span class=\"glyphicon glyphicon-remove\"></span>");
+				out.println("</a>");
 				out.println("</div>");
 				out.println("</div>");
 			}
@@ -214,11 +198,112 @@ public class PageProfil extends HttpServlet{
 			out.println("</div>");
 			out.println("</section>");
 			out.println("</div>");
-
-
-
 			out.println("</body>");
 			out.println("</html>");
+			
+			//Formulaire ajout de produits
+			out.println("<div id=\"formulaireAjoutProduit\" class=\"popup_block text-center\">");
+			out.println("<h2>Ajouter produit</h2>");
+			out.println("<div class=\"container-fluid\">");
+			out.println("<div class=\"row\">");
+			out.println("<div class=\"col-md-6\">");
+			out.println("<div class=\"input-group input-group-lg\">");
+			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Nom</span>");
+			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("</div>");
+			out.println("</div>	");
+			out.println("<div class=\"col-md-6\">");
+			out.println("<div class=\"input-group input-group-lg\">");
+			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Prix</span>");
+			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("</div><br />");
+			out.println("<div class=\"row\">");
+			out.println("<div class=\"col-md-12\">");
+			out.println("<div class=\"input-group input-group-lg\">");
+			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Catégorie</span>");
+			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("</div>");
+			out.println("</div>");	
+			out.println("</div><br />");
+			out.println("<div class=\"row\">");
+			out.println("<div class=\"col-md-12\">");
+			out.println("<div class=\"input-group input-group-lg\">");
+			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Image</span>");
+			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("</div>");
+			out.println("</div>");	
+			out.println("</div><br />");
+			out.println("<div class=\"row\">");
+			out.println("<div class='col-md-12 col-sm-offset-0'>");
+			out.println("<div class='form-group'>");
+			out.println("<label class=\"text-center\">Description</label>");
+			out.println("<textarea name='description' id='description' rows=5 class='form-control' placeholder=\"Description du produit\" aria-describedby=\"basic-addon1\"></textarea>");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("<p><a type='Button' class='btn btn-default btn-lg'>Ajouter</a></p>");
+				
+			out.println("</div>");
+			out.println("</div>");
+			
+			out.println("</div>");
+			
+			// Formulaire de modification des produits
+			out.println("<div id=\"formulaireModifProduit\" class=\"popup_block text-center\">");
+			out.println("<h2>Modification</h2>");
+			out.println("<div class=\"container-fluid\">");
+			out.println("<div class=\"row\">");
+			out.println("<div class=\"col-md-6\">");
+			out.println("<div class=\"input-group input-group-lg\">");
+			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Nom</span>");
+			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("</div>");
+			out.println("</div>	");
+			out.println("<div class=\"col-md-6\">");
+			out.println("<div class=\"input-group input-group-lg\">");
+			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Prix</span>");
+			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("</div><br />");
+			out.println("<div class=\"row\">");
+			out.println("<div class=\"col-md-12\">");
+			out.println("<div class=\"input-group input-group-lg\">");
+			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Catégorie</span>");
+			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("</div>");
+			out.println("</div>");	
+			out.println("</div><br />");
+			out.println("<div class=\"row\">");
+			out.println("<div class=\"col-md-12\">");
+			out.println("<div class=\"input-group input-group-lg\">");
+			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Image</span>");
+			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("</div>");
+			out.println("</div>");	
+			out.println("</div><br />");
+			out.println("<div class=\"row\">");
+			out.println("<div class='col-md-12 col-sm-offset-0'>");
+			out.println("<div class='form-group'>");
+			out.println("<label class=\"text-center\">Description</label>");
+			out.println("<textarea name='description' id='description' rows=5 class='form-control' placeholder=\"Description du produit\" aria-describedby=\"basic-addon1\"></textarea>");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("<p><a type='Button' class='btn btn-default btn-lg'>Modifier</a></p>");
+			out.println("</div>");
+			out.println("</div>");
+			out.println("</div>");
+		
+			// Formulaire de validation des suppressions
+			out.println("<div id=\"Validation\" class=\"popup_block text-center\">");
+			out.println("<p>Etes vous sur de vouloir supprimer cet article ?</p>");
+			out.println("<div class=\"thumbnail \">");
+			out.println("	<a type='Button' class='btn btn-success btn-lg'>oui</span></a>");
+			out.println("<a type='Button' class='btn btn-danger btn-lg'>non</a>");
+			out.println("</div>");
 
 		}
 		catch(Exception e){
