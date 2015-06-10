@@ -149,7 +149,7 @@ public class Produit extends Item {
 		return "<span class='glyphicon glyphicon-tags'></span>&nbsp; "
 				+ libelle;
 		else
-			return "<span class='glyphicon glyphicon-euro'></span>&nbsp; "
+			return "<span class='glyphicon glyphicon-euro'></span> "
 				+ libelle;
 	}
 

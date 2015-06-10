@@ -1,6 +1,7 @@
 package mainpack;
 
 import mainpack.Items.Client;
+import mainpack.Items.Groupe;
 import mainpack.Items.Produit;
 import mainpack.Items.Promo;
 import mainpack.Items.Service;
@@ -9,6 +10,7 @@ import org.skife.jdbi.v2.DBI;
 import org.sqlite.SQLiteDataSource;
 
 import com.adopt.bdd.ClientDao;
+import com.adopt.bdd.GroupeDao;
 import com.adopt.bdd.LikeDao;
 import com.adopt.bdd.ProduitDao;
 import com.adopt.bdd.PromoDao;
@@ -25,6 +27,7 @@ public class Init {
 	private static PromoDao promoDao;
 	private static LikeDao likeDao;
 	private static UtilisateurDao utilisateurDao;
+	private static GroupeDao groupeDao;
 	
 	private Init(){
 		SQLiteDataSource ds = new SQLiteDataSource();
@@ -68,6 +71,10 @@ public class Init {
 		utilisateurDao=dbi.open(UtilisateurDao.class);
 	}
 	
+	public void initGroupeDao(){
+		groupeDao=dbi.open(GroupeDao.class);
+	}
+	
 	public ClientDao getClientDao(){
 		return clientDao;
 	}
@@ -92,6 +99,10 @@ public class Init {
 		return utilisateurDao;
 	}
 	
+	public GroupeDao getGroupeDao(){
+		return groupeDao;
+	}
+	
 	private void initDao(){
 		initClientDao();
 		initProduitDao();
@@ -99,10 +110,10 @@ public class Init {
 		initPromoDao();
 		initLikeDao();
 		initUtilisateurDao();
+		initGroupeDao();
 	}
 	
 	private void initTables(){
-		System.out.println("init table");
 		clientDao.dropClientTable();
 		clientDao.createClientTable();
 		
@@ -120,6 +131,9 @@ public class Init {
 		
 		utilisateurDao.dropUtilisateurTable();
 		utilisateurDao.createUtilisateurTable();
+		
+		groupeDao.dropGroupeTable();
+		groupeDao.createGroupeTable();
 	}
 	
 	public void initExemples(){
@@ -127,8 +141,10 @@ public class Init {
 		exempleProduit();
 		exemplePromo();
 		exempleService();
+		exempleGroupe();
 	}
 	
+
 	private void exempleClient(){
 		clientDao.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
 		clientDao.insert(new Client(-1, null, "Bourbia", "Rita", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
@@ -148,7 +164,7 @@ public class Init {
 	}
 	
 	private void exempleService(){
-		serviceDao.insert(new Service(-1, "Massage", null, "40€", "Massage plutot sympathique", 1, 0, false, "Bien-être"));
+		serviceDao.insert(new Service(-1, "Massage", null, "40€", "Massage plutot sympathique", 1, 2, false, "Bien-être"));
 		serviceDao.insert(new Service(-1, "Ménage", null, "20€", "Ménage plutot sympathique", 1, 0, false, "Entretien"));
 		serviceDao.insert(new Service(-1, "Restauration", null, "100€", "Resto plutot sympathique", 1, 0, false, "Nourriture"));
 
@@ -158,5 +174,10 @@ public class Init {
 		promoDao.insert(new Promo(-1, 1, -1, "14/06/2015", "12€", "Remise exceptionnelle sur les chaises de jardin"));
 		promoDao.insert(new Promo(-1, -1, 1, "14/06/2015", "4€", "Remise exceptionnelle sur les massages de jardin"));
 
+	}
+	
+
+	private void exempleGroupe() {
+		groupeDao.insert(new Groupe(-1, 2, -1, 10, "35€", "Remise sur les bureaux si vous venez nombreux!"));
 	}
 }

@@ -137,7 +137,7 @@ public class Service extends Item {
 		if(promo==0)
 			return "<span class='glyphicon glyphicon-thumbs-up'></span> "+libelle;
 		else
-			return "<span class='glyphicon glyphicon-euro'></span>&nbsp; "
+			return "<span class='glyphicon glyphicon-euro'></span> "
 		+ libelle;
 			
 	}

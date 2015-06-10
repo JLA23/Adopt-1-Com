@@ -29,14 +29,6 @@ public class Promo extends Item {
 	}
 
 	public String renderHTML() {
-		/*
-		 * TODO String
-		 * res="<td>Id : "+id+"<br> Prix : "+prix+"<br> Prix de base : "
-		 * +prixBase+"<br> Économisez "+reduc+"<br> Description : "+description+
-		 * "<br> Date de fin : "+datefin;
-		 * 
-		 * return res;
-		 */
 		return null;
 	}
 
