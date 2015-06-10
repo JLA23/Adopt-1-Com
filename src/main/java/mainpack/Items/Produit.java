@@ -9,7 +9,7 @@ public class Produit extends Item {
 	private String prix;
 	private String description;
 	private int idVendeur;
-	private String promo;
+	private int promo = 0;
 	private boolean offreGroupe;
 	private String categorie;
 
@@ -18,8 +18,8 @@ public class Produit extends Item {
 	}
 
 	public Produit(int id, String libelle, String photo, String prix,
-			String description, int idVendeur, String promo,
-			boolean offreGroupe, String categorie) {
+			String description, int idVendeur, int promo, boolean offreGroupe,
+			String categorie) {
 		super(id);
 		this.setLibelle(libelle);
 		this.setPrix(prix);
@@ -69,17 +69,37 @@ public class Produit extends Item {
 	}
 
 	public String renderHTML() {
-		String res = "<td>"
-				+ prix
-				+ "<br>"
-				+ description
-				+ "<br>Vendu par "
-				+ Init.getInstance().getClientDao().findByIdt(idVendeur)
-						.getEntite() //Nom entreprise
-				+ " à "
-				+ Init.getInstance().getClientDao().findByIdt(idVendeur)
-						.getVille(); 
-
+		String res;
+		Promo p;
+		if (promo == 0)
+			res = ""
+					+ prix
+					+ "<br>"
+					+ description
+					+ "<br>Vendu par "
+					+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+							.getEntite() // Nom entreprise
+					+ " à "
+					+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+							.getVille();
+		else {
+			p = Init.getInstance().getPromoDao().findByIdProduct(idt);
+			res = "<s>"
+					+ prix
+					+ "</s> "
+					+ p.getNvPrix()
+					+ "<br>"
+					+ description
+					+"<br>"+p.getDescription()
+					+"<br> Se termine le "+p.getDatefin()
+					+ "<br>Vendu par "
+					+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+							.getEntite() // Nom entreprise
+					+ " à "
+					+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+							.getVille();
+			;
+		}
 		return res;
 	}
 
@@ -87,15 +107,15 @@ public class Produit extends Item {
 		return idVendeur;
 	}
 
-	public void setIdVendeur(int idVendeur2) {
-		this.idVendeur = idVendeur2;
+	public void setIdVendeur(int idVendeur) {
+		this.idVendeur = idVendeur;
 	}
 
-	public String getPromo() {
+	public int getPromo() {
 		return promo;
 	}
 
-	public void setPromo(String promo) {
+	public void setPromo(int promo) {
 		this.promo = promo;
 	}
 
@@ -125,7 +145,12 @@ public class Produit extends Item {
 
 	@Override
 	public String getTitle() {
-		return "<span class='glyphicon glyphicon-tags'></span>&nbsp; " + libelle;
+		if(promo==0)
+		return "<span class='glyphicon glyphicon-tags'></span>&nbsp; "
+				+ libelle;
+		else
+			return "<span class='glyphicon glyphicon-euro'></span>&nbsp; "
+				+ libelle;
 	}
 
 	// /Renvoie le nom de la table dans laquelle doit être stockée l'Item

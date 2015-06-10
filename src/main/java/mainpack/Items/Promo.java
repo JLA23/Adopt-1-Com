@@ -11,16 +11,20 @@ public class Promo extends Item {
 	private int idProduit;
 	private int idService;
 	private String datefin;
-	private String remise;
+	private String nvPrix;
 	private String description;
+	
+	public Promo(){
+		
+	}
 
 	public Promo(int id, int idProduit, int idService, String datefin,
-			String remise, String description) {
+			String nvPrix, String description) {
 		super(id);
 		this.setIdProduit(idProduit);
 		this.setIdService(idService);
 		this.setDatefin(datefin);
-		this.setRemise(remise);
+		this.setNvPrix(nvPrix);
 		this.setDescription(description);
 	}
 
@@ -52,12 +56,12 @@ public class Promo extends Item {
 		this.datefin = datefin;
 	}
 
-	public String getRemise() {
-		return remise;
+	public String getNvPrix() {
+		return nvPrix;
 	}
 
-	public void setRemise(String remise) {
-		this.remise = remise;
+	public void setNvPrix(String nvPrix) {
+		this.nvPrix = nvPrix;
 	}
 
 	public String getDescription() {

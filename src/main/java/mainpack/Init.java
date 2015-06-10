@@ -137,24 +137,26 @@ public class Init {
 	}
 	
 	private void exempleProduit(){
-		produitDao.insert(new Produit(-1, "Chaise", null, "18€", "Jolie chaise rouge de jardin", 1, null, false, "Mobilier"));
-		produitDao.insert(new Produit(-1, "Bureau", null, "50€", "Joli bureau rouge de jardin", 1, null, false, "Mobilier"));
-		produitDao.insert(new Produit(-1, "Lampe", null, "10€", "Jolie lampe rouge de jardin", 1, null, false, "Mobilier"));
-		produitDao.insert(new Produit(-1, "Jambon", null, "20€", "Joli jambon rouge de jardin", 1, null, false, "Mobilier"));
-		produitDao.insert(new Produit(-1, "Poulet", null, "1000€", "Jolie poulet rouge de compagnie", 1, null, false, "Animaux"));
-		produitDao.insert(new Produit(-1, "Poney", null, "273€", "Joli poney disco à paillettes de jardin", 1, null, false, "Animaux"));
-		produitDao.insert(new Produit(-1, "Pingouin", null, "10€", "Jolie pingouin bleu de cuisine", 1, null, false, "Ustensiles"));
-		produitDao.insert(new Produit(-1, "Paillon", null, "5€", "Joli paillon vert de compétition", 1, null, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Chaise", null, "18€", "Jolie chaise rouge de jardin", 1, 1, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Bureau", null, "50€", "Joli bureau rouge de jardin", 1, 0, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Lampe", null, "10€", "Jolie lampe rouge de jardin", 1, 0, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Jambon", null, "20€", "Joli jambon rouge de jardin", 1, 0, false, "Mobilier"));
+		produitDao.insert(new Produit(-1, "Poulet", null, "1000€", "Jolie poulet rouge de compagnie", 1, 0, false, "Animaux"));
+		produitDao.insert(new Produit(-1, "Poney", null, "273€", "Joli poney disco à paillettes de jardin", 1, 0, false, "Animaux"));
+		produitDao.insert(new Produit(-1, "Pingouin", null, "10€", "Jolie pingouin bleu de cuisine", 1, 0, false, "Ustensiles"));
+		produitDao.insert(new Produit(-1, "Paillon", null, "5€", "Joli paillon vert de compétition", 1, 0, false, "Mobilier"));
 	}
 	
 	private void exempleService(){
-		serviceDao.insert(new Service(-1, "Massage", null, "40€", "Massage plutot sympathique", 1, null, false, "Bien-être"));
-		serviceDao.insert(new Service(-1, "Ménage", null, "20€", "Ménage plutot sympathique", 1, null, false, "Entretien"));
-		serviceDao.insert(new Service(-1, "Restauration", null, "100€", "Resto plutot sympathique", 1, null, false, "Nourriture"));
+		serviceDao.insert(new Service(-1, "Massage", null, "40€", "Massage plutot sympathique", 1, 0, false, "Bien-être"));
+		serviceDao.insert(new Service(-1, "Ménage", null, "20€", "Ménage plutot sympathique", 1, 0, false, "Entretien"));
+		serviceDao.insert(new Service(-1, "Restauration", null, "100€", "Resto plutot sympathique", 1, 0, false, "Nourriture"));
 
 	}
 	
 	private void exemplePromo(){
-		promoDao.insert(new Promo(-1, 1, -1, "10/06/2015", "15€", "Remise exceptionnelle sur les chaises de jardin"));
+		promoDao.insert(new Promo(-1, 1, -1, "14/06/2015", "12€", "Remise exceptionnelle sur les chaises de jardin"));
+		promoDao.insert(new Promo(-1, -1, 1, "14/06/2015", "4€", "Remise exceptionnelle sur les massages de jardin"));
+
 	}
 }

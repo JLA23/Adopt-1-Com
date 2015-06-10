@@ -37,6 +37,10 @@ public interface ClientDao {
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	public List<Client> listerClients();
 	
+	@SqlQuery("select * from clients where nom = :nom order by ville, entite, nom")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	public List<Client> searchByName(@Bind("nom") String nom);
+	
 	@SqlUpdate("update clients set valide = :valide where idt= :idt")
 	public int validerClient(@Bind("idt") int idt, @Bind("valide") boolean valide);
 	

@@ -9,7 +9,7 @@ public class Service extends Item {
 	private String prix;
 	private String description;
 	private int idVendeur;
-	private String promo;
+	private int promo=0;
 	private boolean offreGroupe;
 	private String categorie;
 
@@ -18,7 +18,7 @@ public class Service extends Item {
 	}
 	
 	public Service(int id, String libelle, String photo, String prix,
-			String description, int idVendeur, String promo,
+			String description, int idVendeur, int promo,
 			boolean offreGroupe, String categorie) {
 		super(id);
 		this.setLibelle(libelle);
@@ -59,17 +59,36 @@ public class Service extends Item {
 	}
 
 	public String renderHTML() {
-		String res = "<td>"
-				+ prix
-				+ "<br>"
-				+ description
-				+ "<br>Proposé par "
-				+ Init.getInstance().getClientDao().findByIdt(idVendeur)
-						.getEntite() //Nom entreprise
-				+ " à "
-				+ Init.getInstance().getClientDao().findByIdt(idVendeur)
-						.getVille(); 
-
+		String res;
+		Promo p;
+		if (promo == 0)
+			res = ""
+					+ prix
+					+ "<br>"
+					+ description
+					+ "<br>Proposé par "
+					+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+							.getEntite() // Nom entreprise
+					+ " à "
+					+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+							.getVille();
+		else {
+			p = Init.getInstance().getPromoDao().findByIdService(idt);
+			res = "<s>"
+					+ prix
+					+ "</s> "
+					+ p.getNvPrix()
+					+ "<br>"
+					+ description
+					+"<br>"+p.getDescription()
+					+"<br> Se termine le "+p.getDatefin()
+					+ "<br>Proposé par "
+					+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+							.getEntite() // Nom entreprise
+					+ " à "
+					+ Init.getInstance().getClientDao().findByIdt(idVendeur)
+							.getVille();
+		}
 		return res;
 	}
 
@@ -89,11 +108,11 @@ public class Service extends Item {
 		this.idVendeur = idVendeur;
 	}
 
-	public String getPromo() {
+	public int getPromo() {
 		return promo;
 	}
 
-	public void setPromo(String promo) {
+	public void setPromo(int promo) {
 		this.promo = promo;
 	}
 
@@ -115,7 +134,12 @@ public class Service extends Item {
 
 	@Override
 	public String getTitle() {
-		return "<span class='glyphicon glyphicon-thumbs-up'></span> "+libelle;
+		if(promo==0)
+			return "<span class='glyphicon glyphicon-thumbs-up'></span> "+libelle;
+		else
+			return "<span class='glyphicon glyphicon-euro'></span>&nbsp; "
+		+ libelle;
+			
 	}
 	
 	///Renvoie le nom de la table dans laquelle doit être stockée l'Item
