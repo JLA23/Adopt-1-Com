@@ -47,8 +47,9 @@ public class BDD {
 	}
 
 	private Item getRandomGroupe() {
-		GroupeDao gd = init.getGroupeDao();
-		return gd.findByIdt((int) new Random().nextInt(gd.count()) + 1);
+		//GroupeDao gd = init.getGroupeDao();
+		//return gd.findByIdt((int) new Random().nextInt(gd.count()) + 1);
+		return null;
 	}
 
 }

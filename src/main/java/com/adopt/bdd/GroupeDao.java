@@ -39,7 +39,7 @@ public interface GroupeDao {
 	@SqlUpdate("delete from groupes where idt = :idt")
 	int deleteGroupe(@Bind("idt")int idt);
 	
-	@SqlUpdate("drop table if exists promos")
+	@SqlUpdate("drop table if exists groupes")
 	void dropGroupeTable(); 
 	
 	void close();

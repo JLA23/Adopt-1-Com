@@ -21,13 +21,6 @@ public class Init {
 	
 	private static Init instance=null;
 	private DBI dbi;
-	private static ClientDao clientDao;
-	private static ProduitDao produitDao;
-	private static ServiceDao serviceDao;
-	private static PromoDao promoDao;
-	private static LikeDao likeDao;
-	private static UtilisateurDao utilisateurDao;
-	private static GroupeDao groupeDao;
 	
 	private Init(){
 		SQLiteDataSource ds = new SQLiteDataSource();
@@ -47,61 +40,61 @@ public class Init {
 	}
 	
 	
-	public void initClientDao(){
-		clientDao=dbi.open(ClientDao.class);
+	public ClientDao initClientDao(){
+		return dbi.open(ClientDao.class);
 	}
 	
-	public void initProduitDao(){
-		produitDao=dbi.open(ProduitDao.class);
+	public ProduitDao initProduitDao(){
+		return dbi.open(ProduitDao.class);
 	}
 	
-	public void initServiceDao(){
-		serviceDao=dbi.open(ServiceDao.class);
+	public ServiceDao initServiceDao(){
+		return dbi.open(ServiceDao.class);
 	}
 	
-	public void initPromoDao(){
-		promoDao=dbi.open(PromoDao.class);
+	public PromoDao initPromoDao(){
+		return dbi.open(PromoDao.class);
 	}
 	
-	public void initLikeDao(){
-		likeDao=dbi.open(LikeDao.class);
+	public LikeDao initLikeDao(){
+		return dbi.open(LikeDao.class);
 	}
 	
-	public void initUtilisateurDao(){
-		utilisateurDao=dbi.open(UtilisateurDao.class);
+	public UtilisateurDao initUtilisateurDao(){
+		return dbi.open(UtilisateurDao.class);
 	}
 	
-	public void initGroupeDao(){
-		groupeDao=dbi.open(GroupeDao.class);
-	}
+	/*public GroupeDao initGroupeDao(){
+		 return dbi.open(GroupeDao.class);
+	}*/
 	
 	public ClientDao getClientDao(){
-		return clientDao;
+		return initClientDao();
 	}
 	
 	public ProduitDao getProduitDao(){
-		return produitDao;
+		return initProduitDao();
 	}
 	
 	public ServiceDao getServiceDao(){
-		return serviceDao;
+		return initServiceDao();
 	}
 	
 	public PromoDao getPromoDao(){
-		return promoDao;
+		return initPromoDao();
 	}
 	
 	public LikeDao getLikeDao(){
-		return likeDao;
+		return initLikeDao();
 	}
 	
 	public UtilisateurDao getUtilisateurDao(){
-		return utilisateurDao;
+		return initUtilisateurDao();
 	}
 	
-	public GroupeDao getGroupeDao(){
-		return groupeDao;
-	}
+	/*public GroupeDao getGroupeDao(){
+		return initGroupeDao();
+	}*/
 	
 	private void initDao(){
 		initClientDao();
@@ -110,30 +103,30 @@ public class Init {
 		initPromoDao();
 		initLikeDao();
 		initUtilisateurDao();
-		initGroupeDao();
+		//initGroupeDao();
 	}
 	
 	private void initTables(){
-		clientDao.dropClientTable();
-		clientDao.createClientTable();
+		getClientDao().dropClientTable();
+		getClientDao().createClientTable();
 		
-		produitDao.dropProductTable();
-		produitDao.createProductTable();
+		getProduitDao().dropProductTable();
+		getProduitDao().createProductTable();
 		
-		serviceDao.dropServiceTable();
-		serviceDao.createServiceTable();
+		getServiceDao().dropServiceTable();
+		getServiceDao().createServiceTable();
 		
-		promoDao.dropPromoTable();
-		promoDao.createPromoTable();
+		getPromoDao().dropPromoTable();
+		getPromoDao().createPromoTable();
 		
-		likeDao.dropLikeTable();
-		likeDao.createLikeTable();
+		getLikeDao().dropLikeTable();
+		getLikeDao().createLikeTable();
 		
-		utilisateurDao.dropUtilisateurTable();
-		utilisateurDao.createUtilisateurTable();
+		getUtilisateurDao().dropUtilisateurTable();
+		getUtilisateurDao().createUtilisateurTable();
 		
-		groupeDao.dropGroupeTable();
-		groupeDao.createGroupeTable();
+		/*getGroupeDao().dropGroupeTable();
+		getGroupeDao().createGroupeTable();*/
 	}
 	
 	public void initExemples(){
@@ -141,43 +134,51 @@ public class Init {
 		exempleProduit();
 		exemplePromo();
 		exempleService();
-		exempleGroupe();
+		//exempleGroupe();
 	}
 	
 
 	private void exempleClient(){
-		clientDao.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
-		clientDao.insert(new Client(-1, null, "Bourbia", "Rita", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
-		clientDao.insert(new Client(-1, null, "Bourbiu", "Ritu", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
-		clientDao.insert(new Client(-1, null, "Bourbiy", "Rity", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
+		ClientDao cd = getClientDao();
+		cd.insert(new Client(-1, null, "Bourbie", "Rito", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
+		cd.insert(new Client(-1, null, "Bourbia", "Rita", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
+		cd.insert(new Client(-1, null, "Bourbiu", "Ritu", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
+		cd.insert(new Client(-1, null, "Bourbiy", "Rity", "Bourbie & co", null, "18 rue du pingouin", "59000", "Lille", "bourbie@gmail.com", "bourbue", "01/01/2015", "0606060606", "0404040404", "Bourbiste", "Bourbe", "Blblblblblb", "http://facebourbe/bourbie", "http://twitter/bourbie", null, null, "service", "talent", true));
+		cd.close();
 	}
 	
 	private void exempleProduit(){
-		produitDao.insert(new Produit(-1, "Chaise", null, "18€", "Jolie chaise rouge de jardin", 1, 1, false, "Mobilier"));
-		produitDao.insert(new Produit(-1, "Bureau", null, "50€", "Joli bureau rouge de jardin", 1, 0, false, "Mobilier"));
-		produitDao.insert(new Produit(-1, "Lampe", null, "10€", "Jolie lampe rouge de jardin", 1, 0, false, "Mobilier"));
-		produitDao.insert(new Produit(-1, "Jambon", null, "20€", "Joli jambon rouge de jardin", 1, 0, false, "Mobilier"));
-		produitDao.insert(new Produit(-1, "Poulet", null, "1000€", "Jolie poulet rouge de compagnie", 1, 0, false, "Animaux"));
-		produitDao.insert(new Produit(-1, "Poney", null, "273€", "Joli poney disco à paillettes de jardin", 1, 0, false, "Animaux"));
-		produitDao.insert(new Produit(-1, "Pingouin", null, "10€", "Jolie pingouin bleu de cuisine", 1, 0, false, "Ustensiles"));
-		produitDao.insert(new Produit(-1, "Paillon", null, "5€", "Joli paillon vert de compétition", 1, 0, false, "Mobilier"));
+		ProduitDao pd = getProduitDao();
+		pd.insert(new Produit(-1, "Chaise", null, "18€", "Jolie chaise rouge de jardin", 1, 1, false, "Mobilier"));
+		pd.insert(new Produit(-1, "Bureau", null, "50€", "Joli bureau rouge de jardin", 1, 0, false, "Mobilier"));
+		pd.insert(new Produit(-1, "Lampe", null, "10€", "Jolie lampe rouge de jardin", 1, 0, false, "Mobilier"));
+		pd.insert(new Produit(-1, "Jambon", null, "20€", "Joli jambon rouge de jardin", 1, 0, false, "Mobilier"));
+		pd.insert(new Produit(-1, "Poulet", null, "1000€", "Jolie poulet rouge de compagnie", 1, 0, false, "Animaux"));
+		pd.insert(new Produit(-1, "Poney", null, "273€", "Joli poney disco à paillettes de jardin", 1, 0, false, "Animaux"));
+		pd.insert(new Produit(-1, "Pingouin", null, "10€", "Jolie pingouin bleu de cuisine", 1, 0, false, "Ustensiles"));
+		pd.insert(new Produit(-1, "Paillon", null, "5€", "Joli paillon vert de compétition", 1, 0, false, "Mobilier"));
+		pd.close();
 	}
 	
 	private void exempleService(){
-		serviceDao.insert(new Service(-1, "Massage", null, "40€", "Massage plutot sympathique", 1, 2, false, "Bien-être"));
-		serviceDao.insert(new Service(-1, "Ménage", null, "20€", "Ménage plutot sympathique", 1, 0, false, "Entretien"));
-		serviceDao.insert(new Service(-1, "Restauration", null, "100€", "Resto plutot sympathique", 1, 0, false, "Nourriture"));
-
+		ServiceDao sd = getServiceDao();
+		sd.insert(new Service(-1, "Massage", null, "40€", "Massage plutot sympathique", 1, 2, false, "Bien-être"));
+		sd.insert(new Service(-1, "Ménage", null, "20€", "Ménage plutot sympathique", 1, 0, false, "Entretien"));
+		sd.insert(new Service(-1, "Restauration", null, "100€", "Resto plutot sympathique", 1, 0, false, "Nourriture"));
+		sd.close();
 	}
 	
 	private void exemplePromo(){
-		promoDao.insert(new Promo(-1, 1, -1, "14/06/2015", "12€", "Remise exceptionnelle sur les chaises de jardin"));
-		promoDao.insert(new Promo(-1, -1, 1, "14/06/2015", "4€", "Remise exceptionnelle sur les massages de jardin"));
-
+		PromoDao pd = getPromoDao();
+		pd.insert(new Promo(-1, 1, -1, "14/06/2015", "12€", "Remise exceptionnelle sur les chaises de jardin"));
+		pd.insert(new Promo(-1, -1, 1, "14/06/2015", "4€", "Remise exceptionnelle sur les massages de jardin"));
+		pd.close();
 	}
 	
 
-	private void exempleGroupe() {
-		groupeDao.insert(new Groupe(-1, 2, -1, 10, "35€", "Remise sur les bureaux si vous venez nombreux!"));
-	}
+	/*private void exempleGroupe() {
+		GroupeDao gd = getGroupeDao();
+		gd.insert(new Groupe(-1, 2, -1, 10, "35€", "Remise sur les bureaux si vous venez nombreux!"));
+		gd.close();
+	}*/
 }
