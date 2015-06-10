@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mainpack.Items.Client;
+import mainpack.Items.Utilisateur;
 
 @WebServlet("Formulaire2")
 public class Formulaire2 extends HttpServlet {
@@ -40,8 +41,11 @@ public class Formulaire2 extends HttpServlet {
 		// redirection basique
 		if (checked == true) {
 			Client c = new Client();
-			generateClient(c, params);//TODO Ajouter client dans la base utilisateur
-			Init.getInstance().getClientDao().insert(c);
+			generateClient(c, params);
+			Utilisateur u = new Utilisateur();
+			int idClient = Init.getInstance().getClientDao().insert(c);
+			generateUtilisateur(u, c, idClient);
+			Init.getInstance().getUtilisateurDao().insert(u); // Ajoute les informations nécessaires dans la base utilisateurs pour retrouver le client correspondant
 			res.sendRedirect("matching.jsp");
 		}
 
@@ -55,6 +59,14 @@ public class Formulaire2 extends HttpServlet {
 		rd.forward(req, res);
 	}
 	
+	private void generateUtilisateur(Utilisateur u, Client c, int idClient) {
+		u.setIdt(-1);
+		u.setIdClient(idClient);
+		u.setMail(c.getMail());
+		u.setMdp(c.getMdp());
+		
+	}
+
 	private void generateClient(Client c, Map<String, String[]> params){
 		c.setIdt(-1);
 		if (params.get("photo") != null)

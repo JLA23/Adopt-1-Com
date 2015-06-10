@@ -9,6 +9,7 @@ package mainpack.Items;
 public class Utilisateur extends Item {
 
 	private String photo;
+	private int idClient;
 	private String nom;
 	private String prenom;
 	private String codePostal;
@@ -40,13 +41,14 @@ public class Utilisateur extends Item {
 		super(1);
 	}
 
-	public Utilisateur(int idt, String photo, String prenom, String nom,
+	public Utilisateur(int idt, String photo, int idClient, String prenom, String nom,
 			String codePostal, String ville,
 			String mail, String mdp, String dateNaiss, String tel, String metier,
 			String facebook,
 			String twitter, String linkedIn, String googlePlus) {
 		super(idt);
 		this.setPhoto(photo);
+		this.setIdClient(idClient);
 		this.setNom(nom);
 		this.setPrenom(prenom);
 		this.setCodePostal(codePostal);
@@ -71,14 +73,6 @@ public class Utilisateur extends Item {
 		String res = "<td>Prénom : " + prenom + "<br> Métier : " + metier
 				+ "<br> Ville : " + ville;
 		return res;
-	}
-
-	public int getId() {
-		return idt;
-	}
-
-	public void setId(int id) {
-		this.idt = id;
 	}
 
 	public String getNom() {
@@ -206,6 +200,14 @@ public class Utilisateur extends Item {
 	@Override
 	public String getType() {
 		return "utilisateurs";
+	}
+
+	public int getIdClient() {
+		return idClient;
+	}
+
+	public void setIdClient(int idClient) {
+		this.idClient = idClient;
 	}
 
 }
