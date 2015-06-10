@@ -271,7 +271,7 @@ public class PageProfil extends HttpServlet{
 			out.println("<div class='col-md-12 col-sm-offset-0'>");
 			out.println("<div class='form-group'>");
 			out.println("<label for=\"description\"class=\"text-center\">Description</label>");
-			out.println("<textarea name=\"description\" id='description' rows=5 class='form-control' placeholder=\"Description du produit\" aria-describedby=\"basic-addon1\"></textarea>");
+			out.println("<textarea name=\"description\" id='description' rows=5 class='form-control' placeholder=\"Description du produit\" aria-describedby=\"basic-addon1\">"+cl.getDescription()+"</textarea>");
 			out.println("</div>");
 			out.println("</div>");
 			out.println("</div>");

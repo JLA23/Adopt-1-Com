@@ -33,8 +33,8 @@ public class Formulaire2 extends HttpServlet {
 			throws ServletException, IOException {
 
 		Client c = new Client();
-		String password2 ="";
-		String mail2 ="";
+		String password2 = "";
+		String mail2 = "";
 		try {
 			List<FileItem> items = new ServletFileUpload(
 					new DiskFileItemFactory()).parseRequest(req);
@@ -47,11 +47,11 @@ public class Formulaire2 extends HttpServlet {
 					if ("mail2".equals(fieldname)) {
 						mail2 = fieldvalue;
 					}
-					
+
 					if ("password2".equals(fieldname)) {
 						password2 = fieldvalue;
 					}
-					
+
 					if ("nom".equals(fieldname)) {
 						c.setNom(fieldvalue);
 					}
@@ -77,7 +77,9 @@ public class Formulaire2 extends HttpServlet {
 						c.setEntite(fieldvalue);
 					}
 					if ("site".equals(fieldname)) {
-						c.setSite(fieldvalue);
+						if (!fieldvalue.equals("")) {
+							c.setSite(fieldvalue);
+						}
 					}
 					if ("mail".equals(fieldname)) {
 						c.setMail(fieldvalue);
@@ -86,7 +88,9 @@ public class Formulaire2 extends HttpServlet {
 						c.setTel(fieldvalue);
 					}
 					if ("fax".equals(fieldname)) {
-						c.setFax(fieldvalue);
+						if (!fieldvalue.equals("")) {
+							c.setFax(fieldvalue);
+						}
 					}
 					if ("profession".equals(fieldname)) {
 						c.setMetier(fieldvalue);
@@ -98,22 +102,32 @@ public class Formulaire2 extends HttpServlet {
 						c.setDomaineAct(fieldvalue);
 					}
 					if ("description".equals(fieldname)) {
-						c.setDescription(fieldvalue);
+						if (!fieldvalue.equals("")) {
+							c.setDescription(fieldvalue);
+						}
 					}
 					if ("liste".equals(fieldname)) {
 						c.setListeProduits(fieldvalue);
 					}
 					if ("facebook".equals(fieldname)) {
-						c.setFacebook(fieldvalue);
+						if (!fieldvalue.equals("")) {
+							c.setFacebook(fieldvalue);
+						}
 					}
 					if ("linkedin".equals(fieldname)) {
-						c.setLinkedIn(fieldvalue);
+						if (!fieldvalue.equals("")) {
+							c.setLinkedIn(fieldvalue);
+						}
 					}
 					if ("google".equals(fieldname)) {
-						c.setGooglePlus(fieldvalue);
+						if (!fieldvalue.equals("")) {
+							c.setGooglePlus(fieldvalue);
+						}
 					}
 					if ("twitter".equals(fieldname)) {
-						c.setTwitter(fieldvalue);
+						if (!fieldvalue.equals("")) {
+							c.setTwitter(fieldvalue);
+						}
 					}
 					if ("password".equals(fieldname)) {
 						c.setMdp(fieldvalue);
@@ -122,7 +136,7 @@ public class Formulaire2 extends HttpServlet {
 				} else {
 					// Process form file field (input type="file").
 					String filename = FilenameUtils.getName(item.getName());
-					c.setPhoto("/tmp/"+filename);
+					c.setPhoto("/tmp/" + filename);
 					InputStream filecontent = item.getInputStream();
 					writeFile(filecontent, filename);
 				}
@@ -131,7 +145,7 @@ public class Formulaire2 extends HttpServlet {
 			throw new ServletException("Cannot parse multipart request.", e);
 		}
 
-		//Checkout
+		// Checkout
 
 		String emailconf = "";
 		String passwdconf = "";
@@ -154,7 +168,7 @@ public class Formulaire2 extends HttpServlet {
 			int idClient = Init.getInstance().getClientDao().insert(c);
 			generateUtilisateur(u, c, idClient);
 			Init.getInstance().getUtilisateurDao().insert(u);
-			res.sendRedirect("PageProfil?id="+idClient);
+			res.sendRedirect("PageProfil?id=" + idClient);
 		}
 
 		// Redirection avec attribut
@@ -175,11 +189,12 @@ public class Formulaire2 extends HttpServlet {
 
 	}
 
-	public void writeFile(InputStream initialStream, String s) throws IOException {
+	public void writeFile(InputStream initialStream, String s)
+			throws IOException {
 		byte[] buffer = new byte[initialStream.available()];
 		initialStream.read(buffer);
 
-		File targetFile = new File("/tmp/"+s);
+		File targetFile = new File("/tmp/" + s);
 		outStream = new FileOutputStream(targetFile);
 		outStream.write(buffer);
 	}
