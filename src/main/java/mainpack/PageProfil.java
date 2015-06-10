@@ -90,7 +90,7 @@ public class PageProfil extends HttpServlet{
 			//Slide Image profil
 			out.println("<div class=\"slideshow center-block\">");//4
 			out.println("<ul>");
-			out.println("<li><img src=\"http://cdn-premiere.ladmedia.fr/var/premiere/storage/images/series/news-series/dexter-eli-stone-en-personne-dans-la-saison-5-2357793/34818104-1-fre-FR/Dexter-Eli-Stone-en-personne-dans-la-saison-5_portrait_w532.jpg\" alt=\"\" width=\"450\" height=\"250\"/></li>");
+			out.println("<li><img src='http://localhost:8080/ServletImage?image="+cl.getPhoto()+"' alt=\"\" width=\"450\" height=\"250\"/></li>");
 			out.println("<li><img src=\"http://cdn3-public.ladmedia.fr/var/public/storage/images/news/robert-pattinson-il-n-a-personne-a-qui-parler-de-sa-rupture-alors-il-passe-son-temps-a-jouer-a-l-ordinateur-288278/3007198-1-fre-FR/Robert-Pattinson-il-n-a-personne-a-qui-parler-de-sa-rupture-alors-il-passe-son-temps-a-jouer-a-l-ordinateur_portrait_w674.jpg\" alt=\"\" width=\"450\" height=\"250\"/></li>");
 			out.println("<li><img src=\"http://fr.web.img4.acsta.net/r_640_600/b_1_d6d6d6/medias/nmedia/18/36/27/48/18670912.jpg\" alt=\"\" width=\"450\" height=\"250\"/></li>");
 			out.println("<li><img src=\"http://www.rfimusique.com/sites/rfimusique.files/imagecache/rfi_43_large/sites/images.rfi.fr/files/aef_image/PaulPersonne5.jpg\" alt=\"\" width=\"450\" height=\"250\"/></li>");
@@ -104,7 +104,7 @@ public class PageProfil extends HttpServlet{
 			out.println("<div class=\"container-fluid\">");
 			out.println("<div class=\"navbar-header\">");
 			out.println("<p>");
-			out.println("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum tempor arcu, eu aliquet nisi ullamcorper ac. Vestibulum vulputate euismod velit a vulputate. Nulla in velit eget tellus mollis auctor et a nunc. Quisque laoreet eros scelerisque posuere.");
+			out.println(cl.getDescription());
 			out.println("</p>");
 			out.println("</div>");
 			out.println("</div>");
@@ -147,7 +147,6 @@ public class PageProfil extends HttpServlet{
 			if(cl.getFax() != null){	
 				out.println("<h4>Fax: "+cl.getFax()+"</h4>");
 			}
-			out.println(""+idClient+"");
 			out.println("<p><a href=\"ListeProfil\" class=\"nav-toggle btn btn-warning\" role=\"button\">Retour</a>");
 			out.println("</div>");//3f
 			out.println("</div>");//8f

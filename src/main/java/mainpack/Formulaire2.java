@@ -61,6 +61,18 @@ public class Formulaire2 extends HttpServlet {
 					if ("date".equals(fieldname)) {
 						c.setDateNaiss(fieldvalue);
 					}
+					if ("adresse".equals(fieldname)) {
+						c.setAdresse(fieldvalue);
+					}
+					if ("codep".equals(fieldname)) {
+						c.setCodePostal(fieldvalue);
+					}
+					if ("ville".equals(fieldname)) {
+						c.setVille(fieldvalue);
+					}
+					if ("date".equals(fieldname)) {
+						c.setDateNaiss(fieldvalue);
+					}
 					if ("entreprise".equals(fieldname)) {
 						c.setEntite(fieldvalue);
 					}
@@ -76,7 +88,7 @@ public class Formulaire2 extends HttpServlet {
 					if ("fax".equals(fieldname)) {
 						c.setFax(fieldvalue);
 					}
-					if ("metier".equals(fieldname)) {
+					if ("profession".equals(fieldname)) {
 						c.setMetier(fieldvalue);
 					}
 					if ("prestation".equals(fieldname)) {
@@ -110,7 +122,7 @@ public class Formulaire2 extends HttpServlet {
 				} else {
 					// Process form file field (input type="file").
 					String filename = FilenameUtils.getName(item.getName());
-					c.setPhoto(null);
+					c.setPhoto("/tmp/"+filename);
 					InputStream filecontent = item.getInputStream();
 					writeFile(filecontent, filename);
 				}
@@ -142,7 +154,7 @@ public class Formulaire2 extends HttpServlet {
 			int idClient = Init.getInstance().getClientDao().insert(c);
 			generateUtilisateur(u, c, idClient);
 			Init.getInstance().getUtilisateurDao().insert(u);
-			res.sendRedirect("matching.jsp");
+			res.sendRedirect("PageProfil?id="+idClient);
 		}
 
 		// Redirection avec attribut
