@@ -29,6 +29,17 @@
 %>
 
 <body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<a class="navbar-brand" href="login.html">Adopt' 1 Com'</a>
+				<p class="navbar-text navbar-left"><a href="login.html" class="navbar-link">Connexion et Insciption</a></p>
+				<p class="navbar-text navbar-left"><a href="ListeProfil" class="navbar-link">Liste des profils</a></p>
+				<p class="navbar-text navbar-left"><a href="matching.jsp" class="navbar-link">Matching</a></p>
+			</div>
+	</nav>
+	<br>
+
 	<div class="container">
 	<div class='page-header'>
 				<h1>Matching <small>Adopt 1 Com'</small></h1></div>

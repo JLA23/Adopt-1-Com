@@ -62,7 +62,7 @@ public class ListeProfil extends HttpServlet
 			out.println("<a class=\"navbar-brand\" href=\"ListeProfil\">Adopt' 1 Com'</a>");
 			out.println("<p class=\"navbar-text navbar-left\"><a href=\"login.html\" class=\"navbar-link\">Connexion et Insciption</a></p>");
 			out.println("<p class=\"navbar-text navbar-left\"><a href=\"ListeProfil\" class=\"navbar-link\">Liste des profils</a></p>");
-			out.println("<p class=\"navbar-text navbar-left\"><a href=\"Matching\" class=\"navbar-link\">Matching</a></p>");
+			out.println("<p class=\"navbar-text navbar-left\"><a href=\"matching.jsp\" class=\"navbar-link\">Matching</a></p>");
 			out.println("</div>");
 			out.println("</nav>");
 			out.println("<h1 class='text-center'>Entreprises, commerçants et artisans locaux</h1>" );
