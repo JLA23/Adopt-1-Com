@@ -1,25 +1,27 @@
 package mainpack;
 
-import java.sql.*;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
-import java.sql.Date;
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import mainpack.Items.Client;
 
-import org.skife.jdbi.v2.DBI;
-import org.sqlite.SQLiteDataSource;
-
 import com.adopt.bdd.ClientDao;
-
-import fr.iutinfo.App;
 
 @WebServlet("ListeProfil")
 public class ListeProfil extends HttpServlet
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void service( HttpServletRequest req, HttpServletResponse res ) throws ServletException, IOException
 	{	
 		PrintWriter out=res.getWriter();;
@@ -54,7 +56,6 @@ public class ListeProfil extends HttpServlet
 			out.println("<div class='row'>");
 			for(int i = 0; i < l.size(); i++){
 				if(l.get(i).isValide()){
-					int j = i%3;
 					int id = l.get(i).getIdt();
 					out.println("<div class='col-md-4 text-center'>");
 					out.println("<div class=\"thumbnail\">");

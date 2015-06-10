@@ -217,7 +217,7 @@
 				<div class='col-md-8 col-sm-offset-1'>
 					<div class='form-group'>
 						<label for='description'>Description : </label>
-						<textarea name='description' id='description' rows=5 class='form-control'><%out.print(params.get("description") != null ? params.get("description")[0] +"" : "Comment voyez vous votre métier ?");%></textarea>
+						<textarea name='description' id='description' rows=5 class='form-control' placeholder='Comment voyez vous votre métier ?'><%out.print(params.get("description") != null ? params.get("description")[0] +"" : "");%></textarea>
 					</div>
 				</div>
 			</div>

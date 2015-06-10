@@ -9,8 +9,6 @@ import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
-import fr.iutinfo.User;
-
 public interface CPDao {
 	
 	@SqlUpdate("create table CP (cp integer, ville text)")
