@@ -27,7 +27,6 @@ public class Init {
 		ds.setUrl("jdbc:sqlite:" + System.getProperty("java.io.tmpdir")
 				+ System.getProperty("file.separator") + "data.db");
 		dbi = new DBI(ds);
-		initDao();
 		initTables();
 		initExemples();
 	}
@@ -64,9 +63,9 @@ public class Init {
 		return dbi.open(UtilisateurDao.class);
 	}
 	
-	/*public GroupeDao initGroupeDao(){
+	public GroupeDao initGroupeDao(){
 		 return dbi.open(GroupeDao.class);
-	}*/
+	}
 	
 	public ClientDao getClientDao(){
 		return initClientDao();
@@ -92,23 +91,15 @@ public class Init {
 		return initUtilisateurDao();
 	}
 	
-	/*public GroupeDao getGroupeDao(){
+	public GroupeDao getGroupeDao(){
 		return initGroupeDao();
-	}*/
-	
-	private void initDao(){
-		initClientDao();
-		initProduitDao();
-		initServiceDao();
-		initPromoDao();
-		initLikeDao();
-		initUtilisateurDao();
-		//initGroupeDao();
 	}
 	
 	private void initTables(){
-		getClientDao().dropClientTable();
-		getClientDao().createClientTable();
+		ClientDao clientDao = getClientDao();
+		clientDao.dropClientTable();
+		clientDao.createClientTable();
+		clientDao.close();
 		
 		getProduitDao().dropProductTable();
 		getProduitDao().createProductTable();
@@ -125,8 +116,10 @@ public class Init {
 		getUtilisateurDao().dropUtilisateurTable();
 		getUtilisateurDao().createUtilisateurTable();
 		
-		/*getGroupeDao().dropGroupeTable();
-		getGroupeDao().createGroupeTable();*/
+		GroupeDao groupeDao = getGroupeDao();
+		groupeDao.dropGroupeTable();
+		groupeDao.createGroupeTable();
+		groupeDao.close();
 	}
 	
 	public void initExemples(){
@@ -176,9 +169,9 @@ public class Init {
 	}
 	
 
-	/*private void exempleGroupe() {
+	private void exempleGroupe() {
 		GroupeDao gd = getGroupeDao();
 		gd.insert(new Groupe(-1, 2, -1, 10, "35€", "Remise sur les bureaux si vous venez nombreux!"));
 		gd.close();
-	}*/
+	}
 }

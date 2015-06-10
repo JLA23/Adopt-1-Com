@@ -18,7 +18,7 @@ public class BDD {
 	}
 
 	public Item getRandomItem() {
-		int r = (int) new Random().nextInt(3);
+		int r = (int) new Random().nextInt(4);
 		if (r == 0) {
 			return getRandomClient();
 		} else if (r == 1) {
@@ -47,9 +47,9 @@ public class BDD {
 	}
 
 	private Item getRandomGroupe() {
-		//GroupeDao gd = init.getGroupeDao();
-		//return gd.findByIdt((int) new Random().nextInt(gd.count()) + 1);
-		return null;
+		GroupeDao gd = init.getGroupeDao();
+		return gd.findByIdt((int) new Random().nextInt(gd.count()) + 1);
+		
 	}
 
 }
