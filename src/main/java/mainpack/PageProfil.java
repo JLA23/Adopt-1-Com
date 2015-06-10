@@ -1,8 +1,8 @@
 package mainpack;
 
+import java.util.List;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -81,9 +81,22 @@ public class PageProfil extends HttpServlet{
 			//Debut du corps de la page
 
 			out.println("<body>");
-
+			out.println("<nav class=\"navbar navbar-inverse navbar-fixed-top\">");
 			out.println("<div class=\"container\">");
-
+			out.println("<a class=\"navbar-brand\" href=\"ListeProfil\">Adopt' 1 Com'</a>");
+			out.println("<p class=\"navbar-text navbar-left\"><a href=\"login.html\" class=\"navbar-link\">Connexion et Insciption</a></p>");
+			out.println("<p class=\"navbar-text navbar-left\"><a href=\"ListeProfil\" class=\"navbar-link\">Liste des profils</a></p>");
+			out.println("<p class=\"navbar-text navbar-left\"><a href=\"matching.jsp\" class=\"navbar-link\">Matching</a></p>");
+			out.println("</div>");
+			out.println("</nav>");
+			out.println("<div class=\"container\">");
+			out.println("<br><br>");
+			out.println("<div class=\"row\">");
+			out.println("<div class=\"col-md-6\">");
+			out.println("<div class='page-header'>");
+			out.println("<h1>"+cl.getTitle()+"<small> "+cl.getMetier()+"</small></h1></div>");
+			out.println("</div>");
+			out.println("</div>");
 			out.println("<div class=\"row\">");//1
 			out.println("<div class=\"col-md-6\">");//2
 			out.println("<div class=\"thumbnail\">");//3
@@ -104,32 +117,40 @@ public class PageProfil extends HttpServlet{
 			out.println("<div class=\"container-fluid\">");
 			out.println("<div class=\"navbar-header\">");
 			out.println("<p>");
-			out.println(cl.getDescription());
+			out.println("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum tempor arcu, eu aliquet nisi ullamcorper ac. Vestibulum vulputate euismod velit a vulputate. Nulla in velit eget tellus mollis auctor et a nunc. Quisque laoreet eros scelerisque posuere.");
 			out.println("</p>");
 			out.println("</div>");
 			out.println("</div>");
 			out.println("</nav>");
 			out.println("</div>");
-			out.println("<div class=\"col-sm-3 \">");
-			out.println("<div class=\"thumbnail\">");
-			out.println("<a href=\"#\"><img src=\"http://www.freecomicbookday.com/GenericImages/facebook-icon.png\" alt=\"Facebook\"></a>");
-			out.println("</div>");
-			out.println("</div>");
-			out.println("<div class=\"col-sm-3 \">");
-			out.println("<div class=\"thumbnail\">");
-			out.println("<a href=\"#\"><img src=\"http://www.paprikawriting.com/wp-content/uploads/twitter-icon-30x30.gif\"></a>");
-			out.println("</div>");
-			out.println("</div>");
-			out.println("<div class=\"col-sm-3\">");
-			out.println("<div class=\"thumbnail\">");
-			out.println("<a href=\"#\"><img src=\"http://malaysianseoservices.com/wp-content/uploads/2014/06/Google-Icon-30-x-30.png\"></a>");
-			out.println("</div>");
-			out.println("</div>");
-			out.println("<div class=\"col-sm-3\">");
-			out.println("<div class=\"thumbnail\">");
-			out.println("<a href=\"#\"><img src=\"http://mikeunclebach.com/wp-content/uploads/2013/03/linkedin-icon-30x30.png\"></a>");
-			out.println("</div>");
-			out.println("</div>");
+			if(cl.getFacebook() != null) {
+				out.println("<div class=\"col-sm-3 \">");
+				out.println("<div class=\"thumbnail\">");
+				out.println("<a href="+cl.getFacebook()+"><img src=\"http://www.freecomicbookday.com/GenericImages/facebook-icon.png\" alt=\"Facebook\"></a>");
+				out.println("</div>");
+				out.println("</div>");
+			}
+			if(cl.getTwitter() != null) {
+				out.println("<div class=\"col-sm-3 \">");
+				out.println("<div class=\"thumbnail\">");
+				out.println("<a href="+cl.getTwitter()+"><img src=\"http://www.paprikawriting.com/wp-content/uploads/twitter-icon-30x30.gif\"></a>");
+				out.println("</div>");
+				out.println("</div>");
+			}
+			if(cl.getGooglePlus() != null) {
+				out.println("<div class=\"col-sm-3\">");
+				out.println("<div class=\"thumbnail\">");
+				out.println("<a href="+cl.getGooglePlus()+"><img src=\"http://malaysianseoservices.com/wp-content/uploads/2014/06/Google-Icon-30-x-30.png\"></a>");
+				out.println("</div>");
+				out.println("</div>");
+			}
+			if(cl.getLinkedIn() != null) {
+				out.println("<div class=\"col-sm-3\">");
+				out.println("<div class=\"thumbnail\">");
+				out.println("<a href="+cl.getLinkedIn()+"><img src=\"http://mikeunclebach.com/wp-content/uploads/2013/03/linkedin-icon-30x30.png\"></a>");
+				out.println("</div>");
+				out.println("</div>");
+			}
 			out.println("</div>");			
 			out.println("</div>");
 			//2eme colonne avec les infos du profil
@@ -146,6 +167,9 @@ public class PageProfil extends HttpServlet{
 			out.println("<h4>Mail: "+cl.getMail()+"</h4>");
 			if(cl.getFax() != null){	
 				out.println("<h4>Fax: "+cl.getFax()+"</h4>");
+			}
+			if(cl.getSite() != null) {
+				out.println("<h4>Site: "+cl.getSite()+"</h4>");
 			}
 			out.println("<p><a href=\"ListeProfil\" class=\"nav-toggle btn btn-warning\" role=\"button\">Retour</a>");
 			out.println("</div>");//3f
@@ -172,9 +196,14 @@ public class PageProfil extends HttpServlet{
 			out.println("<div class='row'>");
 
 			for(int i = 0; i < lp.size(); i++){
+				int j = i%4;
 				out.println("<div class=\"col-sm-3 \">");
 				out.println("<div class=\"thumbnail\">");
-				out.println("<img src=\""+lp.get(i).getPhoto()+"\" alt=\"image profil\">");
+				if(lp.get(i).getPhoto() == null) {
+					out.println("<img src=\"http://www.lanpark.fr/sites/default/files/img/img_testprod.jpeg\" alt=\"image profil\">");
+				} else {
+					out.println("<img src=\""+lp.get(i).getPhoto()+"\" alt=\"image profil\">");
+				}				
 				out.println("<h4>"+ lp.get(i).getLibelle() +"</h4>");
 				out.println("<p>"+lp.get(i).getDescription()+"</p>");
 				out.println("<p>"+lp.get(i).getPrix()+"</p>");	
@@ -207,18 +236,18 @@ public class PageProfil extends HttpServlet{
 			out.println("<div id=\"formulaireAjoutProduit\" class=\"popup_block text-center\">");
 			out.println("<h2>Ajouter produit</h2>");
 			out.println("<div class=\"container-fluid\">");
-			out.println("<FORM Method=\"POST\"ACTION=\"InserProduit\">");
+			out.println("<FORM Method=\"POST\" ACTION=\"InsertProduit?idClient="+idClient+"\">");
 			out.println("<div class=\"row\">");
 			out.println("<div class=\"col-md-6\">");
 			out.println("<div class=\"input-group input-group-lg\">");
 			out.println("<span for=\"nom\" class=\"input-group-addon\" id=\"sizing-addon1\">Nom</span>");
-			out.println("<input type=\"text\" name=\"nom\" value=\"\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<input type=\"text\" name=\"nom\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>	");
 			out.println("<div class=\"col-md-6\">");
 			out.println("<div class=\"input-group input-group-lg\">");
 			out.println("<span for=\"prix\" class=\"input-group-addon\" id=\"sizing-addon1\">Prix</span>");
-			out.println("<input type=\"text\" name=\"prix\" value=\"\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<input type=\"text\" name=\"prix\"class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>");
 			out.println("</div><br />");
@@ -226,7 +255,7 @@ public class PageProfil extends HttpServlet{
 			out.println("<div class=\"col-md-12\">");
 			out.println("<div class=\"input-group input-group-lg\">");
 			out.println("<span for=\"categ\" class=\"input-group-addon\" id=\"sizing-addon1\">Catégorie</span>");
-			out.println("<input type=\"text\" name=\"categ\" value=\"\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<input type=\"text\" name=\"categ\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>");	
 			out.println("</div><br />");
@@ -234,7 +263,7 @@ public class PageProfil extends HttpServlet{
 			out.println("<div class=\"col-md-12\">");
 			out.println("<div class=\"input-group input-group-lg\">");
 			out.println("<span for=\"image\" class=\"input-group-addon\" id=\"sizing-addon1\">Image</span>");
-			out.println("<input type=\"text\" name=\"image\" value=\"\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<input type=\"text\" name=\"image\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>");	
 			out.println("</div><br />");
@@ -242,60 +271,61 @@ public class PageProfil extends HttpServlet{
 			out.println("<div class='col-md-12 col-sm-offset-0'>");
 			out.println("<div class='form-group'>");
 			out.println("<label for=\"description\"class=\"text-center\">Description</label>");
-			out.println("<textarea name='description' value=\"\" name=\"description\" id='description' rows=5 class='form-control' placeholder=\"Description du produit\" aria-describedby=\"basic-addon1\"></textarea>");
+			out.println("<textarea name=\"description\" id='description' rows=5 class='form-control' placeholder=\"Description du produit\" aria-describedby=\"basic-addon1\"></textarea>");
 			out.println("</div>");
 			out.println("</div>");
 			out.println("</div>");
-			out.println("<p><input type='submit' class='btn btn-default btn-lg'>Ajouter</input></p>");
+			out.println("<p><input href=\"InsertProduit?idClient="+idClient+"\" type='submit' value='Ajouter' class='btn btn-default btn-lg'></input></p>");
 			out.println("</Form>");
 			out.println("</div>");
 			out.println("</div>");
-			
 			out.println("</div>");
 			
 			// Formulaire de modification des produits
 			out.println("<div id=\"formulaireModifProduit\" class=\"popup_block text-center\">");
-			out.println("<h2>Modification</h2>");
+			out.println("<h2>Modifier un produit</h2>");
 			out.println("<div class=\"container-fluid\">");
+			out.println("<FORM Method=\"POST\" ACTION=\"UpdateProduit?idClient="+idClient+"\">");
 			out.println("<div class=\"row\">");
 			out.println("<div class=\"col-md-6\">");
 			out.println("<div class=\"input-group input-group-lg\">");
-			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Nom</span>");
-			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<span for=\"nom\" class=\"input-group-addon\" id=\"sizing-addon1\">Nom</span>");
+			out.println("<input type=\"text\" name=\"nom\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>	");
 			out.println("<div class=\"col-md-6\">");
 			out.println("<div class=\"input-group input-group-lg\">");
-			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Prix</span>");
-			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<span for=\"prix\" class=\"input-group-addon\" id=\"sizing-addon1\">Prix</span>");
+			out.println("<input type=\"text\" name=\"prix\"class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>");
 			out.println("</div><br />");
 			out.println("<div class=\"row\">");
 			out.println("<div class=\"col-md-12\">");
 			out.println("<div class=\"input-group input-group-lg\">");
-			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Catégorie</span>");
-			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<span for=\"categ\" class=\"input-group-addon\" id=\"sizing-addon1\">Catégorie</span>");
+			out.println("<input type=\"text\" name=\"categ\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>");	
 			out.println("</div><br />");
 			out.println("<div class=\"row\">");
 			out.println("<div class=\"col-md-12\">");
 			out.println("<div class=\"input-group input-group-lg\">");
-			out.println("<span class=\"input-group-addon\" id=\"sizing-addon1\">Image</span>");
-			out.println("<input type=\"text\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
+			out.println("<span for=\"image\" class=\"input-group-addon\" id=\"sizing-addon1\">Image</span>");
+			out.println("<input type=\"text\" name=\"image\" class=\"form-control\" aria-describedby=\"sizing-addon1\">");
 			out.println("</div>");
 			out.println("</div>");	
 			out.println("</div><br />");
 			out.println("<div class=\"row\">");
 			out.println("<div class='col-md-12 col-sm-offset-0'>");
 			out.println("<div class='form-group'>");
-			out.println("<label class=\"text-center\">Description</label>");
-			out.println("<textarea name='description' id='description' rows=5 class='form-control' placeholder=\"Description du produit\" aria-describedby=\"basic-addon1\"></textarea>");
+			out.println("<label for=\"description\"class=\"text-center\">Description</label>");
+			out.println("<textarea name=\"description\" id='description' rows=5 class='form-control' placeholder=\"Description du produit\" aria-describedby=\"basic-addon1\"></textarea>");
 			out.println("</div>");
 			out.println("</div>");
 			out.println("</div>");
-			out.println("<p><a type='Button' class='btn btn-default btn-lg'>Modifier</a></p>");
+			out.println("<p><input href=\"InsertProduit?idClient="+idClient+"\" type='submit' value='Modifier' class='btn btn-default btn-lg'></input></p>");
+			out.println("</Form>");
 			out.println("</div>");
 			out.println("</div>");
 			out.println("</div>");
