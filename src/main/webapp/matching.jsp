@@ -50,11 +50,11 @@
 							</p>
 							<p>
 								<button type='submit' id='yes' class='btn btn-success btn-lg'>
-									<span class="glyphicon glyphicon-heart"></span>
+									<span class="glyphicon glyphicon-thumbs-up"></span>
 								</button>
 								<span class="pull-right">
 								<button type='submit' id='no' class='btn btn-danger btn-lg'>
-									<span class="glyphicon glyphicon-remove"></span>
+									<span class="glyphicon glyphicon-thumbs-down"></span>
 								</button>
 								</span>
 							</p>

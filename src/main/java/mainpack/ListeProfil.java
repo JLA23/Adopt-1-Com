@@ -59,7 +59,7 @@ public class ListeProfil extends HttpServlet
 			out.println("<body><div class='container'>");
 			out.println("<h1 class='text-center'>Entreprises, commerçants et artisans locaux</h1>" );
 			out.println("<br />");
-			out.println("<form action='/ListeProfil2'><div class=\"input-group\">");
+			out.println("<form action='/ListeProfil'><div class=\"input-group\">");
 			out.println("<span class=\"input-group-btn\">");
 			out.println(" <input type='submit' class=\"btn btn-default\">Recherche</a>");
 			out.println("</span>");
