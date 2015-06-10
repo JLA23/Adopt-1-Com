@@ -2,7 +2,6 @@ package mainpack;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.ProcessBuilder.Redirect;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,9 +18,6 @@ public class Galerie extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
-		boolean mdpEgaux;
-		boolean mailEgaux;	
-
 		PrintWriter out = res.getWriter();
 		res.setContentType("text/html");
 

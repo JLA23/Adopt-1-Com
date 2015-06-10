@@ -1,8 +1,8 @@
 package mainpack;
 
-import java.util.List;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -172,7 +172,6 @@ public class PageProfil extends HttpServlet{
 			out.println("<div class='row'>");
 
 			for(int i = 0; i < lp.size(); i++){
-				int j = i%4;
 				out.println("<div class=\"col-sm-3 \">");
 				out.println("<div class=\"thumbnail\">");
 				out.println("<img src=\""+lp.get(i).getPhoto()+"\" alt=\"image profil\">");

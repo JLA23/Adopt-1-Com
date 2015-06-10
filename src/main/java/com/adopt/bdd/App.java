@@ -18,10 +18,17 @@ public class App extends ResourceConfig {
     	register(LikeResource.class);
     }
     
-    public static DBI dbi;
+    public static DBI getDbi() {
+		return dbi;
+	}
+	public static void setDbi(DBI dbi) {
+		App.dbi = dbi;
+	}
+
+	private static DBI dbi;
 	static {
 		SQLiteDataSource ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:" + System.getProperty("java.io.tmpdir") + System.getProperty("file.separator") + "CP.db");
-		dbi = new DBI(ds);
+		setDbi(new DBI(ds));
     }
 }

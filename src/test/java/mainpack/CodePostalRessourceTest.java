@@ -1,9 +1,7 @@
 package mainpack;
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
-
-import com.adopt.bdd.*;
-
-import static org.junit.Assert.*;
 
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.GenericType;
@@ -15,6 +13,7 @@ import org.skife.jdbi.v2.DBI;
 
 import com.adopt.bdd.App;
 import com.adopt.bdd.CPDao;
+import com.adopt.bdd.Ville;
 
 public class CodePostalRessourceTest extends JerseyTest {
 	private static CPDao dao;
@@ -22,7 +21,8 @@ public class CodePostalRessourceTest extends JerseyTest {
 	@Override
     protected Application configure() {
 		App app = new App();
-		DBI dbi = app.dbi;
+		@SuppressWarnings("static-access")
+		DBI dbi = app.getDbi();
 		dao = dbi.open(CPDao.class);
         return new App();
     }

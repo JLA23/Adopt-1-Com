@@ -18,7 +18,7 @@ public class CodePostalResource {
 	
 	private final InputStream fichier = getClass().getResourceAsStream("../../../villes_france.csv");
 	
-	private static CPDao dao = App.dbi.open(CPDao.class);
+	private static CPDao dao = App.getDbi().open(CPDao.class);
 	
 	/**
 	 * Permet d'envoyer les villes et les codes postaux à l'aide de la class
