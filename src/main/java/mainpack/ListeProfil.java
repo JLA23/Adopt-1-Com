@@ -32,8 +32,14 @@ public class ListeProfil extends HttpServlet
 			ClientDao dao = init.getClientDao();
 
 			res.setContentType( "text/html" );
-
-			List<Client> l = dao.listerClients();
+			String name = req.getParameter("nom");
+			List<Client> l;
+			if(name == null) {
+				 l = dao.listerClients();
+			} else {
+				 l = dao.searchByName(name);
+			}
+			
 
 			//Debut de l'en-tête de la page
 			out.println("<html><head>");
@@ -52,6 +58,13 @@ public class ListeProfil extends HttpServlet
 			//Debut du corps de la page
 			out.println("<body><div class='container'>");
 			out.println("<h1 class='text-center'>Entreprises, commerçants et artisans locaux</h1>" );
+			out.println("<br />");
+			out.println("<form action='/ListeProfil2'><div class=\"input-group\">");
+			out.println("<span class=\"input-group-btn\">");
+			out.println(" <input type='submit' class=\"btn btn-default\">Recherche</a>");
+			out.println("</span>");
+			out.println("<input type=\"text\" class=\"form-control\" name=\"nom\"  placeholder=\"Rechercher un nom\">");
+			out.println("</form> </div><!-- /input-group -->");
 			out.println("<br />");
 			out.println("<div class='row'>");
 			for(int i = 0; i < l.size(); i++){
